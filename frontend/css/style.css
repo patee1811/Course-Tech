@@ -211,6 +211,14 @@
     color: var(--light);
 }
 
+.login-heading {
+    color: #06BBCC; /* Primary color */
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    text-transform: capitalize; /* Only capitalize the first letter */
+}
 
 /*** Section Title ***/
 .section-title {
