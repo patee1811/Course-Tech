@@ -133,6 +133,7 @@
         opacity: 0;
         visibility: hidden;
         transition: .5s;
+        z-index: 1200;
     }
 
     .navbar .dropdown-menu.fade-down {
@@ -432,3 +433,775 @@
     padding-right: 0;
     border-right: none;
 }
+
+/*** Search Bar ***/
+.search-bar {
+    background-color: #f1f3f5;   
+    border-radius: 25px;          
+    overflow: hidden;             
+    border: none;                 
+  }
+  
+  .search-bar .input-group-text {
+    background: transparent;
+    border: none;
+  }
+  
+  .search-bar .form-control {
+    border: none;
+    background: transparent;
+    box-shadow: none;             
+    padding-left: 0.75rem;     
+  }
+
+/*** Calender ***/
+.calendar-container { 
+    position: absolute; 
+    top: 120px; 
+    right: 12px; 
+    background-color: #fff; 
+    border: 2px solid #ddd; 
+    border-radius: 12px; 
+    padding-bottom: 10px; 
+    overflow: hidden; 
+    width: 350px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+    z-index: 1000; 
+}
+
+.calendar-header {
+    background-color: #edf4f8;
+    border-radius: 10px;
+    color: #000;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    width: 300px;      
+    margin: 10px 28px;    
+}
+
+.calendar-header .arrow {
+    background: transparent; 
+    border: none;
+    color: #000;
+    font-size: 18px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.calendar-header .arrow:hover {
+    background-color: rgba(68, 207, 246, 0.2);
+}
+
+.calendar-header .arrow:active {
+    background-color: rgba(68, 207, 246, 0.4);
+}
+
+
+.calendar-table {
+    width: 300px;               
+    table-layout: fixed;
+    border-collapse: separate;
+    border-spacing: 5px 0;  
+    margin: 10px auto 0 auto;
+}
+
+.calendar-table thead {
+    display: block !important;
+    width: 300px; 
+    border: 2px solid #ddd !important;   
+    border-radius: 10px !important;  
+    overflow: hidden;
+    margin: 0 auto 5px auto; 
+}
+
+.calendar-table thead tr {
+    display: flex !important;
+    margin: 0;
+    padding: 0;
+}
+
+.calendar-table thead th {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border: none;  
+    font-size: 14px;
+}
+
+.calendar-table tr {
+    height: 40px;  
+}
+
+.calendar-table th,
+.calendar-table td {
+    padding: 0 4px;  
+    text-align: center;
+    vertical-align: middle;
+}
+
+.calendar-table td.highlight-cell {
+    padding: 0; 
+}
+
+.calendar-table td .cell-content {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.calendar-table td:hover .cell-content {
+    background-color: rgba(68, 207, 246, 0.2);
+    border-radius: 50%;
+}
+
+
+.cell-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.highlight-day {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+    background-color: #44cff6;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 50%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*** Dashboard ***/
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 45px;
+  }
+  
+  .sidebar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    width: 1200px; 
+    
+  }
+  /* Sidebar items */
+  .stat-card {
+    display: flex;
+    flex-direction: column;     
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    gap: 20px; 
+    padding: 15px;
+    width: 300px; 
+    height: 150px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+  
+  .stat-icon {
+    font-size: 30px;
+    color: #44cff6;
+    margin-right: 10px;
+  }
+  
+  .stat-info h3 {
+    margin-bottom: 5px !important;
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .stat-info p {
+    font-size: 16px;
+    margin: 0;
+    color: #555;
+  }
+
+  .stat-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 4px; 
+    padding-bottom: 4px;
+  }
+  
+  .stat-icon-circle {
+    margin-top: -10px;
+    width: 40px;
+    height: 40px;
+    background-color: #44cff6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .stat-icon-circle i {
+    color: #fff;
+    font-size: 20px;
+  }
+  
+  /* Stat chart */
+  .stat-chart {
+    width: 90px;   /* chỉnh tuỳ ý */
+    height: 40px;
+    margin-left: 0;
+    margin-right: 16px;
+    margin-top: -10px;
+  }
+  
+  .stat-chart canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
+  .chart-container {
+    width: 1260px; 
+    height: 400px;
+    padding: 20px;
+    padding-bottom: 60px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  #chart {
+    margin-top: -10px;
+    width: 100%;
+    height: 100%; 
+  }
+  
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 99%;
+    margin-bottom: 20px;
+  }
+  
+  .chart-header h3 {
+    margin: 0;
+    font-size: 25px;
+    color: #333;
+  }
+  
+  .chart-controls {
+    display: flex;
+    flex-direction: row;  
+    align-items: center;
+    gap: 15px;  
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .legend-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  .chart-dropdown select.chart-range-select {
+    font-size: 16px;
+    padding: 4px 8px;
+    border: 1px solid #dad9d9;
+    border-radius: 20px;
+    background-color: #fff;
+    cursor: pointer;
+  }
+
+  /*** Top Courses Section ***/
+.course-section {
+    margin-top: 22px;
+    padding: 20px;
+    padding-left: 30px;
+    padding-bottom: 40px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .course-header h3 {
+    margin: 0;
+    font-size: 24px;
+    color: #1e1e2d;
+  }
+  
+  .course-header .see-all {
+    color: #3578e5;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-right: 15px;
+  }
+  
+  /*** Course Card ***/
+  .course-card {
+    gap: 12px; /* khoảng cách giữa các phần trong card */
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    padding: 0; /* padding bên trong từng phần */
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+  }
+  
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .course-badge {
+    display: inline-block;
+    margin: 12px 16px 4px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  .badge-development { background-color: rgba(98, 225, 149, 0.2); color: #62e195; }
+  .badge-design      { background-color: rgba(255, 185, 128, 0.2); color: #ffb980; }
+  .badge-frontend    { background-color: rgba(254, 128, 128, 0.2); color: #fe8080; }
+  
+  .course-title {
+    margin: 0 16px;
+    font-size: 22px;
+    color: #14142b;
+    line-height: 1.3;
+  }
+  
+  .course-meta {
+    display: flex;
+    align-items: center;
+    margin: 12px 16px 0;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .instructor-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;
+  }
+  
+  .course-stats {
+    display: flex;
+    gap: 12px;
+    margin: 12px 16px 0;
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .course-stats i {
+    margin-right: 4px;
+    color: #3578e5;
+  }
+  
+  .course-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-top: 1px solid #eee;
+  }
+  
+  .rating {
+    font-size: 14px;
+    color: #ffb615;
+  }
+  
+  .rating i {
+    margin-right: 4px;
+  }
+  
+  .btn-details {
+    padding: 6px 14px;
+    background-color: transparent;
+    border: 1px solid #3578e5;
+    border-radius: 20px;
+    color: #3578e5;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  .btn-details:hover {
+    background-color: #3578e5;
+    color: #fff;
+  }
+
+  .course-section {
+    /* Bắt buộc phải nằm trên một dòng mới (flex-wrap) */
+    flex: 0 0 1260px;     /* cùng width với .chart-container */
+    width: 1260px;
+    
+    /* Cho phần nội dung cao tối thiểu = chiều cao chart (350px) + header */
+    min-height: calc(350px + 60px);  /* 350px chart + ~60px header */
+  }
+
+  .course-header .see-all {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: #3578e5;
+    font-size: 16px;
+  }
+  
+  .course-header .see-all::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;           /* khoảng cách so với text */
+    width: 0;
+    height: 2px;            /* độ dày underline */
+    background-color: #3578e5;
+    transition: width 0.25s ease;
+  }
+  
+  .course-header .see-all:hover::after {
+    width: 100%;            /* khi hover mở full underline */
+  }
+
+  /* Hover lên tên khóa học */
+.course-title:hover {
+    color: #3578e5;          /* màu xanh giống See All */
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  /* Hover lên tên instructor */
+  .course-meta strong:hover {
+    color: #3578e5;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  /*** Assignments Section ***/
+.assignments-section {
+    position: absolute;
+    top: 450px;
+    right: 12px;     
+    width: 350px;    
+    height: 320px;
+    z-index: 900; 
+    margin-top: 20px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  .assignments-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  
+  .assignments-header h4 {
+    margin: 0;
+    font-size: 25px;
+    color: #1e1e2d;
+  }
+  
+  .assignments-header .see-all-assignments {
+    font-size: 14px;
+    color: #3578e5;
+    text-decoration: none;
+    position: relative;
+  }
+  
+  .assignments-header .see-all-assignments::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -2px;
+    width: 0; height: 2px;
+    background: #3578e5;
+    transition: width .25s;
+  }
+  .assignments-header .see-all-assignments:hover::after {
+    width: 100%;
+  }
+  
+  .assignment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .assignment-card {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    transition: background 0.2s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .assignment-card:hover {
+    background-color: #f8faff;
+    cursor: pointer;
+  }
+  
+  .assignment-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .assignment-icon {
+    width: 36px;
+    height: 36px;
+    background-color: #eef7ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3578e5;
+    font-size: 18px;
+  }
+  
+  .assignment-title {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #14142b;
+  }
+  
+  .assignment-due {
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #777;
+  }
+  
+  .assignment-arrow i {
+    color: #ccc;
+    font-size: 14px;
+  }
+
+  /*** My Progress Styles ***/
+.my-progress-section {
+    top: 800px;
+    right: 12px;
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    margin-top: 20px;
+    padding: 16px;
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .my-progress-section h4 {
+    margin: 5px 0 12px;
+    font-size: 22px;
+    color: #1e1e2d;
+  }
+  
+  /*** Donut chart wrapper ***/
+  .donut-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 12px;
+    margin-bottom: 16px;
+  }
+
+  .donut-label {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
+    color: #000000;
+    font-size: 14px;
+    pointer-events: none; /* để hover vẫn “chạm” vào ring bên dưới */
+  }
+  
+  /* Each ring */
+  .ring {
+    position: absolute;
+    border-radius: 50%;
+    background: conic-gradient(
+      var(--primary) 0deg 295deg,
+      #eee 295deg 360deg
+    );
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+  }
+  
+  /* Outer ring */
+  .ring.outer {
+    width: 120px; height: 120px;
+    top: 0; left: 0;
+  }
+  
+  /* Middle ring */
+  .ring.middle {
+    width: 90px; height: 90px;
+    top: 15px; left: 15px;
+    background: conic-gradient(
+      #32c864 0deg 240deg,
+      #eee 240deg 360deg
+    );
+  }
+  
+  /* Inner ring + center text */
+  .ring.inner {
+    width: 60px; height: 60px;
+    top: 30px; left: 30px;
+    background: conic-gradient(
+      #bfc6f3 0deg 160deg,
+      #eee 160deg 360deg
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #181d38;
+    font-size: 14px;
+  }
+  
+  /* Total hours text */
+  .total-hour {
+    text-align: center;
+    margin: 8px 0 16px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #14142b;
+  }
+  
+  /* Small bars container */
+  .progress-bars {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  
+  /* Each bar item */
+  .bar-item {
+    flex: 1;
+    font-size: 12px;
+    text-align: center;
+  }
+  
+  .bar-value {
+    display: block;
+    font-weight: 600;
+    color: #14142b;
+  }
+  
+  .bar-label {
+    display: block;
+    color: #777;
+    margin-bottom: 4px;
+  }
+  
+  /* Track and fill */
+  .bar-track {
+    width: 100%;
+    height: 4px;
+    background: #eee;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+  
+  .bar-fill {
+    height: 100%;
+    width: 100%;
+  }
+  
+  /* Colors */
+  .bar-fill.blue  { background: rgba(6,187,204,1); }
+  .bar-fill.green { background: rgba(50,200,100,1); }
+  .bar-fill.black { background: rgb(170, 183, 253); }
+
+  .ring {
+    transition: transform 0.2s ease;
+  }
+  
+  .ring:hover {
+    transform: scale(1.05);
+  }
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+

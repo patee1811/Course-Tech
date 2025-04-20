@@ -8,4 +8,8 @@ export class AppController {
   getHome(@Res() res: Response) {
     res.sendFile(join(__dirname, '..', '..', 'frontend', 'index.html'));
   }
+
+  getHello(): string {
+    return 'Hello World!';
+  }
 }

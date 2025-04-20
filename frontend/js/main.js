@@ -1,3 +1,11 @@
+const monthNames = [
+    "January", "February", "March", "April", "May", "June", 
+    "July", "August", "September", "October", "November", "December"
+  ];
+  let currentYear = new Date().getFullYear();
+  let currentMonth = new Date().getMonth();
+  
+
 (function ($) {
     "use strict";
 
@@ -104,6 +112,160 @@
             }
         }
     });
+
+    // Calendar move buttons
+    function renderCalendar(year, month) {
+        const calendarEl = document.getElementById("calendar");
+        calendarEl.innerHTML = "";
     
+        const header = document.createElement("div");
+        header.className = "calendar-header";
+        header.innerHTML = `
+          <button id="prev-month" class="arrow btn btn-outline-secondary">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <span id="month-title">${monthNames[month]} ${year}</span>
+          <button id="next-month" class="arrow btn btn-outline-secondary">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        `;
+        calendarEl.appendChild(header);
+    
+        const table = document.createElement("table");
+        table.className = "calendar-table";
+    
+        const dayNames = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+        const thead = document.createElement("thead");
+        const headerRow = document.createElement("tr");
+        dayNames.forEach(day => {
+          const th = document.createElement("th");
+          th.innerText = day;
+          headerRow.appendChild(th);
+        });
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+    
+        const tbody = document.createElement("tbody");
+        const firstDay = new Date(year, month, 1).getDay();
+        const totalDays = new Date(year, month + 1, 0).getDate();
+    
+        const now = new Date();
+        let currentDate = (now.getFullYear() === year && now.getMonth() === month)
+                            ? now.getDate()
+                            : null;
+    
+        let date = 1;
+        for (let i = 0; i < 6; i++) {
+          const row = document.createElement("tr");
+          for (let j = 0; j < 7; j++) {
+            const cell = document.createElement("td");
+            if (i === 0 && j < firstDay) {
+              cell.innerText = "";
+            } else if (date > totalDays) {
+              cell.innerText = "";
+            } else {
+              cell.innerText = date;
+              if (currentDate !== null && date === currentDate) {
+                cell.innerHTML = `<div class="cell-content"><span class="highlight-day">${date}</span></div>`;
+            } else {
+                cell.innerHTML = `<div class="cell-content">${date}</div>`;
+            }        
+              date++;
+            }
+            row.appendChild(cell);
+          }
+          tbody.appendChild(row);
+          if (date > totalDays) break;
+        }
+    
+        table.appendChild(tbody);
+        calendarEl.appendChild(table);
+    }
+
+    document.addEventListener("click", function(e) {
+        if (e.target.closest("#prev-month")) {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            renderCalendar(currentYear, currentMonth);
+    } else if (e.target.closest("#next-month")) {
+        currentMonth++;
+        if (currentMonth > 11) {
+            currentMonth = 0;
+            currentYear++;
+        }
+        renderCalendar(currentYear, currentMonth);
+    }
+  });
+    renderCalendar(currentYear, currentMonth);
+    function updateCalendar() {
+        const now = new Date();
+        renderCalendar(now.getFullYear(), now.getMonth());
+    }
+    updateCalendar(); 
+    setInterval(updateCalendar, 60000);
+
+// Mini Chart
+const sparkData = [5, 9, 6, 18, 10, 25, 17, 30];
+document.querySelectorAll('.sparkline').forEach(canvas => {
+  const ctx = canvas.getContext('2d');
+  const [r, g, b] = canvas.dataset.color.split(',').map(Number);
+  const sparkData = JSON.parse(canvas.dataset.data);
+  const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+  grad.addColorStop(0,    `rgba(${r},${g},${b},0.5)`);
+  grad.addColorStop(0.25, `rgba(${r},${g},${b},0.15)`);
+  grad.addColorStop(1,    `rgba(${r},${g},${b},0)`);
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: sparkData.map((_,i)=>i),
+      datasets: [{
+        data: sparkData,
+        borderColor: `rgba(${r},${g},${b},0.5)`,
+        backgroundColor: grad,
+        fill: true,
+        tension: 0.4,
+        pointRadius: 0,
+        pointHoverRadius: 6, 
+        pointHitRadius: 10,        
+        pointBackgroundColor: `rgba(${r},${g},${b},1)`,
+      }]
+    },
+  options: {
+    responsive: false,
+    maintainAspectRatio: false,
+    interaction: {
+        mode: 'nearest',    
+        intersect: false     
+    },
+    scales: {
+      x: { display: false },
+      y: { display: false }
+    },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        enabled: true,
+        position: 'nearest',      
+        xAlign: 'right',          
+        yAlign: 'center',         
+        caretSize: 0,             
+        caretPadding: 6,
+        backgroundColor: '#fff',
+        titleColor: '#000',
+        bodyColor: '#000',
+        borderColor: '#ccc',
+        borderWidth: 1,
+        padding: 6,
+        callbacks: {
+          label: ctx => `${ctx.parsed.y}`, 
+        }
+      }
+    }
+  }
+});
+});
 })(jQuery);
 
