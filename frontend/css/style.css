@@ -465,7 +465,7 @@
 /*** Calender ***/
 .calendar-container { 
     position: absolute; 
-    top: 3.8%; 
+    top: 3.5%; 
     right: 12px; 
     background-color: #fff; 
     border: 2px solid #ddd; 
@@ -946,7 +946,7 @@
   /*** Assignments Section ***/
 .assignments-section {
     position: absolute;
-    top: 31%;
+    top: 30%;
     right: 12px;     
     width: 23%;
     height: 320px;
@@ -1052,7 +1052,7 @@
 
   /*** My Progress Styles ***/
   .my-progress-section {
-    top: 60%;
+    top: 58%;
     right: 12px;
     width: 23%;
     height: 350px;
