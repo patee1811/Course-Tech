@@ -465,14 +465,14 @@
 /*** Calender ***/
 .calendar-container { 
     position: absolute; 
-    top: 120px; 
+    top: 3.8%; 
     right: 12px; 
     background-color: #fff; 
     border: 2px solid #ddd; 
     border-radius: 12px; 
     padding-bottom: 10px; 
     overflow: hidden; 
-    width: 350px; 
+    width: 23%; 
     box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
     z-index: 1000; 
 }
@@ -488,7 +488,7 @@
     align-items: center;
     justify-content: space-between;
     height: 40px;
-    width: 300px;      
+    width: 86.5%;      
     margin: 10px 28px;    
 }
 
@@ -605,6 +605,8 @@
 
 /*** Dashboard ***/
 .dashboard {
+    position: relative;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -615,9 +617,8 @@
   .sidebar {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
-    gap: 20px;
-    width: 1200px; 
-    
+    width: 76%;
+    gap: 20px;    
   }
   /* Sidebar items */
   .stat-card {
@@ -628,7 +629,7 @@
     border-radius: 12px;
     gap: 20px; 
     padding: 15px;
-    width: 300px; 
+    width: 100%; 
     height: 150px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
@@ -692,7 +693,7 @@
   }
   
   .chart-container {
-    width: 1260px; 
+    width: 76%; 
     height: 400px;
     padding: 20px;
     padding-bottom: 60px;
@@ -755,6 +756,7 @@
 
   /*** Top Courses Section ***/
 .course-section {
+    position: relative;
     margin-top: 22px;
     padding: 20px;
     padding-left: 30px;
@@ -786,21 +788,21 @@
   
   .course-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     margin-right: 15px;
   }
   
   /*** Course Card ***/
   .course-card {
-    gap: 12px; /* khoảng cách giữa các phần trong card */
+    gap: 12px; 
     background-color: #fff;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
-    padding: 0; /* padding bên trong từng phần */
+    padding: 0;
   }
   
   .card-image {
@@ -900,12 +902,8 @@
   }
 
   .course-section {
-    /* Bắt buộc phải nằm trên một dòng mới (flex-wrap) */
-    flex: 0 0 1260px;     /* cùng width với .chart-container */
-    width: 1260px;
-    
-    /* Cho phần nội dung cao tối thiểu = chiều cao chart (350px) + header */
-    min-height: calc(350px + 60px);  /* 350px chart + ~60px header */
+    flex: 0 0 76%;     
+    width: 76%;
   }
 
   .course-header .see-all {
@@ -920,26 +918,24 @@
     content: '';
     position: absolute;
     left: 0;
-    bottom: -2px;           /* khoảng cách so với text */
+    bottom: -2px;           
     width: 0;
-    height: 2px;            /* độ dày underline */
+    height: 2px;            
     background-color: #3578e5;
     transition: width 0.25s ease;
   }
   
   .course-header .see-all:hover::after {
-    width: 100%;            /* khi hover mở full underline */
+    width: 100%;            
   }
 
-  /* Hover lên tên khóa học */
-.course-title:hover {
-    color: #3578e5;          /* màu xanh giống See All */
+  .course-title:hover {
+    color: #3578e5;          
     text-decoration: underline;
     cursor: pointer;
     transition: color 0.2s;
   }
   
-  /* Hover lên tên instructor */
   .course-meta strong:hover {
     color: #3578e5;
     text-decoration: underline;
@@ -950,9 +946,9 @@
   /*** Assignments Section ***/
 .assignments-section {
     position: absolute;
-    top: 450px;
+    top: 31%;
     right: 12px;     
-    width: 350px;    
+    width: 23%;
     height: 320px;
     z-index: 900; 
     margin-top: 20px;
@@ -1055,10 +1051,10 @@
   }
 
   /*** My Progress Styles ***/
-.my-progress-section {
-    top: 800px;
+  .my-progress-section {
+    top: 60%;
     right: 12px;
-    width: 350px;
+    width: 23%;
     height: 350px;
     position: absolute;
     margin-top: 20px;
