@@ -5,6 +5,18 @@
     --dark: #181d38;
 }
 
+.learn-content {
+  max-height: 200px;         /* cao tối đa khi “collapsed” */
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  position: relative;
+}
+
+/* Khi đã click “Show more” */
+.learn-content.expanded {
+  max-height: 1000px;        /* hoặc none, sao cho hiển hết */
+}
+
 .fw-medium {
     font-weight: 600 !important;
 }
@@ -1226,4 +1238,143 @@
 .form-control.warning {
     border-color: #ffc107 !important;
     box-shadow: 0 0 0 0.25rem rgba(250, 195, 29, 0.5) !important;
+}
+
+.cart-btn-group {
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.cart-btn-group .btn-add {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  padding: 0 1rem;
+  font-weight: 600;
+}
+
+/* Nút heart: vuông và căn giữa icon */
+.cart-btn-group .btn-fav {
+  flex: 0 0 3rem; /* cố định 3rem x 3rem */
+  height: 3rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.image-preview {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-preview img {
+  display: block;
+  width: 100%;
+  border-radius: .25rem;
+}
+
+/* Text overlay */
+.image-preview .preview-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: .5rem 0;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  border-bottom-left-radius: .25rem;
+  border-bottom-right-radius: .25rem;
+}
+
+/* Wrapper để input + button nằm ngang */
+.coupon-wrapper {
+  display: flex;
+  width: 100%;
+  gap: 0;
+  margin-bottom: 0; /* mb-3 đã dùng ở wrapper */
+}
+
+/* Style input */
+.coupon-input {
+  flex: 1;
+  height: 3rem;                      /* khớp với nút Apply */
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-right: none;
+  border-radius: 0.25rem 0 0 0.25rem; /* bo góc trái */
+  outline: none;
+}
+
+/* Style nút Apply */
+.coupon-btn {
+  flex: 0 0 auto;
+  height: 3rem;
+  padding: 0 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #7c3aed;         /* tím Udemy */
+  border: 1px solid #7c3aed;
+  border-radius: 0 0.25rem 0.25rem 0; /* bo góc phải */
+  cursor: pointer;
+}
+
+/* Hover/focus cho button */
+.coupon-btn:hover,
+.coupon-btn:focus {
+  background-color: #6829d6;
+  border-color: #6829d6;
+}
+
+/* Accordion chung */
+.course-content .accordion-item {
+  border: 1px solid #e6e6e6;
+  border-radius: .25rem;
+  margin-bottom: .5rem;
+}
+
+/* Header của mỗi section */
+.course-content .accordion-button {
+  background: #fff;
+  color: #222;
+  font-weight: 600;
+  padding: .75rem 1rem;
+}
+.course-content .accordion-button:not(.collapsed) {
+  color: #6f42c1;  /* tím khi mở */
+  background-color: #f8f9fa;
+}
+
+/* Thay icon mặc định của Bootstrap bằng FontAwesome */
+.course-content .accordion-button::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f105";    /* fa-chevron-right */
+  margin-left: auto;
+}
+.course-content .accordion-button:not(.collapsed)::after {
+  content: "\f107";    /* fa-chevron-down */
+}
+
+/* Liệt kê bài giảng */
+.course-content .accordion-body li {
+  font-size: .9rem;
+  background: #fff;
+}
+
+/* Link Preview */
+.course-content .accordion-body a {
+  text-decoration: none;
+}
+.course-content .accordion-body a.text-purple-lt:hover {
+  text-decoration: underline;
 }
