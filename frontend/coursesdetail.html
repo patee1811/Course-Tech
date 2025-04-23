@@ -88,15 +88,12 @@
             right: 20px;
             width: 340px; /* độ rộng cố định */
             z-index: 10; /* Đảm bảo sidebar nằm trên nội dung khác */
-            border-radius: .25rem;
-            padding: 0.2rem;
+            border-radius: 0.25rem;
+            padding: 0.7rem;
 
             background-color: #ffffff;
             border: 2px dashed rgba(0,0,0,0,0.2);
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-
-
-
         }
         /* Đảm bảo nội dung bên trái không bị che khuất */
         .overlap-section .learn-box {
@@ -191,10 +188,10 @@
             <p class="lead mb-4 text-white">Hands On Practical Experience</p>
       
             <!-- Badge + Rating + Students -->
-            <div class="d-flex flex-wrap align-items-center mb-4">
+            <div class="d-flex flex-wrap align-items-baseline mb-4">
                 <span class="badge-hot-new">Hot &amp; New</span>
                 <div class="me-3 d-flex align-items-center">
-                    <span class="h5 mb-0 me-1 text-white">4.8</span>
+                    <span class="h5 mb-0 me-1 text-white" style="white-space: pre;"> 4.8</span>
                     <small class="fa fa-star text-warning"></small>
                     <small class="fa fa-star text-warning"></small>
                     <small class="fa fa-star text-warning"></small>
@@ -227,12 +224,13 @@
     <!-- Overlap Section Start -->
     <div class="container-xxl overlap-section">
         <div class="container">
-            <div class="row">
-                <!-- What you'll learn (bên trái) -->
-                <div class="col-12 learn-box">
-                    <div class="border rounded p-4 bg-white mb-5">
-                        <h4>What you'll learn</h4>
+            <div class="row g-5">
 
+                <!-- Left Column: What you’ll learn + Explore + Course content -->
+                <div class="col-lg-8">
+                    <!-- What you'll learn -->
+                    <div class="learn-box border rounded p-4 bg-white mb-5">
+                        <h4>What you'll learn</h4>
                         <div class="learn-content" id="learnContent">
                             <div class="row">
                                 <div class="col-md-6">
@@ -265,26 +263,110 @@
                                 </div>
                             </div>
                         </div>
-
                         <a href="#" class="toggle-learn text-purple-lt" id="toggleLearn">
                             Show more <i class="fa fa-chevron-down"></i>
                         </a>
                     </div>
-                </div>
 
-                <!-- Sidebar (bên phải, absolute) -->
-                <div class="col-12">
+                    <!-- Explore related topics -->
+                    <div class="mb-5">
+                        <h5 class="fw-bold mb-3">Explore related topics</h5>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="#" class="btn btn-outline-secondary btn-sm">Cybersecurity</a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm">Network &amp; Security</a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm">IT &amp; Software</a>
+                        </div>
+                    </div>
+
+                    <!-- Course content simple style -->
+                    <div class="course-content-simple mb-5">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div>
+                                <h5 class="fw-bold mb-0">Course content</h5>
+                                <small class="text-muted">
+                                    29 sections • 354 lectures • 72h 16m total length
+                                </small>
+                            </div>
+                            <a href="#" class="expand-all small text-purple-lt">Expand all sections</a>
+                        </div>
+                        <ul class="list-unstyled section-list mb-3">
+                            <li class="d-flex justify-content-between align-items-center">
+                                <a href="#"><i class="fa fa-chevron-down me-2"></i>Welcome</a>
+                                <span class="text-muted">1 lecture • 5min</span>
+                            </li>
+                            <li class="d-flex justify-content-between align-items-center">
+                                <a href="#"><i class="fa fa-chevron-down me-2"></i>Introduction to Home Virtual Labs</a>
+                                <span class="text-muted">3 lectures • 11min</span>
+                            </li>
+                            <li class="d-flex justify-content-between align-items-center">
+                                <a href="#"><i class="fa fa-chevron-down me-2"></i>Quick Start Lab Option</a>
+                                <span class="text-muted">1 lecture • 7min</span>
+                            </li>
+                            <li class="d-flex justify-content-between align-items-center">
+                                <a href="#"><i class="fa fa-chevron-down me-2"></i>Basic Lab Option</a>
+                                <span class="text-muted">1 lecture • 38min</span>
+                            </li>
+                            <li class="d-flex justify-content-between align-items-center">
+                                <a href="#"><i class="fa fa-chevron-down me-2"></i>Intermediate Lab Option</a>
+                                <span class="text-muted">12 lectures • 2hr 27min</span>
+                            </li>
+                            <li class="d-flex justify-content-between align-items-center">
+                                <a href="#"><i class="fa fa-chevron-down me-2"></i>Advanced Lab Option</a>
+                                <span class="text-muted">18 lectures • 3hr 30min</span>
+                            </li>
+                        </ul>
+
+                        <!-- Nút toggle -->
+                        <button
+                            class="btn btn-outline-purple w-100 more-sections mt-3"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#allSections"
+                            aria-expanded="false"
+                            aria-controls="allSections"
+                            id="toggleSectionsBtn">
+                            19 more sections
+                        </button>
+                    </div>
+
+                    <!-- Requirements -->
+                    <div class="info-card mb-5">
+                        <h4 class="info-title">Requirements</h4>
+                        <ul class="info-list mb-0 ps-3">
+                            <li>Desire to learn cybersecurity skills. Access to a computer that can support running multiple virtual machines. Recommend at least 16 GB of RAM.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="info-card mb-5">
+                        <h4 class="info-title">Description</h4>
+                        <div class="info-desc overflow-hidden position-relative" id="infoDesc">
+                            <p>
+                                Are you ready to level up and gain hands-on experience in cybersecurity? Introducing <strong>The Complete Cybersecurity Analyst Course</strong>—your one-stop solution for mastering the skills and gaining hands-on experience you need to excel in the cybersecurity field.
+                            </p>
+                            <p>
+                                <strong>Prerequisites</strong><br>
+                                As the name suggests, this is a “hands-on” course. You will be required to install virtualization software on your system. We recommend a Windows host system; however, a Mac will work also, but there are some limitations based on newer Apple Silicon chips.
+                            </p>
+                            <p>
+                                Our goal is to provide everything into one course that includes a wide range of opportunities to increase your knowledge and gain that critical hands-on experience. We will not break up essential knowledge into multiple, expensive modules; this course gives you everything you need in one comprehensive package at a one-time price.
+                            </p>
+                            <!-- gradient overlay -->
+                            <div class="fade-bottom"></div>
+                        </div>
+                        <button class="btn-toggle-desc mt-2" id="toggleInfoDesc">
+                            Show more <i class="fa fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+                  
+                <div class="col-lg-4">
                     <div class="sidebar-courses">
                         <!-- Image Preview -->
                         <div class="image-preview mb-3">
-                            <img src="img/hacker.jpg"
-                                alt="Course Preview"
-                                class="img-fluid rounded">
-                            <div class="preview-text">
-                                <p class="text-center mb-3">Preview this course</p>
-                            </div>
+                            <img src="img/hacker.jpg" alt="Course Preview" class="img-fluid rounded">
+                            <div class="preview-text">Preview this course</div>
                         </div>
-            
                         <!-- Price & Countdown -->
                         <div class="mb-3">
                             <h4 class="mb-1">
@@ -292,312 +374,50 @@
                                 <small class="text-muted text-decoration-line-through">₫779,000</small>
                                 <small class="text-success">64% off</small>
                             </h4>
-                            <small class="text-danger">
-                                <i class="fa fa-clock me-1"></i>
-                                2 hours left at this price!
-                            </small>
+                            <small class="text-danger"><i class="fa fa-clock me-1"></i>2 hours left at this price!</small>
                         </div>
-            
-                        <!-- Buttons -->
-
-                        <!-- Nhóm nút Add + Heart -->
+                        <!-- Add to cart + Heart -->
                         <div class="cart-btn-group mb-3">
                             <button class="btn btn-purple btn-add">Add to cart</button>
-                            <button class="btn btn-outline-purple btn-fav">
-                                <i class="fa fa-heart"></i>
-                            </button>
+                            <button class="btn btn-outline-purple btn-fav"><i class="fa fa-heart"></i></button>
                         </div>
-
-                        <!-- Nút Buy now -->
+                        <!-- Buy now -->
                         <button class="btn btn-outline-purple w-100 mb-3">Buy now</button>
                         <!-- Guarantee -->
                         <p class="text-center small text-muted mb-3">30‑Day Money‑Back Guarantee</p>
-            
                         <!-- Features List -->
                         <ul class="list-unstyled mb-3">
-                            <li class="list-feature mb-2">
-                                <i class="fa fa-video me-2"></i>71 hours on‑demand video
-                            </li>
-                            <li class="list-feature mb-2">
-                                <i class="fa fa-file-download me-2"></i>1 downloadable resource
-                            </li>
-                            <li class="list-feature mb-2">
-                                <i class="fa fa-mobile-alt me-2"></i>Access on mobile and TV
-                            </li>
-                            <li class="list-feature mb-2">
-                                <i class="fa fa-infinity me-2"></i>Full lifetime access
-                            </li>
-                            <li class="list-feature">
-                                <i class="fa fa-certificate me-2"></i>Certificate of completion
-                            </li>
+                            <li class="list-feature mb-2"><i class="fa fa-video me-2"></i>71 hours on‑demand video</li>
+                            <li class="list-feature mb-2"><i class="fa fa-file-download me-2"></i>1 downloadable resource</li>
+                            <li class="list-feature mb-2"><i class="fa fa-mobile-alt me-2"></i>Access on mobile and TV</li>
+                            <li class="list-feature mb-2"><i class="fa fa-infinity me-2"></i>Full lifetime access</li>
+                            <li class="list-feature"><i class="fa fa-certificate me-2"></i>Certificate of completion</li>
                         </ul>
-            
                         <!-- Share/Gift/Coupon Links -->
                         <div class="d-flex justify-content-between mb-2">
                             <a href="#" class="small">Share</a>
                             <a href="#" class="small">Gift this course</a>
                             <a href="#" class="small">Apply Coupon</a>
                         </div>
-
                         <!-- Coupon Input -->
                         <div class="coupon-wrapper mb-3">
                             <input type="text" class="coupon-input" placeholder="Enter Coupon">
                             <button type="button" class="coupon-btn">Apply</button>
                         </div>
                         <p class="coupon-note mt-1">2021PM25 is applied Udemy coupon</p>
-  
-            
                         <!-- Udemy Business -->
                         <div class="border-top pt-3">
                             <h6>Training 5 or more people?</h6>
-                            <p class="small mb-2">
-                                Get your team access to 27,000+ top Udemy courses anytime, anywhere.
-                            </p>
+                            <p class="small mb-2">Get your team access to 27,000+ top Udemy courses anytime, anywhere.</p>
                             <button class="btn btn-outline-purple w-100">Try Udemy Business</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Explore related topics -->
-                <div class="mb-5">
-                    <h5 class="fw-bold mb-3">Explore related topics</h5>
-                    <div class="d-flex flex-wrap gap-2">
-                        <a href="#" class="btn btn-outline-secondary btn-sm">Cybersecurity</a>
-                        <a href="#" class="btn btn-outline-secondary btn-sm">Network &amp; Security</a>
-                        <a href="#" class="btn btn-outline-secondary btn-sm">IT &amp; Software</a>
-                    </div>
-                </div>
-
-                <!-- Course content -->
-                <div class="course-content mb-5">
-                    <!-- Header with info and link Expand all -->
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <h5 class="fw-bold mb-0">Course content</h5>
-                        <a href="#" class="text-purple-lt small">Expand all sections</a>
-                    </div>
-                    <small class="text-muted d-block mb-3">
-                        29 sections • 354 lectures • 72h 16m total length
-                    </small>
-
-                    <!-- Accordion -->
-                    <div class="accordion" id="courseContentAccordion">
-                        <!-- Section 1 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button
-                                    class="accordion-button collapsed"
-                                    type="button"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#sectionOne"
-                                    aria-expanded="false"
-                                    aria-controls="sectionOne">
-                                    Welcome
-                                    <span class="small text-muted ms-3">1 lecture • 5min</span>
-                                </button>
-                            </h2>
-                            <div
-                                id="sectionOne"
-                                class="accordion-collapse collapse"
-                                aria-labelledby="headingOne"
-                                data-bs-parent="#courseContentAccordion">
-                                <div class="accordion-body p-0">
-                                    <ul class="list-unstyled mb-0">
-                                        <li class="d-flex justify-content-between align-items-center px-3 py-2 border-top">
-                                            <div><i class="fa fa-play-circle me-2"></i>Welcome Message</div>
-                                            <div>
-                                                <a href="#" class="text-purple-lt small">Preview</a>
-                                                <span class="small text-muted ms-2">04:51</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Section 2 -->
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button
-                                    class="accordion-button collapsed"
-                                    type="button"
-                                    data-bs-toggle="collapse"
-                                    data-bs-target="#sectionTwo"
-                                    aria-expanded="false"
-                                    aria-controls="sectionTwo">
-                                    Introduction to Home Virtual Labs
-                                    <span class="small text-muted ms-3">3 lectures • 11min</span>
-                                </button>
-                            </h2>
-                            <div
-                                id="sectionTwo"
-                                class="accordion-collapse collapse"
-                                aria-labelledby="headingTwo"
-                                data-bs-parent="#courseContentAccordion">
-                                <div class="accordion-body p-0">
-                                    <ul class="list-unstyled mb-0">
-                                        <li class="d-flex justify-content-between align-items-center px-3 py-2 border-top">
-                                            <div><i class="fa fa-play-circle me-2"></i>Setting Up Home Virtual Lab Intro</div>
-                                            <div>
-                                                <a href="#" class="text-purple-lt small">Preview</a>
-                                                <span class="small text-muted ms-2">03:29</span>
-                                            </div>
-                                        </li>
-                                        <li class="d-flex justify-content-between align-items-center px-3 py-2 border-top">
-                                            <div><i class="fa fa-play-circle me-2"></i>Virtual Lab Options</div>
-                                            <div>
-                                                <a href="#" class="text-purple-lt small">Preview</a>
-                                                <span class="small text-muted ms-2">04:35</span>
-                                            </div>
-                                        </li>
-                                        <li class="d-flex justify-content-between align-items-center px-3 py-2 border-top">
-                                            <div><i class="fa fa-play-circle me-2"></i>Install VirtualBox</div>
-                                            <div>
-                                                <a href="#" class="text-purple-lt small">Preview</a>
-                                                <span class="small text-muted ms-2">02:46</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Add more sections similarly -->
-                    </div>
-                </div>
-
-    <!-- Course Detail Start -->
-    <div class="container-xxl py-5">
-        <div class="container"></div>
-            <div class="row g-5">
-                <!-- Left: Course Info -->
-                <div class="col-lg-8">
-                    <!-- Course Banner -->
-                    <div class="mb-4">
-                        <img src="img/course-1-banner.jpg" class="img-fluid rounded" alt="Course Banner">
-                    </div>
-
-                    <!-- Tab navigation -->
-                    <ul class="nav nav-pills mb-4 justify-content-center justify-content-md-start" id="pills-tab"
-                        role="tablist">
-                        <li class="nav-item me-2" role="presentation">
-                            <button class="nav-link active" id="overview-tab" data-bs-toggle="pill"
-                                    data-bs-target="#overview" type="button" role="tab">Overview</button>
-                        </li>
-                        <li class="nav-item me-2" role="presentation">
-                            <button class="nav-link" id="curriculum-tab" data-bs-toggle="pill"
-                                    data-bs-target="#curriculum" type="button" role="tab">Curriculum</button>
-                        </li>
-                        <li class="nav-item me-2" role="presentation">
-                            <button class="nav-link" id="instructor-tab" data-bs-toggle="pill"
-                                    data-bs-target="#instructor" type="button" role="tab">Instructor</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="reviews-tab" data-bs-toggle="pill"
-                                    data-bs-target="#reviews" type="button" role="tab">Reviews</button>
-                        </li>
-                    </ul>
-
-                    <!-- Tab content -->
-                    <div class="tab-content" id="pills-tabContent">
-                        <!-- Overview -->
-                        <div class="tab-pane fade show active" id="overview" role="tabpanel">
-                            <h4 class="mb-3">Course Description</h4>
-                            <p>Khóa học Web Design & Development sẽ giúp bạn nắm vững HTML5, CSS3, JavaScript, Bootstrap
-                                và các framework front-end hiện đại. Qua các dự án thực tế, bạn sẽ thiết kế giao diện
-                                responsive, tối ưu UI/UX và deploy lên Internet.</p>
-                            <ul>
-                                <li>Hiểu rõ cấu trúc HTML & CSS nâng cao</li>
-                                <li>Lập trình JavaScript ES6+</li>
-                                <li>Sử dụng Bootstrap, Sass, Flexbox & Grid</li>
-                                <li>Tạo hiệu ứng, animation dùng thư viện Wow.js</li>
-                                <li>Tối ưu hình ảnh, SEO cơ bản</li>
-                            </ul>
-                        </div>
-                        <!-- Curriculum -->
-                        <div class="tab-pane fade" id="curriculum" role="tabpanel">
-                            <h4 class="mb-3">Course Curriculum</h4>
-                            <div class="accordion" id="curriculumAccordion">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapseOne">Section 1: HTML & CSS Basics
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show"
-                                         data-bs-parent="#curriculumAccordion">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li>Lesson 1.1: Introduction to HTML</li>
-                                                <li>Lesson 1.2: CSS Fundamentals</li>
-                                                <li>Lesson 1.3: Flexbox & Grid</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                            Section 2: Advanced Layouts
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse"
-                                         data-bs-parent="#curriculumAccordion">
-                                        <div class="accordion-body">
-                                            <ul>
-                                                <li>Lesson 2.1: Responsive Design</li>
-                                                <li>Lesson 2.2: Bootstrap Components</li>
-                                                <li>Lesson 2.3: CSS Animations</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Thêm section khác tương tự -->
-                            </div>
-                        </div>
-                        <!-- Instructor -->
-                        <div class="tab-pane fade" id="instructor" role="tabpanel">
-                            <h4 class="mb-3">Instructor</h4>
-                            <div class="d-flex align-items-center">
-                                <img src="img/instructor-1.jpg" class="rounded-circle me-3" style="width:80px;"
-                                     alt="Instructor">
-                                <div>
-                                    <h5 class="mb-1">John Doe</h5>
-                                    <small>Senior Web Developer at XYZ Corp.</small>
-                                </div>
-                            </div>
-                            <p class="mt-3">John có hơn 10 năm kinh nghiệm trong lĩnh vực front-end, đã giảng dạy cho
-                                hàng nghìn học viên và hoàn thành nhiều dự án thực tế với React, Vue và Angular.</p>
-                        </div>
-                        <!-- Reviews -->
-                        <div class="tab-pane fade" id="reviews" role="tabpanel">
-                            <h4 class="mb-3">Student Reviews</h4>
-                            <div class="mb-4">
-                                <div class="d-flex mb-2">
-                                    <img src="img/user-1.jpg" class="rounded-circle me-3" style="width:50px;"
-                                         alt="User">
-                                    <div>
-                                        <strong>Alice</strong>
-                                        <div>
-                                            <small class="fa fa-star text-warning"></small>
-                                            <small class="fa fa-star text-warning"></small>
-                                            <small class="fa fa-star text-warning"></small>
-                                            <small class="fa fa-star text-warning"></small>
-                                            <small class="fa fa-star-half-alt text-warning"></small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p>Khóa học rất chất lượng, giảng viên hướng dẫn chi tiết và có nhiều bài tập thực hành.</p>
-                            </div>
-                            <!-- Thêm review khác -->
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
-    <!-- Course Detail End -->
-
+    <!-- Overlap Section End -->
     <!-- Footer Start -->
     <div id="footer-placeholder"></div>
     <!-- Footer End -->
@@ -640,6 +460,39 @@
             });
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var btn = document.getElementById('toggleSectionsBtn');
+            var collapseEl = document.getElementById('allSections');
+
+            // Bắt sự kiện show/hide của Bootstrap Collapse
+            collapseEl.addEventListener('show.bs.collapse', function() {
+                btn.textContent = 'Show fewer sections';
+            });
+            collapseEl.addEventListener('hide.bs.collapse', function() {
+                btn.textContent = '19 more sections';
+            });
+        });
+    </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const btn = document.getElementById('toggleInfoDesc');
+      const desc = document.getElementById('infoDesc');
+  
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const isOpen = desc.classList.toggle('expanded');
+        btn.classList.toggle('expanded', isOpen);
+        btn.innerHTML = isOpen
+          ? 'Show less <i class="fa fa-chevron-up"></i>'
+          : 'Show more <i class="fa fa-chevron-down"></i>';
+      });
+    });
+  </script>
+  
+    
       
 </body>
 
