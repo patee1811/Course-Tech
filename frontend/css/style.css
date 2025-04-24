@@ -1507,3 +1507,41 @@
   transform: rotate(180deg);
 }
 
+/*** NavBar css ***/
+.avatar-dropdown-menu {
+  padding: 0.5rem 0;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+}
+
+.avatar-dropdown-menu .dropdown-item {
+  font-size: 0.95rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: #505355; 
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.avatar-dropdown-menu .dropdown-item i {
+  width: 18px;
+  text-align: center;
+  color: #505355; 
+  transition: color 0.2s ease;
+}
+
+.avatar-dropdown-menu .dropdown-item:not(.text-danger):hover {
+  background-color: #f0f2f5;
+  color: #06BBCC;
+}
+
+.avatar-dropdown-menu .dropdown-item:not(.text-danger):hover i {
+  color: #06BBCC;
+}
+
+.avatar-dropdown-menu .dropdown-item.text-danger {
+  color: #dc3545;
+}
+
+.avatar-dropdown-menu .dropdown-item.text-danger i {
+  color: #dc3545;
+}

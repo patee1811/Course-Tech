@@ -269,3 +269,31 @@ document.querySelectorAll('.sparkline').forEach(canvas => {
 });
 })(jQuery);
 
+/* navbar currentpagename logic */
+function updateCurrentPageName() {
+  let currentPage = window.location.pathname
+                         .split("/")
+                         .pop()
+                         .toLowerCase()
+                         .split("?")[0];
+  console.log("Detected page:", currentPage);
+  const pageNames = {
+    "index.html": "Home",
+    "about.html": "About",
+    "courses.html": "Courses",
+    "coursesdetail.html": "Course",
+    "contact.html": "Contact",
+    "team.html": "Team",
+    "testimonial.html": "Testimonial",
+    "404.html": "Not Found",
+    "dashboard.html": "Dashboard",
+    "accountbalance.html": "Account Balance",
+    "profile.html": "Profile",
+    "settings.html": "Settings"
+  };
+  const pageName = pageNames[currentPage] || "Home";
+  const el = document.getElementById("currentPageName");
+  if (el) el.textContent = pageName;
+}
+
+document.addEventListener("DOMContentLoaded", updateCurrentPageName);
