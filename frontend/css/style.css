@@ -2271,3 +2271,229 @@
   gap: 10px;
   border-top: 1px solid #eee;
 }
+
+.course-card-wrapper {
+  border: 2px solid #d5dbe7;   /* màu light-blue giống mẫu */
+  border-radius: 1rem;         /* bo góc lớn hơn card bên trong */
+  /* padding đã được set bằng class p-2, bạn có thể tăng/decrease */
+}
+
+.badge-dev-light {
+  background-color: rgba(40, 167, 69, 0.1);  /* success color với alpha 0.1 */
+  color: #28a745;                             /* chữ xanh success */
+}
+
+/* trong css/style.css */
+.progress-lg {
+  height: 0.75rem;           /* cao hơn mặc định (4px) */
+}
+.progress-lg .progress-bar {
+  transition: width 0.6s ease;
+}
+
+/* Thanh progress track nhạt */
+.progress-custom {
+  height: 0.5rem;               /* cao ~8px */
+  background-color: #E5E7EB;    /* xám nhạt */
+}
+
+/* Thanh fill màu teal */
+.progress-custom .progress-bar {
+  background-color: #06bbcc;    /* màu giống mẫu */
+}
+
+/* Số % tone teal, nhỏ hơn và đậm vừa */
+.percent-text {
+  font-size: 0.875rem;          /* ~14px */
+  font-weight: 600;
+  color: #06bbcc;
+  margin-right: 0.5rem;         /* cách thanh 8px */
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  color: #fff !important;               /* chữ trắng */
+  background-color: #06bbcc !important; /* nền xanh primary */
+  border-color: #06bbcc !important;     /* giữ border primary */
+}
+
+/* Cố định kích thước chung cho tất cả course-card-wrapper */
+.course-card-wrapper {
+  max-width: 300px;    /* hoặc chỉnh theo bạn muốn, ví dụ 280px, 320px */
+  height: 420px;       /* cao cố định để nội dung không kéo dài thiếu đồng bộ */
+  padding: 0.5rem;     /* nếu cần */
+  box-sizing: border-box;
+}
+
+/* Cho .card bên trong giãn đầy container */
+.course-card-wrapper .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cho phần thân card (card-body) giãn hết phần còn lại, đẩy footer xuống đáy */
+.course-card-wrapper .card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* CSS chung cho tất cả ảnh .card-img-top */
+.course-card-wrapper .card-img-top {
+  width: 100%;           /* chiếm hết chiều ngang của card */
+  height: 160px;         /* chiều cao cố định – chỉnh theo ý bạn */
+  object-fit: cover;     /* crop trung tâm, giữ tỷ lệ */
+  border-top-left-radius: .75rem;  /* bo đúng như .rounded-3 */
+  border-top-right-radius: .75rem;
+  border-radius: 8px;
+}
+
+/* Tô nền cho cả vùng nav-pills và bo tròn */
+#courseTabs {
+  background-color: #ffffff;
+  padding: 0.25rem;
+}
+
+/* Mỗi nút nav-link thành pill outline */
+#courseTabs .nav-link {
+  border: 1px solid #17CFC4;
+  border-radius: 50px;
+  color: #17CFC4;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  transition: background-color .2s, color .2s;
+}
+
+/* Trạng thái active: nền đặc màu teal, chữ trắng */
+#courseTabs .nav-link.active {
+  background-color: #17CFC4;
+  color: #ffffff;
+}
+
+/* Khi hover/focus trên các nav-link chưa active */
+#courseTabs .nav-link:not(.active):hover,
+#courseTabs .nav-link:not(.active):focus {
+  background-color: rgba(23, 207, 196, 0.1);
+  color: #17CFC4;
+}
+
+/* Bỏ margin thừa ở cuối list để uniform */
+#courseTabs .nav-item:last-child .nav-link {
+  margin-right: 0;
+}
+
+.custom-container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;   /* hoặc px-4 */
+  padding-right: 0;
+}
+
+/* Underline cho phần author */
+.author {
+  border-bottom: 1px solid #ced0d4;
+  padding-bottom: 0.5rem;
+}
+
+/* Lesson & Hours font nhỏ lại */
+.lessons-hours {
+  font-size: 0.875rem;   /* ~14px */
+  color: #6B7280;        /* xám hơi đậm */
+}
+.lessons-hours i {
+  font-size: 0.875rem;
+}
+
+/* Cho phép .card chứa footer ở vị trí tuyệt đối */
+.course-card-wrapper .card {
+  position: relative;
+}
+
+/* Đặt footer lên trên, cách đáy card 1rem */
+.course-card-wrapper .card-footer {
+  position: absolute;
+  bottom: 0.5rem;       /* đẩy lên 1rem từ đáy */
+  left: 0.3rem;         /* căn trái 1rem trong wrapper */
+  right: 0.3rem;        /* căn phải 1rem trong wrapper */
+  margin: 0;          /* loại bỏ mọi margin */
+  padding: 0;         /* padding giữ như hiện tại */
+  background: transparent;
+}
+
+#recommendGrid {
+  transition: opacity 0.5s ease-in-out;
+}
+#recommendGrid.fading {
+  opacity: 0;
+}
+
+.pagination .page-link.page-number.active {
+  font-weight: 700;   /* hoặc fw-bold nếu bạn dùng utility class của Bootstrap */
+}
+
+/* Xoá border mặc định, bo pill, padding gọn */
+.pagination .page-link {
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  color: #17CFC4;
+}
+
+/* Hover nhẹ */
+.pagination .page-link:hover {
+  background-color: rgba(23,207,196,0.1);
+}
+
+/* Active page: nền chính, chữ trắng */
+.pagination .page-item .page-link.active {
+  background-color: #17CFC4;
+  color: #fff;
+}
+
+/* Disable “…” cho đồng bộ */
+.pagination .page-item.disabled .page-link {
+  background: none;
+  color: #6c757d;
+  cursor: default;
+}
+
+:root {
+  --cat-green-bg:  #D1FAE5;
+  --cat-green-txt: #047857;
+  --cat-yellow-bg: #FEF3C7;
+  --cat-yellow-txt:#92400E;
+  --cat-blue-bg:   #DBEAFE;
+  --cat-blue-txt:  #1E3A8A;
+  --cat-pink-bg:   #FCE7F3;
+  --cat-pink-txt:  #831843;
+}
+
+/* Giữ pill padding */
+.random-badge {
+  padding: 0.25rem 0.75rem !important;
+  border: none !important;
+}
+
+/* Hover lên tiêu đề khóa học: đổi màu primary và gạch chân nhẹ */
+.course-card-wrapper .card-title {
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+  cursor: pointer;
+}
+.course-card-wrapper .card-title:hover {
+  color: #17CFC4;           /* màu primary */
+  text-decoration: underline;
+}
+
+/* Hover lên phần Created by: đổi màu văn bản sang xám đậm và gạch chân */
+.course-card-wrapper .author span {
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+  cursor: pointer;
+}
+.course-card-wrapper .author span:hover {
+  color: #374151;           /* xám đậm hơn */
+  text-decoration: underline;
+}
+
+
