@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Courses</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation Bar Start -->
+  <div id="navbar-placeholder"></div>
+  <!-- Navigation Bar End -->
+
+   <!-- Courses Section -->
+<section class="py-5 bg-white">
+    <div class="custom-container" style="border: 2px solid #f3f3f3; border-radius: 12px;">
+        <div class="bg-white p-4 border-3" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);">
+        <!-- Tabs -->
+        <ul class="nav nav-pills justify-content-start mb-3" id="courseTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+            <button class="nav-link active px-4" id="ongoing-tab" data-bs-toggle="pill" data-bs-target="#ongoing" type="button" role="tab">
+                Ongoing (08)
+            </button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link px-4" id="completed-tab" data-bs-toggle="pill" data-bs-target="#completed" type="button" role="tab">
+                Completed (10)
+            </button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link px-4" id="saved-tab" data-bs-toggle="pill" data-bs-target="#saved" type="button" role="tab">
+                Saved (12)
+            </button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link px-4" id="fav-tab" data-bs-toggle="pill" data-bs-target="#favorite" type="button" role="tab">
+                Favorite (25)
+            </button>
+            </li>
+        </ul>
+    
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="ongoing" role="tabpanel">
+            <div class="row g-4" style="padding-left: 1rem;">
+                <!-- Course Card -->
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <!-- Wrapper ngoài tạo border to -->
+                    <div class="course-card-wrapper rounded-4 p-2">
+                      <!-- Card bên trong chỉ giữ shadow, bo nhẹ -->
+                      <div class="card h-100 shadow-sm border-0 rounded-3">
+                        <img src="img/hacker.jpg" class="card-img-top" alt="Full Stack Web Development">
+                        <div class="card-body d-flex flex-column">
+                          <span class="badge rounded-pill badge-dev-light mb-2 px-3 py-1">
+                            Development
+                          </span>                          
+                          <h5 class="card-title">Full Stack Web Development</h5>                         
+                          <div class="mt-auto">
+                            <div class="d-flex align-items-center mb-3">
+                                <!-- số % -->
+                                <span class="percent-text">32%</span>
+                              
+                                <!-- thanh progress -->
+                                <div class="progress flex-grow-1 rounded-pill progress-custom">
+                                  <div
+                                    class="progress-bar rounded-pill"
+                                    role="progressbar"
+                                    style="width:32%;"
+                                    aria-valuenow="32" aria-valuemin="0" aria-valuemax="100"
+                                  ></div>
+                                </div>
+                              </div>                                                                                                   
+                            <div class="d-flex align-items-center mb-3">
+                              <img src="img/instructor.jpg" width="36" height="36" class="rounded-circle" alt="Albert James">
+                              <div class="ps-2">
+                                <div class="small">Created by <strong>Albert James</strong></div>
+                                <div class="small text-warning">
+                                  <i class="fas fa-star"></i> 4.9 <span class="fw-light">(12k)</span>
+                                </div>
+                              </div>
+                            </div>
+                            <a href="#" class="btn btn-outline-primary rounded-pill w-100 py-2">
+                              Continue Watching
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>                  
+                <!-- Repeat the .col for each of your 4 courses, swapping out image src, badge text, title, progress % etc. -->
+                <!-- UI/UX Design Course -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="course-card-wrapper rounded-4 p-2">
+                        <div class="card h-100 shadow-sm border-0 rounded-3">
+                            <img src="img/course1.png" class="card-img-top" alt="UI/UX Design Course">
+                            <div class="card-body d-flex flex-column">
+                            <span class="badge rounded-pill badge-dev-light mb-2 px-3 py-1">
+                                Design
+                            </span>
+                            <h5 class="card-title">UI/UX Design Course</h5>
+                            <div class="mt-auto">
+                                <div class="d-flex align-items-center mb-3">
+                                <span class="percent-text">20%</span>
+                                <div class="progress flex-grow-1 rounded-pill progress-custom">
+                                    <div
+                                    class="progress-bar rounded-pill"
+                                    role="progressbar"
+                                    style="width:20%;"
+                                    aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
+                                    ></div>
+                                </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                <img src="img/instructor.jpg" width="36" height="36" class="rounded-circle" alt="Albert James">
+                                <div class="ps-2">
+                                    <div class="small">Created by <strong>Albert James</strong></div>
+                                    <div class="small text-warning">
+                                    <i class="fas fa-star"></i> 4.9 <span class="fw-light">(12k)</span>
+                                    </div>
+                                </div>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary rounded-pill w-100 py-2">
+                                Continue Watching
+                                </a>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>                    
+                    <!-- React Native Course -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="course-card-wrapper rounded-4 p-2">
+                        <div class="card h-100 shadow-sm border-0 rounded-3">
+                            <img src="img/course2.png" class="card-img-top" alt="React Native Course">
+                            <div class="card-body d-flex flex-column">
+                            <span class="badge rounded-pill badge-dev-light mb-2 px-3 py-1">
+                                Frontend
+                            </span>
+                            <h5 class="card-title">React Native Course</h5>
+                            <div class="mt-auto">
+                                <div class="d-flex align-items-center mb-3">
+                                <span class="percent-text">45%</span>
+                                <div class="progress flex-grow-1 rounded-pill progress-custom">
+                                    <div
+                                    class="progress-bar rounded-pill"
+                                    role="progressbar"
+                                    style="width:45%;"
+                                    aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+                                    ></div>
+                                </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                <img src="img/instructor.jpg" width="36" height="36" class="rounded-circle" alt="Albert James">
+                                <div class="ps-2">
+                                    <div class="small">Created by <strong>Albert James</strong></div>
+                                    <div class="small text-warning">
+                                    <i class="fas fa-star"></i> 4.9 <span class="fw-light">(12k)</span>
+                                    </div>
+                                </div>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary rounded-pill w-100 py-2">
+                                Continue Watching
+                                </a>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>                    
+                    <!-- SEO Expert A To Z Course -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="course-card-wrapper rounded-4 p-2">
+                        <div class="card h-100 shadow-sm border-0 rounded-3">
+                            <img src="img/course3.png" class="card-img-top" alt="SEO Expert Course">
+                            <div class="card-body d-flex flex-column">
+                            <span class="badge rounded-pill badge-dev-light mb-2 px-3 py-1">
+                                Marketing
+                            </span>
+                            <h5 class="card-title">SEO Expert A To Z Course</h5>
+                            <div class="mt-auto">
+                                <div class="d-flex align-items-center mb-3">
+                                <span class="percent-text">10%</span>
+                                <div class="progress flex-grow-1 rounded-pill progress-custom">
+                                    <div
+                                    class="progress-bar rounded-pill"
+                                    role="progressbar"
+                                    style="width:10%;"
+                                    aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"
+                                    ></div>
+                                </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                <img src="img/instructor.jpg" width="36" height="36" class="rounded-circle" alt="Albert James">
+                                <div class="ps-2">
+                                    <div class="small">Created by <strong>Albert James</strong></div>
+                                    <div class="small text-warning">
+                                    <i class="fas fa-star"></i> 4.9 <span class="fw-light">(12k)</span>
+                                    </div>
+                                </div>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary rounded-pill w-100 py-2">
+                                Continue Watching
+                                </a>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                <!-- /4 cards -->
+            </div>
+            </div>
+            <!-- You can add similar panes #completed, #saved, #favorite below -->
+        </div>
+    </div>    
+    </div>
+    <!-- Additional Courses Section -->
+<div class="custom-container" style="border: 2px solid #f3f3f3; border-radius: 12px; margin-top: 2rem;">
+    <div class="bg-white p-4 border-3" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);">
+        <!-- HEADER PHẦN ĐẦU -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <!-- Tiêu đề trái -->
+        <h4 class="mb-0">Recommended For You</h4>
+        <!-- Controls phải -->
+        <div class="d-flex align-items-center">
+          <!-- Nút Category -->
+          <button class="btn btn-outline-secondary rounded-3 me-3">
+            <i class="fas fa-th-large me-1"></i>Category
+          </button>
+          <!-- Sort by Popular -->
+          <div class="d-flex align-items-center">
+            <span class="me-2 text-muted">Sort by:</span>
+            <button class="btn btn-outline-secondary rounded-3">
+              <i class="fas fa-filter me-1"></i>Popular
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="recommendGrid" class="row g-4" style="padding-left: 1rem;">
+        <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="course-card-wrapper rounded-4 p-2">
+              <div class="card h-100 shadow-sm border-0 rounded-3 d-flex flex-column">
+                <!-- 1) Ảnh trên cùng -->
+                <img src="img/hacker.jpg" class="card-img-top rounded-3" alt="Full Stack Web Development">
+          
+                <!-- 2) Body chính -->
+                <div class="card-body">
+                    <!-- Badge & Title như cũ -->
+                    <span class="badge rounded-pill badge-dev-light mb-2 px-3 py-1">Development</span>
+                    <h5 class="card-title">Full Stack Web Development</h5>
+                  
+                    <!-- AUTHOR với underline -->
+                    <div class="author mb-3">
+                      <img src="img/instructor.jpg" width="36" height="36" class="rounded-circle me-2" alt="Albert James">
+                      <span class="small">Created by <strong>Albert James</strong></span>
+                    </div>
+                  
+                    <!-- Lesson & Hours nhỏ hơn -->
+                    <div class="lessons-hours mb-4">
+                      <i class="fas fa-video me-1"></i>24 Lessons
+                      <span class="ms-3"><i class="far fa-clock me-1"></i>40 Hours</span>
+                    </div>
+                  </div>
+                  
+                  <!-- Footer: bớt mt-auto, dùng mt-2 để đẩy lên -->
+                  <div class="card-footer bg-transparent border-0 p-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <!-- Rating -->
+                      <div class="ps-2">
+                        <i class="fas fa-star text-warning"></i>
+                        <span class="fw-bold">4.9</span>
+                        <span class="text-muted">(12k)</span>
+                      </div>
+                      <!-- Button -->
+                      <div class="pe-2">
+                        <a href="#" class="btn btn-outline-primary rounded-pill py-1 px-3">
+                          View Details
+                        </a>
+                    </div>
+                  </div>
+                </div>                  
+              </div>
+            </div>
+          </div>          
+        <!-- Course Card 2 -->
+        <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="course-card-wrapper rounded-4 p-2">
+              <div class="card h-100 shadow-sm border-0 rounded-3 d-flex flex-column">
+                <!-- 1) Ảnh trên cùng -->
+                <img src="img/course1.png" class="card-img-top rounded-3" alt="Full Stack Web Development">
+          
+                <!-- 2) Body chính -->
+                <div class="card-body">
+                    <!-- Badge & Title như cũ -->
+                    <span class="badge rounded-pill badge-dev-light mb-2 px-3 py-1">Design</span>
+                    <h5 class="card-title">Design System</h5>
+                  
+                    <!-- AUTHOR với underline -->
+                    <div class="author mb-3">
+                      <img src="img/instructor.jpg" width="36" height="36" class="rounded-circle me-2" alt="Albert James">
+                      <span class="small">Created by <strong>Albert James</strong></span>
+                    </div>
+                  
+                    <!-- Lesson & Hours nhỏ hơn -->
+                    <div class="lessons-hours mb-4">
+                      <i class="fas fa-video me-1"></i>24 Lessons
+                      <span class="ms-3"><i class="far fa-clock me-1"></i>40 Hours</span>
+                    </div>
+                  </div>
+                  
+                  <!-- Footer: bớt mt-auto, dùng mt-2 để đẩy lên -->
+                  <div class="card-footer bg-transparent border-0 p-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <!-- Rating -->
+                      <div class="ps-2">
+                        <i class="fas fa-star text-warning"></i>
+                        <span class="fw-bold">4.9</span>
+                        <span class="text-muted">(12k)</span>
+                      </div>
+                      <!-- Button -->
+                      <div class="pe-2">
+                        <a href="#" class="btn btn-outline-primary rounded-pill py-1 px-3">
+                          View Details
+                        </a>
+                    </div>
+                  </div>
+                </div>                  
+              </div>
+            </div>
+          </div>          
+        <!-- Course Card 3 -->
+        <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="course-card-wrapper rounded-4 p-2">
+              <div class="card h-100 shadow-sm border-0 rounded-3 d-flex flex-column">
+                <!-- 1) Ảnh trên cùng -->
+                <img src="img/course2.png" class="card-img-top rounded-3" alt="Full Stack Web Development">
+          
+                <!-- 2) Body chính -->
+                <div class="card-body">
+                    <!-- Badge & Title như cũ -->
+                    <span class="badge rounded-pill badge-dev-light mb-2 px-3 py-1">Frontend</span>
+                    <h5 class="card-title">React Native Courses</h5>
+                  
+                    <!-- AUTHOR với underline -->
+                    <div class="author mb-3">
+                      <img src="img/instructor.jpg" width="36" height="36" class="rounded-circle me-2" alt="Albert James">
+                      <span class="small">Created by <strong>Albert James</strong></span>
+                    </div>
+                  
+                    <!-- Lesson & Hours nhỏ hơn -->
+                    <div class="lessons-hours mb-4">
+                      <i class="fas fa-video me-1"></i>24 Lessons
+                      <span class="ms-3"><i class="far fa-clock me-1"></i>40 Hours</span>
+                    </div>
+                  </div>
+                  
+                  <!-- Footer: bớt mt-auto, dùng mt-2 để đẩy lên -->
+                  <div class="card-footer bg-transparent border-0 p-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <!-- Rating -->
+                      <div class="ps-2">
+                        <i class="fas fa-star text-warning"></i>
+                        <span class="fw-bold">4.9</span>
+                        <span class="text-muted">(12k)</span>
+                      </div>
+                      <!-- Button -->
+                      <div class="pe-2">
+                        <a href="#" class="btn btn-outline-primary rounded-pill py-1 px-3">
+                          View Details
+                        </a>
+                    </div>
+                  </div>
+                </div>                  
+              </div>
+            </div>
+          </div>          
+        <!-- Course Card 4 -->
+        <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="course-card-wrapper rounded-4 p-2">
+              <div class="card h-100 shadow-sm border-0 rounded-3 d-flex flex-column">
+                <!-- 1) Ảnh trên cùng -->
+                <img src="img/course3.png" class="card-img-top rounded-3" alt="Full Stack Web Development">
+          
+                <!-- 2) Body chính -->
+                <div class="card-body">
+                    <!-- Badge & Title như cũ -->
+                    <span class="badge rounded-pill badge-dev-light mb-2 px-3 py-1">SEO</span>
+                    <h5 class="card-title">Search Engine Optimization</h5>
+                  
+                    <!-- AUTHOR với underline -->
+                    <div class="author mb-3">
+                      <img src="img/instructor.jpg" width="36" height="36" class="rounded-circle me-2" alt="Albert James">
+                      <span class="small">Created by <strong>Albert James</strong></span>
+                    </div>
+                  
+                    <!-- Lesson & Hours nhỏ hơn -->
+                    <div class="lessons-hours mb-4">
+                      <i class="fas fa-video me-1"></i>24 Lessons
+                      <span class="ms-3"><i class="far fa-clock me-1"></i>40 Hours</span>
+                    </div>
+                  </div>
+                  
+                  <!-- Footer: bớt mt-auto, dùng mt-2 để đẩy lên -->
+                  <div class="card-footer bg-transparent border-0 p-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <!-- Rating -->
+                      <div class="ps-2">
+                        <i class="fas fa-star text-warning"></i>
+                        <span class="fw-bold">4.9</span>
+                        <span class="text-muted">(12k)</span>
+                      </div>
+                      <!-- Button -->
+                      <div class="pe-2">
+                        <a href="#" class="btn btn-outline-primary rounded-pill py-1 px-3">
+                          View Details
+                        </a>
+                    </div>
+                  </div>
+                </div>                  
+              </div>
+            </div>
+          </div>          
+        <!-- Course Card 5 -->
+        <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="course-card-wrapper rounded-4 p-2">
+              <div class="card h-100 shadow-sm border-0 rounded-3 d-flex flex-column">
+                <!-- 1) Ảnh trên cùng -->
+                <img src="img/course4.png" class="card-img-top rounded-3" alt="Full Stack Web Development">
+          
+                <!-- 2) Body chính -->
+                <div class="card-body">
+                    <!-- Badge & Title như cũ -->
+                    <span class="badge rounded-pill badge-dev-light mb-2 px-3 py-1">Development</span>
+                    <h5 class="card-title">React JS</h5>
+                  
+                    <!-- AUTHOR với underline -->
+                    <div class="author mb-3">
+                      <img src="img/instructor.jpg" width="36" height="36" class="rounded-circle me-2" alt="Albert James">
+                      <span class="small">Created by <strong>Albert James</strong></span>
+                    </div>
+                  
+                    <!-- Lesson & Hours nhỏ hơn -->
+                    <div class="lessons-hours mb-4">
+                      <i class="fas fa-video me-1"></i>24 Lessons
+                      <span class="ms-3"><i class="far fa-clock me-1"></i>40 Hours</span>
+                    </div>
+                  </div>
+                  
+                  <!-- Footer: bớt mt-auto, dùng mt-2 để đẩy lên -->
+                  <div class="card-footer bg-transparent border-0 p-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <!-- Rating -->
+                      <div class="ps-2">
+                        <i class="fas fa-star text-warning"></i>
+                        <span class="fw-bold">4.9</span>
+                        <span class="text-muted">(12k)</span>
+                      </div>
+                      <!-- Button -->
+                      <div class="pe-2">
+                        <a href="#" class="btn btn-outline-primary rounded-pill py-1 px-3">
+                          View Details
+                        </a>
+                    </div>
+                  </div>
+                </div>                  
+              </div>
+            </div>
+          </div>          
+        <!-- Course Card 6 -->
+        <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="course-card-wrapper rounded-4 p-2">
+              <div class="card h-100 shadow-sm border-0 rounded-3 d-flex flex-column">
+                <!-- 1) Ảnh trên cùng -->
+                <img src="img/course5.jpg" class="card-img-top rounded-3" alt="Full Stack Web Development">
+          
+                <!-- 2) Body chính -->
+                <div class="card-body">
+                    <!-- Badge & Title như cũ -->
+                    <span class="badge rounded-pill badge-dev-light mb-2 px-3 py-1">Codning</span>
+                    <h5 class="card-title">WordPress Development</h5>
+                  
+                    <!-- AUTHOR với underline -->
+                    <div class="author mb-3">
+                      <img src="img/instructor.jpg" width="36" height="36" class="rounded-circle me-2" alt="Albert James">
+                      <span class="small">Created by <strong>Albert James</strong></span>
+                    </div>
+                  
+                    <!-- Lesson & Hours nhỏ hơn -->
+                    <div class="lessons-hours mb-4">
+                      <i class="fas fa-video me-1"></i>24 Lessons
+                      <span class="ms-3"><i class="far fa-clock me-1"></i>40 Hours</span>
+                    </div>
+                  </div>
+                  
+                  <!-- Footer: bớt mt-auto, dùng mt-2 để đẩy lên -->
+                  <div class="card-footer bg-transparent border-0 p-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <!-- Rating -->
+                      <div class="ps-2">
+                        <i class="fas fa-star text-warning"></i>
+                        <span class="fw-bold">4.9</span>
+                        <span class="text-muted">(12k)</span>
+                      </div>
+                      <!-- Button -->
+                      <div class="pe-2">
+                        <a href="#" class="btn btn-outline-primary rounded-pill py-1 px-3">
+                          View Details
+                        </a>
+                    </div>
+                  </div>
+                </div>                  
+              </div>
+            </div>
+          </div>          
+        <!-- Course Card 7 -->
+        <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="course-card-wrapper rounded-4 p-2">
+              <div class="card h-100 shadow-sm border-0 rounded-3 d-flex flex-column">
+                <!-- 1) Ảnh trên cùng -->
+                <img src="img/course7.png" class="card-img-top rounded-3" alt="Full Stack Web Development">
+          
+                <!-- 2) Body chính -->
+                <div class="card-body">
+                    <!-- Badge & Title như cũ -->
+                    <span class="badge rounded-pill badge-dev-light mb-2 px-3 py-1">Writing</span>
+                    <h5 class="card-title">Content Writing</h5>
+                  
+                    <!-- AUTHOR với underline -->
+                    <div class="author mb-3">
+                      <img src="img/instructor.jpg" width="36" height="36" class="rounded-circle me-2" alt="Albert James">
+                      <span class="small">Created by <strong>Albert James</strong></span>
+                    </div>
+                  
+                    <!-- Lesson & Hours nhỏ hơn -->
+                    <div class="lessons-hours mb-4">
+                      <i class="fas fa-video me-1"></i>24 Lessons
+                      <span class="ms-3"><i class="far fa-clock me-1"></i>40 Hours</span>
+                    </div>
+                  </div>
+                  
+                  <!-- Footer: bớt mt-auto, dùng mt-2 để đẩy lên -->
+                  <div class="card-footer bg-transparent border-0 p-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <!-- Rating -->
+                      <div class="ps-2">
+                        <i class="fas fa-star text-warning"></i>
+                        <span class="fw-bold">4.9</span>
+                        <span class="text-muted">(12k)</span>
+                      </div>
+                      <!-- Button -->
+                      <div class="pe-2">
+                        <a href="#" class="btn btn-outline-primary rounded-pill py-1 px-3">
+                          View Details
+                        </a>
+                    </div>
+                  </div>
+                </div>                  
+              </div>
+            </div>
+          </div>          
+        <!-- Course Card 8 -->
+        <div class="col-xl-3 col-lg-4 col-md-6">
+            <div class="course-card-wrapper rounded-4 p-2">
+              <div class="card h-100 shadow-sm border-0 rounded-3 d-flex flex-column">
+                <!-- 1) Ảnh trên cùng -->
+                <img src="img/course6.jpg" class="card-img-top rounded-3" alt="Full Stack Web Development">
+          
+                <!-- 2) Body chính -->
+                <div class="card-body">
+                    <!-- Badge & Title như cũ -->
+                    <span class="badge rounded-pill badge-dev-light mb-2 px-3 py-1">AI Solution</span>
+                    <h5 class="card-title">Artificial Inteligence</h5>
+                  
+                    <!-- AUTHOR với underline -->
+                    <div class="author mb-3">
+                      <img src="img/instructor.jpg" width="36" height="36" class="rounded-circle me-2" alt="Albert James">
+                      <span class="small">Created by <strong>Albert James</strong></span>
+                    </div>
+                  
+                    <!-- Lesson & Hours nhỏ hơn -->
+                    <div class="lessons-hours mb-4">
+                      <i class="fas fa-video me-1"></i>24 Lessons
+                      <span class="ms-3"><i class="far fa-clock me-1"></i>40 Hours</span>
+                    </div>
+                  </div>
+                  
+                  <!-- Footer: bớt mt-auto, dùng mt-2 để đẩy lên -->
+                  <div class="card-footer bg-transparent border-0 p-0">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <!-- Rating -->
+                      <div class="ps-2">
+                        <i class="fas fa-star text-warning"></i>
+                        <span class="fw-bold">4.9</span>
+                        <span class="text-muted">(12k)</span>
+                      </div>
+                      <!-- Button -->
+                      <div class="pe-2">
+                        <a href="#" class="btn btn-outline-primary rounded-pill py-1 px-3">
+                          View Details
+                        </a>
+                    </div>
+                  </div>
+                </div>                  
+              </div>
+            </div>
+          </div> 
+          <!-- Pagination: chèn ngay dưới row cards -->
+      </div>
+      <nav aria-label="Course pagination" class="mt-4">
+        <!-- Pagination wrapper -->
+        <div class="d-flex justify-content-between align-items-center mt-4">
+
+            <!-- Previous button -->
+            <button id="prevPage" class="btn btn-outline-primary rounded-pill px-4">
+            <i class="bi bi-arrow-left me-1"></i> Previous
+            </button>
+        
+            <!-- Page numbers -->
+            <ul class="pagination mb-0">
+            <li class="page-item"><button class="page-link page-number">1</button></li>
+            <li class="page-item"><button class="page-link page-number">2</button></li>
+            <li class="page-item disabled"><span class="page-link">…</span></li>
+            <li class="page-item"><button class="page-link page-number">9</button></li>
+            <li class="page-item"><button class="page-link page-number">10</button></li>
+            </ul>
+        
+            <!-- Next button -->
+            <button id="nextPage" class="btn btn-outline-primary rounded-pill px-4">
+            Next <i class="bi bi-arrow-right ms-1"></i>
+            </button>
+        
+        </div>  
+      </nav>         
+    </div>
+  </div>
+  
+  </section>
+
+  <div class="custom-container">
+    <div class="bg-white shadow-sm border px-4 py-3" style="border-radius: 12px;">
+      <div class="d-flex justify-content-between align-items-center" style="font-size:0.875rem; color:#6B7280;">
+        <div>© Copyright Edmate 2024, All Right Reserved</div>
+        <div>
+          <a href="#" class="text-decoration-none text-muted me-4">License</a>
+          <a href="#" class="text-decoration-none text-muted me-4">More Themes</a>
+          <a href="#" class="text-decoration-none text-muted me-4">Documentation</a>
+          <a href="#" class="text-decoration-none text-muted">Support</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    (function() {
+      // 1) Chọn badges
+      const badges = Array.from(document.querySelectorAll('#recommendGrid .badge'));
+    
+      // 2) Tạo n màu pastel phân bổ đều hue
+      function generatePastelColors(n) {
+        const colors = [];
+        for (let i = 0; i < n; i++) {
+          // phân bổ hue đều trên vòng 360 độ
+          const hue = Math.round((360 / n) * i + Math.random() * (360 / n));
+          // pastel: thao L cao, S thấp
+          colors.push({
+            bg: `hsl(${hue}, 60%, 90%)`,
+            txt: `hsl(${hue}, 60%, 30%)`
+          });
+        }
+        return colors;
+      }
+    
+      // 3) Shuffle mảng (Fisher–Yates)
+      function shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+      }
+    
+      // 4) Áp dụng màu cho badges
+      function applyDistinctBadgeColors() {
+        const palettes = generatePastelColors(badges.length);
+        shuffle(palettes);
+        badges.forEach((badge, idx) => {
+          const { bg, txt } = palettes[idx];
+          badge.style.backgroundColor = bg;
+          badge.style.color = txt;
+          badge.style.border = 'none';
+          badge.classList.add('random-badge');
+        });
+      }
+    
+      // 5) Chạy lần đầu khi DOM sẵn sàng
+      document.addEventListener('DOMContentLoaded', applyDistinctBadgeColors);
+    
+      // 6) (Nếu bạn muốn mỗi lần shuffle cards cũng đổi màu badges)
+      //    hãy gọi applyDistinctBadgeColors() ở cuối animateShuffle()
+    })();
+    </script>    
+
+  <script>
+    // 1) Khai báo biến
+    const grid = document.getElementById('recommendGrid');
+    const cards = Array.from(grid.children);
+    const pageButtons = Array.from(document.querySelectorAll('.page-number'));
+    const prevBtn = document.getElementById('prevPage');
+    const nextBtn = document.getElementById('nextPage');
+    const maxPage = pageButtons.length;
+    let currentPage = 1;
+  
+    // 2) Hàm shuffle Fisher–Yates
+    function shuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+    }
+  
+    // 3) Hàm fade + shuffle
+    function animateShuffle() {
+      grid.classList.add('fading');
+      setTimeout(() => {
+        shuffle(cards);
+        grid.innerHTML = '';
+        cards.forEach(c => grid.appendChild(c));
+        grid.classList.remove('fading');
+      }, 500);
+    }
+  
+    // 4) Cập nhật UI pagination
+    function updatePaginationUI() {
+      // 4.1 Đánh active lên đúng nút số
+      pageButtons.forEach((btn, idx) => {
+        btn.classList.toggle('active', idx + 1 === currentPage);
+      });
+      // 4.2 Disable/enable Prev & Next
+      prevBtn.disabled = currentPage === 1;
+      nextBtn.disabled = currentPage === maxPage;
+    }
+  
+    // 5) Event listeners
+    // 5.1 Số trang
+    pageButtons.forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        currentPage = idx + 1;
+        updatePaginationUI();
+        animateShuffle();
+      });
+    });
+  
+    // 5.2 Prev
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage -= 1;
+        updatePaginationUI();
+        animateShuffle();
+      }
+    });
+  
+    // 5.3 Next
+    nextBtn.addEventListener('click', () => {
+      if (currentPage < maxPage) {
+        currentPage += 1;
+        updatePaginationUI();
+        animateShuffle();
+      }
+    });
+  
+    // 6) Khởi tạo khi load trang
+    window.addEventListener('load', () => {
+      // Shuffle lần đầu, sau đó render
+      shuffle(cards);
+      cards.forEach(c => grid.appendChild(c));
+      // Thiết lập pagination UI
+      updatePaginationUI();
+    });
+  </script>
+  
+  <script>
+    
+    // 2) Hàm shuffle Fisher–Yates
+    function shuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+    }
+    
+    // 3) Hàm fade + shuffle
+    function animateShuffle() {
+      grid.classList.add('fading');
+      setTimeout(() => {
+        shuffle(cards);
+        grid.innerHTML = '';
+        cards.forEach(c => grid.appendChild(c));
+        grid.classList.remove('fading');
+      }, 500);
+    }
+    
+    // 4) Gán event cho pagination
+    document.querySelectorAll('.page-number, #prevPage, #nextPage').forEach(btn => {
+      btn.addEventListener('click', animateShuffle);
+    });
+    
+    // 5) Initial shuffle khi load
+    window.addEventListener('load', () => {
+      shuffle(cards);
+      cards.forEach(c => grid.appendChild(c));
+    });
+    </script>    
+
+  <!-- jQuery (để sử dụng hàm load) -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!-- Bootstrap Bundle JS (bao gồm Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Các thư viện khác nếu navbar có dùng (wow, easing, waypoints, v.v.) -->
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Load navbar từ file navbar.html và update tên trang -->
+  <script>
+    $(function() {
+      $("#navbar-placeholder").load("navbar.html", function() {
+        // Nếu bạn có hàm cập nhật tên trang hiện tại
+        if (typeof updateCurrentPageName === 'function') {
+          updateCurrentPageName();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
