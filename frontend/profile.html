@@ -45,120 +45,344 @@
   <!-- Navigation Bar End -->
 
   <!-- Profile Start -->
-    <div class="profile-container">
-      <!-- Top Section -->
-      <div class="profile-header">
-        <div class="cover-image">
-          <img src="img/coverphoto.jpg" alt="Cover Image">
-          <button class="edit-cover-btn">Edit Cover</button>
-        </div>
-        <div class="profile-info">
-          <div class="avatar-container">
-            <img src="img/user_avatar.jpg" alt="User Avatar" class="avatar">
-          </div>
-          <div class="user-details">
-            <h2 class="user-name">Leo Messi</h2>
-            <div class="user-meta">
-              <span class="user-profession"><i class="fas fa-briefcase"></i> GOAT</span>
-              <span class="user-location"><i class="fas fa-map-marker-alt"></i> Rosanrio Argentina</span>
-              <span class="user-join-date"><i class="far fa-calendar-alt"></i> Join June 2024</span>
-            </div>
-          </div>
-        </div>
+  <div class="profile-container">
+    <!-- Top Section -->
+    <div class="profile-header">
+      <div class="cover-image">
+        <img src="img/coverphoto.jpg" alt="Cover Image">
+        <button class="edit-cover-btn">Edit Cover</button>
       </div>
-
-      <!-- Navigation Tabs -->
-      <div class="profile-nav">
-        <button class="nav-tab active" data-tab="my-details">My Details</button>
-        <button class="nav-tab" data-tab="password">Password</button>
-        <button class="nav-tab" data-tab="account-balance">Account Balance</button>
-      </div>
-
-      <!-- Content Sections -->
-      <div class="profile-content">
-        <!-- My Details Section -->
-        <div class="content-section active" id="my-details">
-          <h3 class="section-title">My Details</h3>
-          <p class="section-description">Please fill full details about yourself</p>
-              
-          <div class="form-container">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="first-name">First Name</label>
-                <input type="text" id="first-name" placeholder="Enter First Name" value="Leo">
-              </div>
-              <div class="form-group">
-                <label for="last-name">Last Name</label>
-                <input type="text" id="last-name" placeholder="Enter Last Name" value="Messi">
-              </div>
-            </div>
-                  
-            <div class="form-row">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Enter Email" value="leomessi@gmail.com">
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" placeholder="Enter Phone Number" value="+1 234 567 890">
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                  <label for="address">Address</label>
-                  <input type="text" id="address" placeholder="Enter Address" value="Rosanrio, Argentina">
-              </div>
-              <div class="form-group">
-                  <label for="profession">Profession</label>
-                  <input type="text" id="profession" placeholder="Enter Profession" value="GOAT">
-              </div>
-            </div>
-                  
-            <div class="form-group">
-              <label for="photo">Your Photo</label>
-              <div class="photo-upload">
-                <div class="current-photo">
-                  <img src="img/user_avatar.jpg" alt="Profile Photo">
-                </div>
-                <div class="upload-controls">
-                  <button class="upload-btn">Upload New Photo</button>
-                  <p class="upload-info">Acceptable file types: JPG, PNG. Maximum file size: 2MB</p>
-                </div>
-              </div>
-            </div>
-                  
-            <div class="form-actions">
-              <button class="save-btn">Save Changes</button>
-              <button class="cancel-btn">Cancel</button>
-            </div>
+      <div class="profile-info">
+        <div class="avatar-container">
+          <img src="img/user_avatar.jpg" alt="User Avatar" class="avatar">
+        </div>
+        <div class="user-details">
+          <h2 class="user-name">Leo Messi</h2>
+          <div class="user-meta">
+            <span class="user-profession"><i class="fas fa-briefcase"></i> GOAT</span>
+            <span class="user-location"><i class="fas fa-map-marker-alt"></i> Rosanrio Argentina</span>
+            <span class="user-join-date"><i class="far fa-calendar-alt"></i> Join June 2024</span>
           </div>
         </div>
-
-        <!-- Profile Section -->
-        <div class="content-section" id="profile">
-          <h3 class="section-title">Profile</h3>
-          <p class="section-description">Manage your public profile information</p>
-          <!-- Profile content will go here -->
-          <div class="placeholder-content">Profile settings content will be displayed here</div>
-        </div>
-
-        <!-- Password Section -->
-        <div class="content-section" id="password">
-          <h3 class="section-title">Password</h3>
-          <p class="section-description">Change your password and security settings</p>
-          <!-- Password content will go here -->
-          <div class="placeholder-content">Password settings content will be displayed here</div>
-        </div>
-
-        <!-- Account Balance Section -->
-        <div class="content-section" id="account-balance">
-          <h3 class="section-title">Account Balance</h3>
-          <p class="section-description">View and manage your account balance details</p>
-          <!-- Account Balance content will go here -->
-        <div class="placeholder-content">Account balance information will be displayed here</div>
       </div>
     </div>
+
+    <!-- Navigation Tabs -->
+    <div class="profile-nav">
+      <button class="nav-tab active" data-tab="my-details">My Details</button>
+      <button class="nav-tab" data-tab="password">Password</button>
+      <button class="nav-tab" data-tab="account-balance">Account Balance</button>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="profile-content">
+      <!-- My Details Section -->
+      <div class="content-section active" id="my-details">
+        <h3 class="section-title" style="font-weight: bold;">My Details</h3>
+        <p class="section-description">Please fill full details about yourself</p>
+            
+        <div class="form-container">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" placeholder="Enter First Name" value="Leo">
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" placeholder="Enter Last Name" value="Messi">
+            </div>
+          </div>
+                
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="Enter Email" value="leomessi@gmail.com">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="Enter Phone Number" value="+1 234 567 890">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" placeholder="Enter Address" value="Rosanrio Argentina">
+            </div>
+            <div class="form-group">
+                <label for="profession">Profession</label>
+                <input type="text" id="profession" placeholder="Enter Profession" value="GOAT">
+            </div>
+          </div>
+                
+          <div class="form-group">
+            <label for="photo">Your Photo</label>
+            <div class="photo-upload">
+              <div class="current-photo">
+                <img src="img/user_avatar.jpg" alt="Profile Photo">
+              </div>
+              <div class="upload-controls">
+                <button class="upload-btn">Upload New Photo</button>
+                <p class="upload-info">Acceptable file types: JPG, PNG. Maximum file size: 2MB</p>
+              </div>
+            </div>
+          </div>
+                
+          <div class="form-actions">
+            <button class="save-btn">Save Changes</button>
+            <button class="cancel-btn">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Password Section -->
+      <div class="content-section" id="password">
+        <h3 class="section-title" style="font-weight: bold;">Password</h3>
+        <p class="section-description">Change your password and security settings</p>
+        <!-- Password content -->
+        <div class="row gy-4">
+          <div class="col-12">
+            <label for="current-password" class="form-label mb-8 h6">Current Password</label>
+            <div class="position-relative">
+              <input type="password" class="form-control py-11" id="current-password" placeholder="Enter Current Password">
+              <span class="toggle-password position-absolute top-50 inset-inline-end-0 me-16 translate-middle-y ph ph-eye-slash" id="#current-password"></span>
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="new-password" class="form-label mb-8 h6">New Password</label>
+            <div class="position-relative">
+              <input type="password" class="form-control py-11" id="new-password" placeholder="Enter New Password">
+              <span class="toggle-password position-absolute top-50 inset-inline-end-0 me-16 translate-middle-y ph ph-eye-slash" id="#new-password"></span>
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="confirm-password" class="form-label mb-8 h6">Confirm Password</label>
+            <div class="position-relative">
+              <input type="password" class="form-control py-11" id="confirm-password" placeholder="Enter Confirm Password">
+              <span class="toggle-password position-absolute top-50 inset-inline-end-0 me-16 translate-middle-y ph ph-eye-slash" id="#confirm-password"></span>
+            </div>
+          </div>
+          <div class="col-12">
+            <label class="form-label mb-8 h6">Password Requirements:</label>
+            <ul class="list-inside">
+              <li class="text-gray-600 mb-4">At least one lowercase character</li>
+              <li class="text-gray-600 mb-4">Minimum 8 characters long - the more, the better</li>
+              <li class="text-gray-300 mb-4">At least one number, symbol, or whitespace character</li>
+              </ul>
+          </div>
+          <div class="col-12">
+            <label class="form-label mb-8 h6">Two-Step Verification</label>
+            <ul>
+              <li class="text-gray-600 mb-4 fw-semibold">Two-factor authentication is not enabled yet.</li>
+              <li class="text-gray-600 mb-4 fw-medium">Two-factor authentication adds a layer of security to your account by requiring more than just a password to log in. Learn more.</li>
+            </ul>
+            <button type="submit" class="twofactor-btn">Enable two-factor authentication</button>
+          </div>
+
+        </div>        
+        <div class="form-actions">
+          <button class="save-btn">Save Changes</button>
+          <button class="cancel-btn">Cancel</button>
+          </div>
+      </div>
+
+      <!-- Account Balance Section -->
+      <div class="content-section" id="account-balance">
+        <h3 class="section-title" style="font-weight: bold;">Account Balance</h3>
+        <p class="section-description">View and manage your account balance details</p>
+        
+        <!-- Payment Method Section -->
+        <div class="billing-section">
+          <div class="billing-box">
+            <div class="billing-box-header">
+              <div>
+                <h4>Payment Method</h4>
+                <p class="billing-subheader">Update your billing details and address</p>
+              </div>
+            </div>
+            
+            <div class="billing-section">
+              <div class="billing-grid">
+                <!-- Email Options Box -->
+                <div class="billing-payment-box">
+                  <div class="billing-payment-title">Contact Email</div>
+                  
+                  <!-- First Email Option -->
+                  <div class="billing-email-option inactive" onclick="selectEmailOption(this)">
+                    <div>
+                      <div>Send to my email account</div>
+                      <div class="billing-info-text">leomessi@mail.com</div>
+                    </div>
+                    <input type="radio" name="email-option" class="billing-radio">
+                  </div>
+                  
+                  <!-- Second Email Option (Active) -->
+                  <div class="billing-email-option active" onclick="selectEmailOption(this)">
+                    <div>
+                      <div>Send to an alternative email</div>
+                    </div>
+                    <input type="radio" name="email-option" class="billing-radio" checked>
+                  </div>
+                  
+                  <!-- Email Input -->
+                  <input type="email" class="billing-email-input" value="lionelmessigoat@mail.com">
+                </div>
+                
+                <!-- Card Details Box -->
+                <div class="billing-payment-box">
+                  <div class="billing-payment-title">
+                    Card Details
+                    <button class="billing-btn billing-btn-secondary">Add New Card</button>
+                  </div>
+                  
+                  <!-- First Card Option -->
+                  <div class="billing-card-option inactive" onclick="selectCardOption(this)">
+                    <div class="billing-card-details">
+                      <div class="billing-card-logo">
+                        VISA
+                      </div>
+                      <div class="billing-card-info">
+                        <div class="billing-card-name">Visa **** **** 5890</div>
+                        <div class="billing-info-text">Up to 60 User and 100GB team data</div>
+                      </div>
+                    </div>
+                    <input type="radio" name="card-option" class="billing-radio">
+                  </div>
+                  
+                  <!-- Second Card Option (Active) -->
+                  <div class="billing-card-option active" onclick="selectCardOption(this)">
+                    <div class="billing-card-details">
+                      <div class="billing-card-logo">
+                        MC
+                      </div>
+                      <div class="billing-card-info">
+                        <div class="billing-card-name">Mastercard **** **** 1895</div>
+                        <div class="billing-info-text">Up to 60 User and 100GB team data</div>
+                      </div>
+                    </div>
+                    <input type="radio" name="card-option" class="billing-radio" checked>
+                  </div>
+                  
+                  <!-- Default Card Settings -->
+                  <div style="margin-top: 10px; padding-left: 5px;">
+                    <span class="default-text">Set as default</span>
+                    <a href="#" class="edit-link">Edit</a>
+                  </div>
+                </div>
+              </div>
+          </div>
+      
+          <!-- Billing History Section -->
+          <div class="billing-box">
+            <div class="billing-box-header">
+              <div>
+                <h4>Billing History</h4>
+                <p class="billing-subheader">See the transaction you made</p>
+              </div>
+              <div class="billing-action-buttons">
+                <button class="billing-btn billing-btn-secondary">Add Filter</button>
+                <button class="billing-btn billing-btn-primary">Download All</button>
+              </div>
+            </div>
+            
+            <div class="billing-table-container">
+              <table class="billing-table">
+                <thead>
+                  <tr>
+                    <th>Invoices <span class="billing-sort-icon">↑↓</span></th>
+                    <th>Amount <span class="billing-sort-icon">↑↓</span></th>
+                    <th>Dates <span class="billing-sort-icon">↑↓</span></th>
+                    <th>Status <span class="billing-sort-icon">↑↓</span></th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="billing-invoice-item">
+                        <div class="billing-logo billing-logo-design-system">DS</div>
+                        <div class="billing-invoice-details">
+                          <div>Design System</div>
+                          <div class="billing-invoice-id">Edmate - #012500</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>$250</td>
+                    <td>06/22/2024</td>
+                    <td><span class="billing-status-badge billing-status-unpaid">Unpaid</span></td>
+                    <td><button class="billing-download-btn">Download</button></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="billing-invoice-item">
+                        <div class="billing-logo billing-logo-marketing">DM</div>
+                        <div class="billing-invoice-details">
+                          <div>Digital Marketing</div>
+                          <div class="billing-invoice-id">Edmate - #012500</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>$186</td>
+                    <td>06/22/2024</td>
+                    <td><span class="billing-status-badge billing-status-paid">Paid</span></td>
+                    <td><button class="billing-download-btn">Download</button></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="billing-invoice-item">
+                        <div class="billing-logo billing-logo-accessibility">DA</div>
+                        <div class="billing-invoice-details">
+                          <div>Design Accessibility</div>
+                          <div class="billing-invoice-id">Edmate - #012500</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>$180</td>
+                    <td>06/22/2024</td>
+                    <td><span class="billing-status-badge billing-status-paid">Paid</span></td>
+                    <td><button class="billing-download-btn">Download</button></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="billing-invoice-item">
+                        <div class="billing-logo billing-logo-usability">DU</div>
+                        <div class="billing-invoice-details">
+                          <div>Design Usability</div>
+                          <div class="billing-invoice-id">Edmate - #012500</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>$132</td>
+                    <td>06/22/2024</td>
+                    <td><span class="billing-status-badge billing-status-unpaid">Unpaid</span></td>
+                    <td><button class="billing-download-btn">Download</button></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="billing-invoice-item">
+                        <div class="billing-logo billing-logo-frontend">FD</div>
+                        <div class="billing-invoice-details">
+                          <div>Frontend Develop</div>
+                          <div class="billing-invoice-id">Edmate - #012500</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>$128</td>
+                    <td>06/22/2024</td>
+                    <td><span class="billing-status-badge billing-status-paid">Paid</span></td>
+                    <td><button class="billing-download-btn">Download</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="billing-bottom-actions">
+              <button class="billing-btn billing-btn-secondary">Cancel</button>
+              <button class="billing-btn billing-btn-primary">Save Changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
   <!-- Profile End -->
 
@@ -179,6 +403,40 @@
           });
       });
   </script>
+
+<script>
+  // Function to handle email option selection
+  function selectEmailOption(element) {
+    // Remove active class from all email options
+    const emailOptions = document.querySelectorAll('.billing-email-option');
+    emailOptions.forEach(option => {
+      option.classList.remove('active');
+      option.classList.add('inactive');
+      option.querySelector('input[type="radio"]').checked = false;
+    });
+    
+    // Add active class to clicked option
+    element.classList.remove('inactive');
+    element.classList.add('active');
+    element.querySelector('input[type="radio"]').checked = true;
+  }
+  
+  // Function to handle card option selection
+  function selectCardOption(element) {
+    // Remove active class from all card options
+    const cardOptions = document.querySelectorAll('.billing-card-option');
+    cardOptions.forEach(option => {
+      option.classList.remove('active');
+      option.classList.add('inactive');
+      option.querySelector('input[type="radio"]').checked = false;
+    });
+    
+    // Add active class to clicked option
+    element.classList.remove('inactive');
+    element.classList.add('active');
+    element.querySelector('input[type="radio"]').checked = true;
+  }
+</script>
 
   <script>
     document.querySelectorAll('.donut-container .ring').forEach(ring => {
