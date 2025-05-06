@@ -18,8 +18,9 @@ import { CourseModule } from './course/course.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      autoLoadEntities: true,
       synchronize: true,
+      logging: true
     }),
     UserModule,
     CourseModule
