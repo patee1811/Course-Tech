@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate of Appreciation</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f0f0f0;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .certificate {
+      position: relative;
+      width: 900px;
+      height: 600px;
+      background: #fff;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+      padding: 40px;
+      border: 8px solid #b8860b;
+      box-sizing: border-box;
+    }
+    /* Corner decorations */
+    .certificate::before,
+    .certificate::after {
+      content: '';
+      position: absolute;
+      background: #172e3d;
+    }
+    .certificate::before {
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 20px;
+    }
+    .certificate::after {
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 200px;
+    }
+    .certificate .corner-right-top,
+    .certificate .corner-left-bottom {
+      position: absolute;
+      background: #b8860b;
+    }
+    .certificate .corner-right-top {
+      top: 0;
+      right: 0;
+      width: 20px;
+      height: 150px;
+    }
+    .certificate .corner-right-top::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 150px;
+      height: 20px;
+      background: #b8860b;
+    }
+    .certificate .corner-left-bottom {
+      bottom: 0;
+      left: 0;
+      width: 20px;
+      height: 150px;
+    }
+    .certificate .corner-left-bottom::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 150px;
+      height: 20px;
+      background: #b8860b;
+    }
+    /* Title styling */
+    .certificate h1.title {
+      margin: 0;
+      font-size: 48px;
+      text-align: center;
+      font-weight: 700;
+    }
+    .certificate h2.subtitle {
+      margin: 5px 0 40px;
+      font-size: 24px;
+      text-align: center;
+      font-weight: 400;
+      color: #555;
+    }
+    .certificate p.present {
+      font-size: 18px;
+      text-align: center;
+      margin: 0;
+    }
+    .certificate h1.name {
+      font-family: 'Great Vibes', cursive;
+      font-size: 64px;
+      text-align: center;
+      margin: 10px 0 30px;
+    }
+    .certificate p.description {
+      font-size: 16px;
+      text-align: center;
+      margin: 0 80px 50px;
+      color: #333;
+    }
+    /* Seal */
+    .certificate .seal {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle at center, #ffd700 40%, #e6ac00 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    /* Signatures */
+    .signatures {
+      position: absolute;
+      bottom: 40px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 60px;
+      box-sizing: border-box;
+    }
+    .sign {
+      text-align: center;
+    }
+    .sign .name {
+      margin: 5px 0 0;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .sign .title {
+      font-size: 14px;
+      color: #555;
+      margin: 0;
+    }
+    .sign .line {
+      width: 120px;
+      height: 2px;
+      background: #000;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="certificate">
+    <div class="corner-right-top"></div>
+    <div class="corner-left-bottom"></div>
+    <h1 class="title">CERTIFICATE</h1>
+    <h2 class="subtitle">Of Appreciation</h2>
+    <p class="present">This certificate is presented to</p>
+    <h1 class="name">VDDung</h1>
+    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <div class="seal"></div>
+    <div class="signatures">
+      <div class="sign">
+        <div class="line"></div>
+        <p class="name">VDDung</p>
+        <p class="title">REPRESENTATIVE</p>
+      </div>
+      <div class="sign">
+        <div class="line"></div>
+        <p class="name">VDDung</p>
+        <p class="title">REPRESENTATIVE</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
