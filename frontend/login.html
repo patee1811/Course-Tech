@@ -87,7 +87,7 @@
                                 <label for="password">Password</label>
                             </div>
                             <div class="d-flex justify-content-between">
-                                <a href="#">Forgot Password?</a>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#resetPasswordModal" style="font-size: .9rem;">Forgot Password?</a>
                                 <button type="submit" class="btn btn-primary" style="background-color: #06BBCC;">Login</button>
                             </div>
                         </form>
@@ -115,6 +115,116 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
+    <!-- Forgot Password Modal -->
+    <div class="modal fade" id="resetPasswordModal" tabindex="-1" aria-hidden="true">
+        <!-- Thêm d-flex justify-content-center để canh giữa ngang -->
+        <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
+        <!-- Đặt width:100% cho thẻ này để nó không tự co lại quá nhỏ -->
+        <div class="modal-content p-4" style="max-width: 360px; width:100%; border-radius: .5rem;">
+            
+            <!-- Close button -->
+            <div class="modal-header border-0 p-0">
+            <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <!-- Body -->
+            <div class="modal-body text-center">
+            <i class="fa fa-lock fa-3x text-danger mb-3"></i>
+            <h5 class="fw-medium mb-4">Forgot Password</h5>
+            <form id="emailResetForm">
+                <div class="form-floating mb-3">
+                <input type="email"
+                        class="form-control"
+                        id="emailForReset"
+                        placeholder="Enter your email"
+                        required>
+                <label for="emailForReset">Enter Your Email</label>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Send</button>
+            </form>
+            </div>
+            
+        </div>
+        </div>
+    </div>
+  
+    <!-- Code Submit Modal -->
+    <div class="modal fade" id="codeSubmitModal" tabindex="-1" aria-hidden="true">
+        <!-- Thêm d-flex justify-content-center để canh giữa ngang -->
+        <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
+        <!-- Đặt width:100% cho thẻ này để nó không tự co lại quá nhỏ -->
+        <div class="modal-content p-4" style="max-width: 360px; width:100%; border-radius: .5rem;">
+            
+            <!-- Close button -->
+            <div class="modal-header border-0 p-0">
+            <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <!-- Body -->
+            <div class="modal-body text-center">
+            <i class="fa fa-lock fa-3x text-danger mb-3"></i>
+            <h5 class="fw-medium mb-4">Verify Your Email</h5>
+            <form id="codeSubmitForm">
+                <div class="form-floating mb-3">
+                <input type="number"
+                        class="form-control"
+                        id="codeForReset"
+                        placeholder="Enter your code"
+                        required>
+                <label for="codeForReset">Enter Your Code</label>
+                </div>
+                <button type="button" class="btn btn-primary w-100" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#newPasswordModal">Submit</button>
+            </form>
+            </div>
+            
+        </div>
+        </div>
+    </div>
+
+    <!-- New Password Modal -->
+    <div class="modal fade" id="newPasswordModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
+        <div class="modal-content p-4" style="max-width:360px; width:100%; border-radius:.5rem;">
+            
+            <!-- Close button -->
+            <div class="modal-header border-0 p-0">
+            <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <!-- Body -->
+            <div class="modal-body text-center">
+            <i class="fa fa-key fa-3x text-success mb-3"></i>
+            <h5 class="fw-medium mb-4">Enter Your New Password</h5>
+            
+            <form id="newPasswordForm" action="/api/reset-password" method="POST">
+                <div class="form-floating mb-3">
+                <input type="password"
+                        class="form-control"
+                        id="newPasswordInput"
+                        name="newPassword"
+                        placeholder="New Password"
+                        required>
+                <label for="newPasswordInput">New Password</label>
+                </div>
+                <div class="form-floating mb-3">
+                <input type="password"
+                        class="form-control"
+                        id="confirmNewPasswordInput"
+                        name="confirmNewPassword"
+                        placeholder="Confirm Password"
+                        required>
+                <label for="confirmNewPasswordInput">Confirm Password</label>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">
+                Reset Password
+                </button>
+            </form>
+            </div>
+            
+        </div>
+        </div>
+    </div>
+  
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 
@@ -151,7 +261,40 @@
             alert("Something went wrong. Please try again.");
           }
         });
-      </script>
+    </script>
+
+    <script>
+    // 1. Khi ấn Send ở modal “Forgot Password”
+    document
+    .getElementById('emailResetForm')
+    .addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // TODO: Gọi API gửi code đến email ở đây
+        // Ví dụ: fetch('/api/send-code', { method: 'POST', body: { email: ... } })
+        
+        // Ẩn modal Forgot Password
+        const forgotModalEl = document.getElementById('resetPasswordModal');
+        bootstrap.Modal.getInstance(forgotModalEl).hide();
+        
+        // Hiện modal Verify Code
+        const codeModal = new bootstrap.Modal(
+        document.getElementById('codeSubmitModal')
+        );
+        codeModal.show();
+    });
+
+    // 2. (Tuỳ) Xử lý submit code
+    document
+    .getElementById('codeSubmitForm')
+    .addEventListener('submit', function(e) {
+        e.preventDefault();
+        const code = document.getElementById('codeForReset').value;
+        
+        // TODO: Gọi API verify code ở đây
+        // nếu OK thì redirect / show form đổi password mới
+    });
+    </script>
          
     <!-- load footer --> 
     <script>
