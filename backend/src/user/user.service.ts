@@ -1,20 +1,23 @@
-import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import { ConflictException, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { JwtService } from '@nestjs/jwt';
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UserService {
   constructor (
     @InjectRepository(User)
     private userRepository: Repository<User>,
+    private jwtService: JwtService,
   ) {}
 
   async createUser(createUserDto: CreateUserDto): Promise<User> {
-    const existingUser = await this.findByUsername(createUserDto.username);
+    const existingUser = await this.findByEmail(createUserDto.email);
     if (existingUser) {
-      throw new ConflictException('Username already taken');
+      throw new ConflictException('This email has already been used.');
     }
     const user = this.userRepository.create(createUserDto);
     return this.userRepository.save(user);
@@ -32,10 +35,26 @@ export class UserService {
     return user;
   }
 
-  async findByUsername(username: string): Promise<User | null> {
-    return this.userRepository.findOne({ where: { username } });
+  async findByEmail(email: string): Promise<User | null> {
+    return this.userRepository.findOne({ where: { email } });
   }
 
+  async login(email: string, password: string) {
+    const user = await this.userRepository.findOne({
+      where: [
+        { email: email }
+      ]
+    });
+
+    if (!user || !(await bcrypt.compare(password, user.password))) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+
+    const payload = { sub: user.id, username: user.email, role: user.role };
+    const token = this.jwtService.sign(payload);
+
+    return { access_token: token };
+  }
 
   async updateUser(id: number, updateUserDto: Partial<CreateUserDto>): Promise<User> {
      const user = await this.findOneUser(id);

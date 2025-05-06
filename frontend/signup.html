@@ -164,37 +164,75 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const password = document.getElementById('password');
-            const confirm = document.getElementById('confirm-password');
-        
-            confirm.addEventListener('input', function () {
-                if (confirm.value === '') {
-                    confirm.classList.remove('warning');
-                } else if (confirm.value !== password.value) {
-                    confirm.classList.add('warning');
-                } else {
-                    confirm.classList.remove('warning');
-                }
-            });
-
-            password.addEventListener('input', function () {
-                if (confirm.value !== '') {
-                    if (confirm.value !== password.value) {
-                        confirm.classList.add('warning');
-                    } else {
-                        confirm.classList.remove('warning');
-                    }
-                }
-            });
+          const password = document.getElementById('password');
+          const confirm = document.getElementById('confirm-password');
+      
+          confirm.addEventListener('input', function () {
+            if (confirm.value === '') {
+              confirm.classList.remove('warning');
+            } else if (confirm.value !== password.value) {
+              confirm.classList.add('warning');
+            } else {
+              confirm.classList.remove('warning');
+            }
+          });
+      
+          password.addEventListener('input', function () {
+            if (confirm.value !== '') {
+              if (confirm.value !== password.value) {
+                confirm.classList.add('warning');
+              } else {
+                confirm.classList.remove('warning');
+              }
+            }
+          });
+      
+          document.getElementById('signupForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+      
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const roleValue = document.getElementById('role').value;
+            const role = roleValue === '1' ? 'student' : 'teacher';
+      
+            if (password !== confirmPassword) {
+              alert("Passwords do not match!");
+              return;
+            }
+      
+            const user = {
+              username,
+              password,
+              email,
+              role
+            };
+      
+            try {
+              const response = await fetch('http://localhost:3003/user/signup/', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+              });
+      
+              const result = await response.json();
+      
+              if (response.ok) {
+                alert("Signup successful! Redirecting to login...");
+                window.location.href = 'login.html';
+              } else {
+                alert("Signup failed: " + (result.message || "Unknown error"));
+              }
+            } catch (err) {
+              console.error("Signup error:", err);
+              alert("Could not connect to the server.");
+            }
+          });
         });
-        </script>      
-        
-        <!-- load footer --> 
-        <script>
-            $(function() {
-                $("#footer-placeholder").load("footer.html");
-            });
-        </script>     
+      </script>         
 
 </body>
 

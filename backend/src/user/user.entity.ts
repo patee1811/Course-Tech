@@ -1,36 +1,44 @@
-import { Entity, Column, PrimaryGeneratedColumn, BeforeInsert, OneToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { Course } from '../course/course.entity';
-import * as bcrypt from 'bcrypt';
+import { Enrollment } from '../course/enrollment.entity';
+
+export enum UserRole {
+  STUDENT = 'student',
+  TEACHER = 'teacher',
+}
 
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  username: string
+  @Column({ unique: true })
+  email: string;
 
   @Column()
-  password: string
-
-  @Column()
-  email: string
-
-  @Column({ nullable: true })
   firstName: string;
 
-  @Column({ nullable: true })
+  @Column()
   lastName: string;
 
+  @Column()
+  password: string;
+
+  @Column({ type: 'enum', enum: UserRole })
+  role: UserRole;
+
+  @Column({ nullable: true })
+  avatar_url: string;
+
+  @Column({ default: 0 })
+  completed_courses_count: number;
+
+  @Column({ default: 0 })
+  certificates_count: number;
+
   @OneToMany(() => Course, course => course.teacher)
-  courses: Course[];
+  teachingCourses: Course[];
 
-
-  @BeforeInsert()
-  async hashPassword() {
-    if (this.password) {
-      const saltRounds = 10;
-      this.password = await bcrypt.hash(this.password, saltRounds);
-    }
-  }
-} 
+  @OneToMany(() => Enrollment, enrollment => enrollment.user)
+  enrollments: Enrollment[];
+}
