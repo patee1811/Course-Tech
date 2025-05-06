@@ -38,8 +38,8 @@
             <thead class="table-light">
               <tr>
                 <th scope="col" style="width: 60px;">#</th>
-                <th scope="col">Tên tài khoản</th>
-                <th scope="col" style="width: 120px;">Quốc gia</th>
+                <th scope="col">Account</th>
+                <th scope="col" style="width: 120px;">Country</th>
                 <th scope="col" style="width: 100px;">EXP</th>
               </tr>
             </thead>
@@ -67,78 +67,59 @@
       
       <!-- Script để sinh mẫu rows -->
       <script>
-        const NUM_ROWS = 100;
-        const tbody = document.getElementById('leaderboard-body');
-      
-        // Mảng dữ liệu mỗi quốc gia kèm danh sách tên đặc trưng
-        const countryData = [
-          {
-            country: 'Vietnam',
-            names: ['Lê Minh Anh', 'Trần Thị Bích', 'Phạm Quốc Duy', 'Nguyễn Hoàng Long']
-          },
-          {
-            country: 'United States',
-            names: ['James Smith', 'Mary Johnson', 'John Williams', 'Patricia Brown']
-          },
-          {
-            country: 'Japan',
-            names: ['Satoshi Nakamura', 'Yuki Tanaka', 'Haruto Suzuki', 'Yui Yamamoto']
-          },
-          {
-            country: 'Singapore',
-            names: ['Wei Jie Lim', 'Xiu Ying Tan', 'Kai Wen Ng', 'Li Na Ong']
-          },
-          {
-            country: 'South Korea',
-            names: ['Kim Min-Jun', 'Park Ji-Yeon', 'Lee Joon Ho', 'Choi Soo-Yeon']
-          },
-          {
-            country: 'Germany',
-            names: ['Hans Müller', 'Maria Schmidt', 'Peter Weber', 'Sabine Fischer']
-          },
-          {
-            country: 'France',
-            names: ['Jean Dupont', 'Marie Martin', 'Paul Bernard', 'Sophie Lefevre']
-          },
-          {
-            country: 'United Kingdom',
-            names: ['Oliver Jones', 'Olivia Taylor', 'William Davies', 'Emily Wilson']
-          }
-        ];
-      
-        for (let i = 1; i <= NUM_ROWS; i++) {
-          // Chọn phần tử quốc gia theo vòng
-          const data = countryData[(i - 1) % countryData.length];
-          const country = data.country;
+        document.addEventListener('DOMContentLoaded', function() {
+          const NUM_ROWS = 100;
+          const tbody    = document.getElementById('leaderboard-body');
           
-          // Chọn tên trong list của quốc gia, cũng theo vòng để không lặp liên tục
-          const names = data.names;
-          const name   = names[((i - 1) / countryData.length | 0) % names.length];
-      
-          // Avatar đại diện (có thể bỏ nếu không cần)
-          const avatar = 'img/instructor.jpg'
-      
-          const exp = Math.floor(Math.random() * 9000) + 1000;
-      
-          const tr = document.createElement('tr');
-          tr.innerHTML = `
-            <th scope="row">${i}</th>
+          // 1) Định nghĩa đầy đủ countryData
+          const countryData = [
+            { country: 'Vietnam',        names: ['Lê Minh Anh','Trần Thị Bích','Phạm Quốc Duy','Nguyễn Hoàng Long'] },
+            { country: 'United States',  names: ['James Smith','Mary Johnson','John Williams','Patricia Brown'] },
+            { country: 'Japan',          names: ['Satoshi Nakamura','Yuki Tanaka','Haruto Suzuki','Yui Yamamoto'] },
+            { country: 'Singapore',      names: ['Wei Jie Lim','Xiu Ying Tan','Kai Wen Ng','Li Na Ong'] },
+            { country: 'South Korea',    names: ['Kim Min-Jun','Park Ji-Yeon','Lee Joon Ho','Choi Soo-Yeon'] },
+            { country: 'Germany',        names: ['Hans Müller','Maria Schmidt','Peter Weber','Sabine Fischer'] },
+            { country: 'France',         names: ['Jean Dupont','Marie Martin','Paul Bernard','Sophie Lefevre'] },
+            { country: 'United Kingdom', names: ['Oliver Jones','Olivia Taylor','William Davies','Emily Wilson'] }
+          ];
+        
+          // 2) Tạo mảng records
+          const records = [];
+          for (let i = 1; i <= NUM_ROWS; i++) {
+            const data    = countryData[(i - 1) % countryData.length];
+            const name    = data.names[((i - 1) / countryData.length | 0) % data.names.length];
+            const exp     = Math.floor(Math.random() * 9000) + 1000;
+            const avatar  = 'img/instructor.jpg';
+            records.push({ name, country: data.country, avatar, exp });
+          }
+        
+          // 3) Sort giảm dần theo exp
+          records.sort((a, b) => b.exp - a.exp);
+        
+          // 4) Clear cũ, append lại
+          tbody.innerHTML = '';
+          records.forEach((rec, idx) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+            <th scope="row">${idx + 1}</th>
             <td>
-              ${avatar
-                ? `<img src="${avatar}" class="rounded-circle me-2" width="32" height="32">`
-                : `<div class="bg-secondary rounded-circle d-inline-block me-2" style="width:32px; height:32px"></div>`
-              }
-              ${name}
+              <a href="userview.html" class="d-flex align-items-center account-link">
+                <img src="${rec.avatar}" class="rounded-circle me-2" width="32" height="32">
+                <span>${rec.name}</span>
+              </a>
             </td>
-            <td>${country}</td>
-            <td>${exp.toLocaleString()}</td>
-          `;
-          tbody.appendChild(tr);
-        }
-      
-        document.getElementById('status-text').textContent =
-          `Hiển thị 1–${NUM_ROWS} của ${NUM_ROWS} bản ghi`;
-      </script>
+            <td>${rec.country}</td>
+            <td>${rec.exp.toLocaleString()}</td>
+            `;
+            tbody.appendChild(tr);
+          });
+        
+          // 5) Update status text
+          document.getElementById('status-text').textContent =
+            `Hiển thị 1–${records.length} của ${records.length} bản ghi`;
+        });
+        </script>
+        
       
       
     
@@ -154,10 +135,6 @@
           });
         });
       </script>
-
-
-
-
 
     <!-- jQuery (để sử dụng hàm load) -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
