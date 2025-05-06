@@ -1587,7 +1587,8 @@
       flex-direction: column;
       align-items: flex-start;
   }
-}/* Profile Page Specific Styles - Namespaced to avoid conflicts */
+}
+
 .profile-container {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 20px auto;
@@ -1812,7 +1813,8 @@
 }
 
 .profile-container .upload-btn {
-  background-color: #f1f1f1;
+  background-color: #3498db;
+  color: white;
   border: none;
   padding: 10px 15px;
   border-radius: 5px;
@@ -1823,7 +1825,7 @@
 }
 
 .profile-container .upload-btn:hover {
-  background-color: #e1e1e1;
+  background-color: #2980b9;
 }
 
 .profile-container .upload-info {
@@ -1835,6 +1837,9 @@
   margin-top: 30px;
   display: flex;
   gap: 15px;
+  justify-self: flex-end;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .profile-container .save-btn {
@@ -1867,6 +1872,21 @@
   background-color: #e1e1e1;
 }
 
+.profile-container .twofactor-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.profile-container .twofactor-btn:hover {
+  background-color: #2980b9;
+}
+
 .profile-container .placeholder-content {
   padding: 40px;
   background-color: #f9f9f9;
@@ -1876,62 +1896,380 @@
   font-style: italic;
 }
 
-/* Message Styles */
-.profile-container .message-container {
+/* Billing Section */
+.billing-section {
+  width: 100%;
+}
+
+.billing-box {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  overflow: hidden;
 }
 
-.profile-container .message {
-  padding: 12px 20px;
-  border-radius: 5px;
-  position: relative;
-  margin-bottom: 10px;
-  animation: fadeIn 0.3s ease;
+.billing-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.profile-container .message.success {
-  background-color: #d4edda;
-  color: #155724;
-  border-left: 4px solid #28a745;
-}
-
-.profile-container .message.info {
-  background-color: #d1ecf1;
-  color: #0c5460;
-  border-left: 4px solid #17a2b8;
-}
-
-.profile-container .message.error {
-  background-color: #f8d7da;
-  color: #721c24;
-  border-left: 4px solid #dc3545;
-}
-
-.profile-container .message-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
+.billing-box-header h4 {
   font-size: 18px;
-  opacity: 0.6;
+  font-weight: 600;
+  margin-bottom: 5px;
 }
 
-.profile-container .message-close:hover {
-  opacity: 1;
+.billing-subheader {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
 }
 
-.profile-container .save-btn:disabled {
-  background-color: #b3b3b3;
-  cursor: not-allowed;
+.billing-action-buttons {
+  display: flex;
+  gap: 10px;
 }
 
-.profile-container .save-btn.active {
-  background-color: #3498db;
+.billing-btn {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.billing-btn:active {
+  transform: scale(0.98);
+}
+
+.billing-btn-primary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.billing-btn-primary:hover {
+  background-color: #2563eb;
+}
+
+.billing-btn-secondary {
+  background-color: #e2e8f0;
+  color: #4b5563;
+}
+
+.billing-btn-secondary:hover {
+  background-color: #d1d5db;
+}
+
+/* Payment Section */
+.billing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .billing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.billing-payment-box {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.billing-payment-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Email options styling */
+.billing-email-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f5f9;
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.billing-email-option:hover {
+  background-color: #e2e8f0;
+}
+
+.billing-email-option:active {
+  transform: scale(0.99);
+}
+
+.billing-email-option.inactive {
+  background-color: #f1f5f9;
+}
+
+.billing-email-option.active {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.billing-radio {
+  width: 20px;
+  height: 20px;
+  accent-color: #3b82f6;
+  cursor: pointer;
+}
+
+/* Card options styling */
+.billing-card-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f5f9;
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.billing-card-option:hover {
+  background-color: #e2e8f0;
+}
+
+.billing-card-option:active {
+  transform: scale(0.99);
+}
+
+.billing-card-option.inactive {
+  background-color: #f1f5f9;
+}
+
+.billing-card-option.active {
+  background-color: #6366f1;
+  color: white;
+}
+
+.billing-card-details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.billing-card-logo {
+  width: 40px;
+  height: 30px;
+  background-color: white;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.billing-card-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.billing-card-name {
+  font-weight: 500;
+}
+
+.billing-info-text {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.billing-email-option.active .billing-info-text {
+  color: #e2e8f0;
+}
+
+.billing-card-option.active .billing-info-text {
+  color: #c7d2fe;
+}
+
+.billing-email-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+/* Extra styling for edit link and default text */
+.edit-link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.edit-link:hover {
+  text-decoration: underline;
+}
+
+.default-text {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Table Styles */
+.billing-table-container {
+  overflow-x: auto;
+}
+
+.billing-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.billing-table th {
+  padding: 12px 20px;
+  font-weight: 500;
+  color: #6b7280;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.billing-table th:hover {
+  background-color: #f8fafc;
+}
+
+.billing-table th:active {
+  background-color: #f1f5f9;
+}
+
+.billing-table td {
+  padding: 16px 20px;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.billing-sort-icon {
+  margin-left: 4px;
+  color: #d1d5db;
+  display: inline-block;
+  transition: color 0.2s;
+}
+
+.billing-table th[data-sort="asc"] .billing-sort-icon,
+.billing-table th[data-sort="desc"] .billing-sort-icon {
+  color: #3b82f6;
+}
+
+.billing-invoice-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.billing-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 12px;
+  color: #4b5563;
+}
+
+.billing-logo-design-system {
+  background-color: #fef3c7;
+}
+
+.billing-logo-marketing {
+  background-color: #e0f2fe;
+}
+
+.billing-logo-accessibility {
+  background-color: #f3e8ff;
+}
+
+.billing-logo-usability {
+  background-color: #ffedd5;
+}
+
+.billing-logo-frontend {
+  background-color: #dcfce7;
+}
+
+.billing-invoice-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.billing-invoice-id {
+  color: #6b7280;
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.billing-status-badge {
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.billing-status-paid {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.billing-status-unpaid {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.billing-download-btn {
+  padding: 6px 16px;
+  background-color: #e2e8f0;
+  color: #4b5563;
+  border: none;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.billing-download-btn:hover {
+  background-color: #d1d5db;
+}
+
+.billing-download-btn:active {
+  transform: scale(0.98);
+}
+
+.billing-bottom-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 20px;
+  gap: 10px;
+  border-top: 1px solid #eee;
 }
 
 .course-card-wrapper {

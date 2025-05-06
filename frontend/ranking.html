@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Courses</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar Start -->
+    <div id="navbar-placeholder"></div>
+    <!-- Navigation Bar End -->
+
+
+
+    <div class="container my-5">    
+        <!-- Table -->
+        <div class="table-responsive">
+          <table class="table table-hover align-middle">
+            <thead class="table-light">
+              <tr>
+                <th scope="col" style="width: 60px;">#</th>
+                <th scope="col">Tên tài khoản</th>
+                <th scope="col" style="width: 120px;">Quốc gia</th>
+                <th scope="col" style="width: 100px;">EXP</th>
+              </tr>
+            </thead>
+            <!-- Chỉ để trống tbody, JS sẽ render -->
+            <tbody id="leaderboard-body"></tbody>
+          </table>
+        </div>
+      
+        <!-- Pagination (giữ nguyên hoặc render động tuỳ ý) -->
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled"><a class="page-link" href="#">«</a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">…</a></li>
+            <li class="page-item"><a class="page-link" href="#">50</a></li>
+            <li class="page-item"><a class="page-link" href="#">»</a></li>
+          </ul>
+        </nav>
+      
+        <!-- Status text -->
+        <p id="status-text" class="text-center text-muted mt-2"></p>
+      </div>
+      
+      <!-- Script để sinh mẫu rows -->
+      <script>
+        const NUM_ROWS = 100;
+        const tbody = document.getElementById('leaderboard-body');
+      
+        // Mảng dữ liệu mỗi quốc gia kèm danh sách tên đặc trưng
+        const countryData = [
+          {
+            country: 'Vietnam',
+            names: ['Lê Minh Anh', 'Trần Thị Bích', 'Phạm Quốc Duy', 'Nguyễn Hoàng Long']
+          },
+          {
+            country: 'United States',
+            names: ['James Smith', 'Mary Johnson', 'John Williams', 'Patricia Brown']
+          },
+          {
+            country: 'Japan',
+            names: ['Satoshi Nakamura', 'Yuki Tanaka', 'Haruto Suzuki', 'Yui Yamamoto']
+          },
+          {
+            country: 'Singapore',
+            names: ['Wei Jie Lim', 'Xiu Ying Tan', 'Kai Wen Ng', 'Li Na Ong']
+          },
+          {
+            country: 'South Korea',
+            names: ['Kim Min-Jun', 'Park Ji-Yeon', 'Lee Joon Ho', 'Choi Soo-Yeon']
+          },
+          {
+            country: 'Germany',
+            names: ['Hans Müller', 'Maria Schmidt', 'Peter Weber', 'Sabine Fischer']
+          },
+          {
+            country: 'France',
+            names: ['Jean Dupont', 'Marie Martin', 'Paul Bernard', 'Sophie Lefevre']
+          },
+          {
+            country: 'United Kingdom',
+            names: ['Oliver Jones', 'Olivia Taylor', 'William Davies', 'Emily Wilson']
+          }
+        ];
+      
+        for (let i = 1; i <= NUM_ROWS; i++) {
+          // Chọn phần tử quốc gia theo vòng
+          const data = countryData[(i - 1) % countryData.length];
+          const country = data.country;
+          
+          // Chọn tên trong list của quốc gia, cũng theo vòng để không lặp liên tục
+          const names = data.names;
+          const name   = names[((i - 1) / countryData.length | 0) % names.length];
+      
+          // Avatar đại diện (có thể bỏ nếu không cần)
+          const avatar = 'img/instructor.jpg'
+      
+          const exp = Math.floor(Math.random() * 9000) + 1000;
+      
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <th scope="row">${i}</th>
+            <td>
+              ${avatar
+                ? `<img src="${avatar}" class="rounded-circle me-2" width="32" height="32">`
+                : `<div class="bg-secondary rounded-circle d-inline-block me-2" style="width:32px; height:32px"></div>`
+              }
+              ${name}
+            </td>
+            <td>${country}</td>
+            <td>${exp.toLocaleString()}</td>
+          `;
+          tbody.appendChild(tr);
+        }
+      
+        document.getElementById('status-text').textContent =
+          `Hiển thị 1–${NUM_ROWS} của ${NUM_ROWS} bản ghi`;
+      </script>
+      
+      
+    
+      <!-- JavaScript (Bootstrap & filtering) -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+      <script>
+        // Tìm kiếm nhanh client-side
+        document.getElementById('table-search').addEventListener('input', function(e) {
+          const term = e.target.value.toLowerCase();
+          document.querySelectorAll('#leaderboard-body tr').forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(term) ? '' : 'none';
+          });
+        });
+      </script>
+
+
+
+
+
+    <!-- jQuery (để sử dụng hàm load) -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap Bundle JS (bao gồm Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Các thư viện khác nếu navbar có dùng (wow, easing, waypoints, v.v.) -->
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Load navbar từ file navbar.html và update tên trang -->
+    <script>
+        $(function() {
+            $("#navbar-placeholder").load("navbar.html", function() {
+                // Nếu bạn có hàm cập nhật tên trang hiện tại
+                if (typeof updateCurrentPageName === 'function') {
+                    updateCurrentPageName();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
