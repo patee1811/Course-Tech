@@ -668,16 +668,11 @@
   
   <script>
     (function() {
-      // 1) Chọn badges
       const badges = Array.from(document.querySelectorAll('#recommendGrid .badge'));
-    
-      // 2) Tạo n màu pastel phân bổ đều hue
       function generatePastelColors(n) {
         const colors = [];
         for (let i = 0; i < n; i++) {
-          // phân bổ hue đều trên vòng 360 độ
           const hue = Math.round((360 / n) * i + Math.random() * (360 / n));
-          // pastel: thao L cao, S thấp
           colors.push({
             bg: `hsl(${hue}, 60%, 90%)`,
             txt: `hsl(${hue}, 60%, 30%)`
@@ -685,16 +680,12 @@
         }
         return colors;
       }
-    
-      // 3) Shuffle mảng (Fisher–Yates)
       function shuffle(arr) {
         for (let i = arr.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
           [arr[i], arr[j]] = [arr[j], arr[i]];
         }
       }
-    
-      // 4) Áp dụng màu cho badges
       function applyDistinctBadgeColors() {
         const palettes = generatePastelColors(badges.length);
         shuffle(palettes);
@@ -706,17 +697,11 @@
           badge.classList.add('random-badge');
         });
       }
-    
-      // 5) Chạy lần đầu khi DOM sẵn sàng
-      document.addEventListener('DOMContentLoaded', applyDistinctBadgeColors);
-    
-      // 6) (Nếu bạn muốn mỗi lần shuffle cards cũng đổi màu badges)
-      //    hãy gọi applyDistinctBadgeColors() ở cuối animateShuffle()
+          document.addEventListener('DOMContentLoaded', applyDistinctBadgeColors);
     })();
     </script>    
 
   <script>
-    // 1) Khai báo biến
     const grid = document.getElementById('recommendGrid');
     const cards = Array.from(grid.children);
     const pageButtons = Array.from(document.querySelectorAll('.page-number'));
@@ -724,16 +709,12 @@
     const nextBtn = document.getElementById('nextPage');
     const maxPage = pageButtons.length;
     let currentPage = 1;
-  
-    // 2) Hàm shuffle Fisher–Yates
     function shuffle(arr) {
       for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]];
       }
     }
-  
-    // 3) Hàm fade + shuffle
     function animateShuffle() {
       grid.classList.add('fading');
       setTimeout(() => {
@@ -743,20 +724,13 @@
         grid.classList.remove('fading');
       }, 500);
     }
-  
-    // 4) Cập nhật UI pagination
     function updatePaginationUI() {
-      // 4.1 Đánh active lên đúng nút số
       pageButtons.forEach((btn, idx) => {
         btn.classList.toggle('active', idx + 1 === currentPage);
       });
-      // 4.2 Disable/enable Prev & Next
       prevBtn.disabled = currentPage === 1;
       nextBtn.disabled = currentPage === maxPage;
     }
-  
-    // 5) Event listeners
-    // 5.1 Số trang
     pageButtons.forEach((btn, idx) => {
       btn.addEventListener('click', () => {
         currentPage = idx + 1;
@@ -764,8 +738,6 @@
         animateShuffle();
       });
     });
-  
-    // 5.2 Prev
     prevBtn.addEventListener('click', () => {
       if (currentPage > 1) {
         currentPage -= 1;
@@ -773,8 +745,6 @@
         animateShuffle();
       }
     });
-  
-    // 5.3 Next
     nextBtn.addEventListener('click', () => {
       if (currentPage < maxPage) {
         currentPage += 1;
@@ -782,28 +752,21 @@
         animateShuffle();
       }
     });
-  
-    // 6) Khởi tạo khi load trang
     window.addEventListener('load', () => {
-      // Shuffle lần đầu, sau đó render
       shuffle(cards);
       cards.forEach(c => grid.appendChild(c));
-      // Thiết lập pagination UI
       updatePaginationUI();
     });
   </script>
   
   <script>
     
-    // 2) Hàm shuffle Fisher–Yates
     function shuffle(arr) {
       for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]];
       }
     }
-    
-    // 3) Hàm fade + shuffle
     function animateShuffle() {
       grid.classList.add('fading');
       setTimeout(() => {
@@ -813,13 +776,10 @@
         grid.classList.remove('fading');
       }, 500);
     }
-    
-    // 4) Gán event cho pagination
     document.querySelectorAll('.page-number, #prevPage, #nextPage').forEach(btn => {
       btn.addEventListener('click', animateShuffle);
     });
-    
-    // 5) Initial shuffle khi load
+
     window.addEventListener('load', () => {
       shuffle(cards);
       cards.forEach(c => grid.appendChild(c));

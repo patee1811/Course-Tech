@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Course Wizard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="bgr-createcourse">
+  <input 
+    type="file" 
+    id="thumbnailInput" 
+    accept="image/png, image/jpeg" 
+    style="display: none;"
+    onchange="console.log(this.files)"  
+  />
+
+  <!-- Navigation Bar Start -->
+  <div id="navbar-placeholder"></div>
+  <!-- Navigation Bar End -->
+
+  <!-- Page Content Start -->
+  <div class="page-header">
+    <div class="container">
+      <div class="d-flex align-items-center mb-3">
+        <button class="btn btn-outline-primary rounded-pill">Save As Draft</button>
+        <button class="btn btn-primary rounded-pill ms-auto">Publish Course</button>
+      </div>
+    </div>
+
+    <!-- Wizard Steps -->
+    <div class="container my-4">
+      <div class="wizard d-flex">
+        <div class="step active" data-step="0">
+          <span class="step-circle"></span>
+          Course Details
+          <i class="fas fa-arrow-right arrow-icon"></i>
+        </div>
+        <div class="step" data-step="1">
+          <span class="step-circle"></span>
+          Upload Videos
+          <i class="fas fa-arrow-right arrow-icon"></i>
+        </div>
+        <div class="step" data-step="2">
+          <span class="step-circle"></span>
+          About Course
+          <i class="fas fa-arrow-right arrow-icon"></i>
+        </div>
+        <div class="step" data-step="3">
+          <span class="step-circle"></span>
+          Create Quiz
+          <i class="fas fa-arrow-right arrow-icon"></i>
+        </div>
+        <div class="step" data-step="4">
+          <span class="step-circle"></span>
+          Publish Course
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wizard Contents -->
+  <div id="wizard-contents">
+    <!-- STEP 0: Course Details -->
+    <div class="wizard-content" data-step="0">
+      <div class="container my-4">
+        <div class="card border border-2" style="border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+          <div class="card-body">
+            <h4 class="card-title mb-2">
+              Course Details <i class="fas fa-question-circle text-primary"></i>
+            </h4>
+            <hr>
+            <div class="row">
+              <div class="col-md-4 mb-4">
+                <h5 class="form-label fw-bold">Thumbnail Image <span class="text-danger">(Required)</span></h5>
+                <div 
+                  class="upload-box border rounded text-muted" 
+                  role="button" 
+                  onclick="document.getElementById('thumbnailInput').click()"
+                >
+                  <i class="far fa-image fa-3x mb-2"></i>
+                  <p class="mb-0">
+                    Drag or 
+                    <a 
+                      href="#" 
+                      class="browse-link" 
+                      onclick="event.preventDefault(); document.getElementById('thumbnailInput').click()"
+                    >
+                      Browse
+                    </a>
+                  </p>
+                  <small class="d-block mt-1">PNG, JPEG (max 5mb size)</small>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="mb-3">
+                  <label class="form-label fw-bold">Name of the Lesson</label>
+                  <input type="text" class="form-control text-bar" placeholder="Name of the Lesson" maxlength="100">
+                  <div class="form-text text-end">0 / 100</div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <label class="form-label fw-bold">Course Category</label>
+                    <select class="form-select text-bar">
+                      <option selected disabled>Enter course category</option>
+                      <option value="1">Computer Science</option>
+                      <option value="2">Business</option>
+                      <option value="3">Management</option>
+                      <option value="4">Humanities</option>
+                      <option value="5">Data Science</option>
+                      <option value="6">Artificial Intelligence</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label class="form-label fw-bold">Course Level</label>
+                    <select class="form-select text-bar">
+                      <option selected disabled>Select course level</option>
+                      <option value="1">Course Level 1</option>
+                      <option value="2">Course Level 2</option>
+                      <option value="3">Course Level 3</option>
+                      <option value="4">Course Level 4</option>
+                      <option value="5">Course Level 5</option>
+                      <option value="6">Course Level 6</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <label class="form-label fw-bold">Course Time</label>
+                    <select class="form-select text-bar">
+                      <option selected disabled>Enter course time</option>
+                      <option value="1">5 hour</option>
+                      <option value="2">10 hour</option>
+                      <option value="3">15 hour</option>
+                      <option value="4">20 hour</option>
+                      <option value="5">25 hour</option>
+                      <option value="6">30 hour</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label class="form-label fw-bold">Total Lesson</label>
+                    <select class="form-select text-bar">
+                      <option selected disabled>Enter total lessons</option>
+                      <option value="1">Objectives</option>
+                      <option value="2">Activities</option>
+                      <option value="3">Materials</option>
+                      <option value="4">Timeline</option>
+                      <option value="5">Resources</option>
+                      <option value="6">Assessment</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container my-3 d-flex justify-content-end">
+            <button id="wizard-back" class="btn btn-outline-primary me-2 rounded-pill" disabled>Back</button>
+            <button id="wizard-next" class="btn btn-primary rounded-pill">Continue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 1: Upload Videos -->
+    <div class="wizard-content d-none" data-step="1">
+      <div class="container my-4">
+        <div class="card border border-2" style="border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+          <div class="card-body">
+            <h4 class="card-title mb-2">
+              Upload Videos <i class="fas fa-question-circle text-primary"></i>
+            </h4>
+            <hr>
+             <!-- Drag & Drop Box -->
+            <div class="upload-box-condensed mb-4" onclick="document.getElementById('videoInput').click()">
+              <i class="bi bi-camera-video-fill upload-icon"></i>
+              <div class="upload-text">
+                <div class="line1">
+                  Drag &amp; drop your single/multiple videos of course, or
+                  <a href="#" onclick="event.preventDefault();document.getElementById('videoInput').click()">Browse</a>
+                </div>
+                <div class="line2">
+                  Mp4 format with 16:9 aspect ratio (max file size 100mb each)
+                </div>
+              </div>
+              <input type="file" id="videoInput" accept="video/mp4" multiple style="display:none">
+            </div>            
+      <div class="video-list">
+        <!-- Video item -->
+        <div class="d-flex align-items-start mb-4 p-3" style="background:#F3F6FF; border-radius:8px;">
+          <img src="img/upload-video-img1.png" alt="thumb" class="me-3" style="width:120px; height:68px; object-fit:cover; border-radius:4px;">
+          <div class="flex-grow-1">
+            <h6 class="mb-1">Complete Web &amp; Mobile Designer: UI/UX, Figma.mp4</h6>
+            <small class="text-muted">1:40 min 20 sec</small>
+            <hr class="my-2">
+            <p class="mb-0">
+              Build beautifully designed web and mobile projects for your customers using modern tools used by top companies in 2024. Includes 100+ assets and premium design templates that you can keep and use to customize for all your future projects. Learn to design for all types of devices using Figma and other tools used by some of the top designers in the world. Get hired as a Designer or become a freelancer that can work from anywhere and for anyone. Designers are in high demand!            </p>
+          </div>
+          <div class="ms-3">
+            <i class="fas fa-check-circle text-primary fs-4"></i>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-start mb-4 p-3" style="background:#F3F6FF; border-radius:8px;">
+          <img src="img/upload-video-img2.png" alt="thumb" class="me-3" style="width:120px; height:68px; object-fit:cover; border-radius:4px;">
+          <div class="flex-grow-1">
+            <h6 class="mb-1">Complete Web &amp; Mobile Designer: UI/UX, Figma.mp4</h6>
+            <small class="text-muted">2:15 min 05 sec</small>
+            <hr class="my-2">
+            <p class="mb-0">
+              Build beautifully designed web and mobile projects for your customers using modern tools used by top companies in 2024. Includes 100+ assets and premium design templates that you can keep and use to customize for all your future projects. Learn to design for all types of devices using Figma and other tools used by some of the top designers in the world. Get hired as a Designer or become a freelancer that can work from anywhere and for anyone. Designers are in high demand!
+            </p>
+          </div>
+          <div class="ms-3">
+            <i class="fas fa-check-circle text-primary fs-4"></i>
+          </div>
+        </div>
+        <div class="d-flex align-items-start mb-4 p-3" style="background:#F3F6FF; border-radius:8px;">
+          <img src="img/upload-video-img3.png" alt="thumb" class="me-3" style="width:120px; height:68px; object-fit:cover; border-radius:4px;">
+          <div class="flex-grow-1">
+            <h6 class="mb-1">Complete Web &amp; Mobile Designer: UI/UX, Figma.mp4</h6>
+            <small class="text-muted">2:00 min 05 sec</small>
+            <hr class="my-2">
+            <p class="mb-0">
+              Build beautifully designed web and mobile projects for your customers using modern tools used by top companies in 2024. Includes 100+ assets and premium design templates that you can keep and use to customize for all your future projects. Learn to design for all types of devices using Figma and other tools used by some of the top designers in the world. Get hired as a Designer or become a freelancer that can work from anywhere and for anyone. Designers are in high demand!
+            </p>
+          </div>
+          <div class="ms-3">
+            <i class="fas fa-check-circle text-primary fs-4"></i>
+          </div>
+        </div>
+      </div>
+          </div>
+          <div class="container my-3 d-flex justify-content-end">
+            <button id="wizard-back-1" class="btn btn-outline-primary me-2 rounded-pill">Back</button>
+            <button id="wizard-next-1" class="btn btn-primary rounded-pill">Continue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: About Course -->
+    <div class="wizard-content d-none" data-step="2">
+      <div class="container my-4">
+        <div class="card border border-2" style="border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+          <div class="card-body">
+            <h4 class="card-title mb-2">
+              About Course <i class="fas fa-question-circle text-primary"></i>
+            </h4>
+            <hr>
+            <strong>Course Description</strong>
+            
+        <div class="content-list pd-2 mt-2">
+            <!-- Content item -->
+          <div class="d-flex align-items-start mb-4" style="background:#F3F6FF; border-radius:12px;">
+            <div class="flex-grow-1 p-3">
+              <p class="mb-0">
+                Build beautifully designed web and mobile projects for your customers using modern tools used by top companies in 2024. Includes 100+ assets and premium design templates that you can keep and use to customize for all your future projects. Learn to design for all types of devices using Figma and other tools used by some of the top designers in the world. Get hired as a Designer or become a freelancer that can work from anywhere and for anyone. Designers are in high demand!</p>
+            </div>
+          </div>
+        </div>
+        <strong class="mb-2">Attachment Files</strong>
+          <div class="upload-box-condensed mb-2 mt-3" onclick="document.getElementById('fileInput').click()">
+            <i class="bi bi-paperclip upload-icon"></i>
+            <div class="upload-text">
+              <div class="line1">
+                Drag &amp; drop your single/multiple videos of course, or
+                <a href="#" onclick="event.preventDefault();document.getElementById('fileInput').click()">Browse</a>
+              </div>
+              <div class="line2">
+                (max file size 100mb each)
+              </div>
+            </div>
+            <input type="file" id="fileInput" multiple style="display:none">
+          </div>
+          <div class="file-box-condensed mt-3" style="cursor: default;">
+            <i class="bi bi-file-earmark-text me-2" style="color: #56a6e1"></i>
+            <div class="upload-text ml-4">
+              <div class="line1" style="cursor: text;">
+                Introduction of web & mobile Design.pdf
+              </div>
+              <div class="line2" style="cursor: text;">
+                25mb
+              </div>
+            </div>
+          </div>
+          <div class="file-box-condensed mt-3" style="cursor: default;">
+            <i class="bi bi-file-earmark-text me-2" style="color: #56a6e1"></i>
+            <div class="upload-text ml-4">
+              <div class="line1" style="cursor: text;">
+                Advanced web & mobile Design.pdf
+              </div>
+              <div class="line2" style="cursor: text;">
+                15mb
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container my-3 d-flex justify-content-end">
+          <button id="wizard-back-1" class="btn btn-outline-primary me-2 rounded-pill">Back</button>
+          <button id="wizard-next-1" class="btn btn-primary rounded-pill">Continue</button>
+      </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- STEP 3: Create Quiz -->
+    <div class="wizard-content d-none" data-step="3">
+      <div class="container my-4">
+        <div class="card border border-2" style="border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+          <div class="card-body">
+            <h4 class="card-title mb-2">
+              Create Quiz <i class="fas fa-question-circle text-primary"></i> <button class="btn btn-primary rounded-pill px-4 py-2 custom-font-sm" style="float: right;" data-bs-toggle="modal" data-bs-target="#addQuestionModal">Add Question</button>
+            </h4>
+            <hr>
+            <strong>Question</strong>
+            <textarea class="form-control text-bar mt-2 mb-3" rows="1" maxlength="200" style="font-weight: bold;">1. Which discipline heavily influences the foundation of web design?</textarea>
+            <strong>Multiple Choices</strong>
+              <form class="mt-2">
+                <!-- Hàng 1 -->
+                <div class="row mb-4">
+                  <div class="col-md-6">
+                    <div class="choice-item">
+                      <span class="choice-label">A</span>
+                      <span class="choice-text">Web layout design</span>
+                      <button type="button" class="choice-remove"><i class="fas fa-times"></i></button>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="choice-item">
+                      <span class="choice-label">B</span>
+                      <span class="choice-text">Content Strategy</span>
+                      <button type="button" class="choice-remove"><i class="fas fa-times"></i></button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Hàng 2 -->
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <div class="choice-item">
+                      <span class="choice-label">C</span>
+                      <span class="choice-text">User Friendly</span>
+                      <button type="button" class="choice-remove"><i class="fas fa-times"></i></button>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="choice-item">
+                      <span class="choice-label">D</span>
+                      <span class="choice-text">Design Idea</span>
+                      <button type="button" class="choice-remove"><i class="fas fa-times"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </form>     
+              <strong class="add-choice-label" role="button" data-bs-toggle="modal" data-bs-target="#addChoiceModal">Add choice</strong><br><br>
+              <strong>Correct Answer</strong>  
+              <select class="form-select correct-bar mt-2">
+                <option selected disabled>Select correct answer</option>
+                <option value="1">Web layout design</option>
+                <option value="2">Content Strategy</option>
+                <option value="3">User Friendly</option>
+                <option value="4">Design Idea</option>
+              </select>   
+            </div>
+          <div class="container my-3 d-flex justify-content-end">
+            <button id="wizard-back-1" class="btn btn-outline-primary me-2 rounded-pill">Back</button>
+            <button id="wizard-next-1" class="btn btn-primary rounded-pill">Continue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Add Question -->
+    <div class="modal fade" id="addQuestionModal" tabindex="-1" aria-labelledby="addQuestionModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addQuestionModalLabel">Add Question</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <textarea id="newQuestion" class="form-control rounded-3" placeholder="Add quiz question"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary rounded-3" data-bs-dismiss="modal">Close</button>
+            <button id="saveQuestion" type="button" class="btn btn-primary rounded-3">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Add Choice -->
+    <div class="modal fade" id="addChoiceModal" tabindex="-1" aria-labelledby="addChoiceModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addChoiceModalLabel">Add Choice</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <textarea id="newChoice" class="form-control rounded-3" placeholder="Add choice text"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary rounded-3" data-bs-dismiss="modal">Close</button>
+            <button id="saveChoice" type="button" class="btn btn-primary rounded-3">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4: Publish Course -->
+    <div class="wizard-content d-none" data-step="4">
+      <div class="container my-4">
+        <div class="card border border-2" style="border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+          <div class="card-body">
+            <h4 class="card-title mb-2">
+              Course Overview <i class="fas fa-question-circle text-primary"></i>
+            </h4>
+            <hr>
+            <!-- Course Overview Content -->
+            <!-- Category badge -->
+            <div class="border p-4 mb-4" style="border-radius: 12px;">
+              <div class="mb-3">
+                <span class="badge text-dark px-3 py-2" style="border-radius: 12px; background-color: #e5e5e5; font-size: 16px;">Web Design</span>
+              </div>
+
+              <!-- Title -->
+              <h4 class="mb-2">Complete Web &amp; Mobile Design</h4>
+
+              <!-- Meta info -->
+              <div class="d-flex flex-wrap text-muted mb-3" style="font-size: 0.9rem;">
+                <div class="me-4 d-flex align-items-center">
+                  <i class="bi bi-camera-video-fill me-1"></i>
+                  24 Lessons
+                </div>
+                <div class="me-4 d-flex align-items-center">
+                  <i class="bi bi-clock me-1"></i>
+                  72 Hours
+                </div>
+                <div class="me-4 d-flex align-items-center">
+                  <i class="bi bi-building me-1"></i>
+                  Offered by Google
+                </div>
+                <div class="d-flex align-items-center">
+                  <i class="bi bi-bar-chart-line me-1"></i>
+                  Beginner
+                </div>
+              </div>
+
+              <!-- Banner image -->
+              <img src="img/course-publish-img.png" 
+                  alt="Course banner" 
+                  class="img-fluid rounded mb-3"
+                  style="width: 100%;" />
+
+              <!-- Description -->
+              <h6 class="mb-2">Course Description</h6>
+              <p class="text-muted mb-4">
+                Build beautifully designed web and mobile projects for your customers using modern tools used by top companies in 2024.
+                Includes 100+ assets and premium design templates that you can keep and use to customize for all your future projects.
+                Learn to design for all types of devices using Figma and other tools used by some of the top designers in the world.
+                Get hired as a Designer or become a freelancer that can work from anywhere and for anyone. Designers are in high demand!
+              </p>
+
+              <!-- Resources -->
+              <h6 class="mb-2">Resources</h6>
+              <div class="resource-item d-flex align-items-center p-3 mb-2" style="border-radius: 12px; border: 1px solid #56a6e1;">
+                <i class="bi bi-paperclip me-3 text-secondary" style="color: #56a6e1"></i>
+                <div>
+                  <div>Introduction of web &amp; mobile Design.pdf</div>
+                  <small class="text-muted">25 mb</small>
+                </div>
+                <i class="fas fa-ellipsis-h ms-auto text-secondary"></i>
+              </div>
+              <div class="resource-item d-flex align-items-center p-3" style="border-radius: 12px; border: 1px solid #56a6e1;">
+                <i class="bi bi-paperclip me-3 text-secondary" style="color: #56a6e1"></i>
+                <div>
+                  <div>Introduction of web &amp; mobile Design.pdf</div>
+                  <small class="text-muted">25 mb</small>
+                </div>
+                <i class="fas fa-ellipsis-h ms-auto text-secondary"></i>
+              </div>
+              <!-- End Course Overview Content -->
+            </div>
+          </div>
+          <div class="container my-3 d-flex justify-content-end">
+            <button id="wizard-back-1" class="btn btn-outline-primary me-2 rounded-pill">Back</button>
+            <button id="wizard-next-1" class="btn btn-primary rounded-pill">Publish Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer & Scripts -->
+  <div class="end-container">
+    <div class="bg-white shadow-sm border px-4 py-3" style="border-radius:12px;">
+      <div class="d-flex justify-content-between align-items-center" style="font-size:0.875rem;color:#6B7280;">
+        <div>© Edmate 2024, All Rights Reserved</div>
+        <div>
+          <a href="#" class="text-decoration-none text-muted me-4">License</a>
+          <a href="#" class="text-decoration-none text-muted me-4">More Themes</a>
+          <a href="#" class="text-decoration-none text-muted me-4">Documentation</a>
+          <a href="#" class="text-decoration-none text-muted">Support</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Wizard navigation logic -->
+  <script>
+    const steps    = Array.from(document.querySelectorAll('.wizard.d-flex .step'));
+    const contents = Array.from(document.querySelectorAll('.wizard-content'));
+    const backBtns = document.querySelectorAll('[id^="wizard-back"]');
+    const nextBtns = document.querySelectorAll('[id^="wizard-next"]');
+    let current    = 0;
+
+    function updateUI() {
+      steps.forEach((s,i) => {
+        s.classList.toggle('active', i === current);
+        s.classList.toggle('completed', i < current);
+      });
+      contents.forEach((c,i) => {
+        c.classList.toggle('d-none', i !== current);
+      });
+      document.getElementById('wizard-back').disabled = current === 0;
+      document.getElementById('wizard-next').disabled = current === steps.length - 1;
+    }
+
+    nextBtns.forEach(btn => btn.addEventListener('click', () => {
+      if (current < steps.length - 1) current++;
+      updateUI();
+    }));
+    backBtns.forEach(btn => btn.addEventListener('click', () => {
+      if (current > 0) current--;
+      updateUI();
+    }));
+
+    updateUI();
+  </script>
+
+  <!-- Remove choices logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const removeButtons = document.querySelectorAll('.choice-remove');
+      removeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.choice-item');
+          if (item) {
+            item.remove();
+          }
+        });
+      });
+    });
+  </script>
+
+  <!-- Load navbar -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <script src="js/main.js"></script>
+  <script>
+    $(function() {
+      $("#navbar-placeholder").load("navbar.html", function() {
+        if (typeof updateCurrentPageName === 'function') {
+          updateCurrentPageName();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
