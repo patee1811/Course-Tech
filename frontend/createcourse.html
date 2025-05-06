@@ -570,6 +570,37 @@
     });
   </script>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+    
+      // 2.1. Điền sẵn tên khóa học
+      const courseName = params.get('name');
+      if (courseName) {
+        const nameInput = document.querySelector('input[placeholder="Name of the Lesson"]');
+        nameInput.value = courseName;
+        // cập nhật counter
+        const counter = nameInput.closest('.mb-3').querySelector('.form-text');
+        if (counter) {
+          counter.textContent = `${courseName.length} / ${nameInput.maxLength}`;
+        }
+      }
+    
+      // 2.2. Preview sẵn thumbnail
+      const thumb = params.get('thumb');
+      if (thumb) {
+        const box = document.querySelector('.upload-box');
+        // tắt icon + text gốc
+        box.innerHTML = '';
+        // gán background + cho nó cover
+        box.style.backgroundImage = `url('${thumb}')`;
+        box.style.backgroundSize   = 'cover';
+        box.style.backgroundPosition = 'center';
+        box.style.height = '200px';  // đảm bảo đủ cao để thấy ảnh
+      }
+    });
+    </script>
+  
   <!-- Load navbar -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
