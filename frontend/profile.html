@@ -77,62 +77,67 @@
     <!-- Content Sections -->
     <div class="profile-content">
       <!-- My Details Section -->
-      <div class="content-section active" id="my-details">
-        <h3 class="section-title" style="font-weight: bold;">My Details</h3>
-        <p class="section-description">Please fill full details about yourself</p>
-            
-        <div class="form-container">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="first-name">First Name</label>
-              <input type="text" id="first-name" placeholder="Enter First Name" value="Leo">
-            </div>
-            <div class="form-group">
-              <label for="last-name">Last Name</label>
-              <input type="text" id="last-name" placeholder="Enter Last Name" value="Messi">
-            </div>
-          </div>
-                
-          <div class="form-row">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" placeholder="Enter Email" value="leomessi@gmail.com">
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" placeholder="Enter Phone Number" value="+1 234 567 890">
-            </div>
-          </div>
+      <!-- My Details Section -->
+<div class="content-section active" id="my-details">
+  <h3 class="section-title" style="font-weight: bold;">My Details</h3>
+  <p class="section-description">Please fill full details about yourself</p>
 
-          <div class="form-row">
-            <div class="form-group">
-                <label for="address">Address</label>
-                <input type="text" id="address" placeholder="Enter Address" value="Rosanrio Argentina">
-            </div>
-            <div class="form-group">
-                <label for="profession">Profession</label>
-                <input type="text" id="profession" placeholder="Enter Profession" value="GOAT">
-            </div>
+  <form id="profileForm">
+    <div class="form-container">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" placeholder="Enter First Name">
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" placeholder="Enter Last Name">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter Email">
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="tel" id="phoneNumber" placeholder="Enter Phone Number">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" id="address" placeholder="Enter Address">
+        </div>
+        <div class="form-group">
+          <label for="profession">Profession</label>
+          <input type="text" id="profession" placeholder="Enter Profession">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="photo">Your Photo</label>
+        <div class="photo-upload">
+          <div class="current-photo">
+            <img src="img/user_avatar.jpg" alt="Profile Photo">
           </div>
-                
-          <div class="form-group">
-            <label for="photo">Your Photo</label>
-            <div class="photo-upload">
-              <div class="current-photo">
-                <img src="img/user_avatar.jpg" alt="Profile Photo">
-              </div>
-              <div class="upload-controls">
-                <button class="upload-btn">Upload New Photo</button>
-                <p class="upload-info">Acceptable file types: JPG, PNG. Maximum file size: 2MB</p>
-              </div>
-            </div>
-          </div>
-                
-          <div class="form-actions">
-            <button class="save-btn">Save Changes</button>
-            <button class="cancel-btn">Cancel</button>
+          <div class="upload-controls">
+            <button type="button" class="upload-btn">Upload New Photo</button>
+            <p class="upload-info">Acceptable file types: JPG, PNG. Maximum file size: 2MB</p>
           </div>
         </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="save-btn">Save Changes</button>
+        <button type="button" class="cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
+
       </div>
 
       <!-- Password Section -->
@@ -461,6 +466,91 @@
   <!-- Template Javascript -->
   <script src="js/main.js"></script>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const token = localStorage.getItem("token");
+    
+      if (!token) {
+        alert("You are not logged in.");
+        window.location.href = "login.html";
+        return;
+      }
+
+      function parseJwt(token) {
+        try {
+          return JSON.parse(atob(token.split('.')[1]));
+        } catch (e) {
+          return null;
+        }
+      }
+
+      const decoded = parseJwt(token);
+      const userId = decoded?.id; 
+      if (!userId) {
+        alert("Could not extract user ID from token.");
+        return;
+      }
+    
+      async function loadUserProfile() {
+        try {
+          const res = await fetch(`http://localhost:3003/user/${userId}`, {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          });
+          const user = await res.json();
+          console.log("Loaded user:", user);
+    
+          document.getElementById('first-name').value = user.firstName || "";
+          document.getElementById('last-name').value = user.lastName || "";
+          document.getElementById('email').value = user.email || "";
+          document.getElementById('phone').value = user.phoneNumber || "";
+          document.getElementById('address').value = user.address || "";
+          document.getElementById('profession').value = user.profession || "";
+        } catch (err) {
+          console.error("Failed to load profile:", err);
+        }
+      }
+    
+      loadUserProfile();
+    
+      // Handle form submission
+      document.getElementById("profileForm").addEventListener("submit", async function (e) {
+        e.preventDefault();
+    
+        const payload = {
+          firstName: document.getElementById("firstName").value,
+          lastName: document.getElementById("lastName").value,
+          email: document.getElementById("email").value,
+          phoneNumber: document.getElementById("phoneNumber").value,
+          address: document.getElementById("address").value,
+          profession: document.getElementById("profession").value
+        };
+    
+        try {
+          const res = await fetch(`http://localhost:3003/user/${userId}`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(payload)
+          });
+    
+          if (res.ok) {
+            alert("Profile updated successfully!");
+          } else {
+            const error = await res.json();
+            alert("Update failed: " + (error.message || "Unknown error"));
+          }
+        } catch (err) {
+          console.error("Update error:", err);
+          alert("An error occurred while updating your profile.");
+        }
+      });
+    });
+    </script>
+    
   <!--load navbar-->
   <script>  
     $(function() {
