@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, BeforeInsert, BeforeUpdate } from 'typeorm';
 import { Course } from '../course/course.entity';
 import { Enrollment } from '../course/enrollment.entity';
+import * as bcrypt from 'bcrypt';
 
 export enum UserRole {
   STUDENT = 'student',
@@ -15,10 +16,10 @@ export class User {
   @Column({ unique: true })
   email: string;
 
-  @Column()
+  @Column({ nullable: true })
   firstName: string;
 
-  @Column()
+  @Column({ nullable: true })
   lastName: string;
 
   @Column()
@@ -41,4 +42,19 @@ export class User {
 
   @OneToMany(() => Enrollment, enrollment => enrollment.user)
   enrollments: Enrollment[];
-}
+
+  @BeforeInsert()
+  async hashPassword() {
+    if (this.password) {
+      const saltRounds = 10;
+      this.password = await bcrypt.hash(this.password, saltRounds);
+    }
+  }
+
+  @BeforeUpdate()
+  async hashPasswordOnUpdate() {
+    if (this.password && !this.password.startsWith('$2b$')) {
+      this.password = await bcrypt.hash(this.password, 10);
+    }
+  }
+} 
