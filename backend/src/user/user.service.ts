@@ -4,6 +4,7 @@ import { JwtService } from '@nestjs/jwt';
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';  
 import * as bcrypt from 'bcrypt';
 
 @Injectable()
@@ -50,19 +51,14 @@ export class UserService {
       throw new UnauthorizedException('Invalid credentials');
     }
 
-    const payload = { sub: user.id, username: user.email, role: user.role };
+    const payload = { id: user.id, email: user.email, role: user.role };
     const token = this.jwtService.sign(payload);
 
     return { access_token: token };
   }
 
-  async updateUser(id: number, updateUserDto: Partial<CreateUserDto>): Promise<User> {
+  async updateUser(id: number, updateUserDto: UpdateUserDto): Promise<User> {
      const user = await this.findOneUser(id);
-
-     if (updateUserDto.password) {
-         console.warn('Password update logic needs to be implemented and hashed in the service.');
-         delete updateUserDto.password;
-     }
 
      Object.assign(user, updateUserDto);
 
