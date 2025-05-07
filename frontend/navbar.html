@@ -68,5 +68,19 @@
                 </div>                  
             </div>              
         </div>
-    </nav>   
+    </nav>  
+    <script>
+      $(document).ready(function() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        
+        $('.navbar-nav .nav-link').removeClass('active');
+
+        $('.navbar-nav .nav-link').each(function() {
+          const href = $(this).attr('href');
+          if (href === currentPage) {
+            $(this).addClass('active');
+          }
+        });
+      });
+    </script> 
 </body>
