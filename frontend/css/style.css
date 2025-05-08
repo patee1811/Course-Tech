@@ -2738,3 +2738,88 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+.nav-course-item {
+  padding-left: 1rem;
+}
+
+.nav-course-item:hover {
+  background-color: #efefef;
+}
+
+.accordion-c-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  color: #52565b;
+  text-align: left;
+  background-color: #fff;
+  border: 0;
+  border-bottom: 1px solid #d0d0d0;
+  border-radius: 0;
+  overflow-anchor: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accordion-c-button {
+      transition: none
+  }
+}
+
+.accordion-c-button:not(.collapsed) {
+  color: #000000;
+  background-color: #ffffff;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.accordion-c-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2305a8b8'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  transform: rotate(-180deg)
+}
+
+.accordion-c-button::after {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-left: auto;
+  content: "";
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2352565b'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-size: 1.25rem;
+  transition: transform 0.2s ease-in-out
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accordion-c-button::after {
+      transition: none
+  }
+}
+
+.accordion-c-button:hover {
+  background-color: #ecf3fa;
+}
+
+.accordion-c-button:focus {
+  z-index: 3;
+  border-color: #83dde6;
+  outline: 0;
+  box-shadow: 0 0 0 .25rem rgba(6, 187, 204, 0.25)
+}
+
+.week-course:hover {
+  background-color: rgb(242, 249, 254);
+}
+
+.accordion:hover {
+  border: 0.1px solid #8c88ff !important;
+}
+
+.lesson-select:hover {
+  background-color: #e5e5e5;
+  cursor: pointer;
+}

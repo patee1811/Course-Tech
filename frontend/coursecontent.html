@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>UserView</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Spinner Start -->
+  <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <!-- Spinner End -->
+
+  <!-- Navigation Bar Start -->
+  <div id="navbar-placeholder"></div>
+  <!-- Navigation Bar End -->
+
+  <div class="container-fluid mt-5">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-lg-2 me-4" style="width: 20%; margin-left: 2rem;">
+        <h6 class="mb-3">Advanced Learning Algorithms</h6>
+  
+        <div class="accordion mb-4" id="sidebarAccordion" style="border: none;">
+          <div class="accordion-item" style="border: none;">
+            <h2 class="accordion-header mb-0" id="headingMaterial">
+              <button class="accordion-c-button px-0 ps-3 pe-3" style="border: none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMaterial" aria-expanded="true" aria-controls="collapseMaterial">
+                Course Material
+              </button>
+            </h2>
+            <div id="collapseMaterial" class="accordion-collapse collapse show mt-0" aria-labelledby="headingMaterial" data-bs-parent="#sidebarAccordion">
+              <div class="accordion-body px-0">
+                <ul class="list-unstyled mb-0">
+                  <li class="week-course ps-5 pt-2 pb-2">
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    <a href="#" class="text-decoration-none" style="color: black;">Week 1</a>
+                  </li>
+                  <li class="week-course ps-5 pt-2 pb-2" style="background-color: rgb(242, 249, 254);">
+                    <i class="bi bi-circle text-secondary me-2"></i>
+                    <a href="#" class="text-decoration-none" style="color: black;">Week 2</a>
+                  </li>
+                  <li class="week-course ps-5 pt-2 pb-2">
+                    <i class="bi bi-circle text-secondary me-2"></i>
+                    <a href="#" class="text-decoration-none" style="color: black;">Week 3</a>
+                  </li>
+                  <li class="week-course ps-5 pt-2 pb-2">
+                    <i class="bi bi-circle text-secondary me-2"></i>
+                    <a href="#" class="text-decoration-none" style="color: black;">Week 4</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <nav>
+          <ul class="nav flex-column">
+            <li class="nav-course-item"><a class="nav-link px-0 ps-1 pt-3 pb-3 rounded-3" href="#" style="color: black; font-weight: bold;">Grades</a></li>
+            <li class="nav-course-item"><a class="nav-link px-0 ps-1 pt-3 pb-3 rounded-3" href="#" style="color: black; font-weight: bold;">Notes</a></li>
+            <li class="nav-course-item"><a class="nav-link px-0 ps-1 pt-3 pb-3 rounded-3" href="#" style="color: black; font-weight: bold;">Messages</a></li>
+            <li class="nav-course-item"><a class="nav-link px-0 ps-1 pt-3 pb-3 rounded-3" href="#" style="color: black; font-weight: bold;">Course Info</a></li>
+          </ul>
+        </nav>
+      </div>
+  
+      <!-- Main content -->
+      <div class="col-lg-6 me-4" style="width: 48%">
+        <div class="accordion" id="mainAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingNN">
+              <button class="accordion-c-button" style="border: none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNN" aria-expanded="true" aria-controls="collapseNN">
+                Neural network training
+              </button>
+            </h2>
+            <div id="collapseNN" class="accordion-collapse collapse show" aria-labelledby="headingNN" data-bs-parent="#mainAccordion">
+              <div class="accordion-body">
+                <div class="d-flex mb-3">
+                  <div class="me-4">
+                    <i class="bi bi-camera-video me-1"></i>
+                    <small>1h 7m of videos left</small>
+                  </div>
+                  <div>
+                    <i class="bi bi-journal-check me-1"></i>
+                    <small>2 graded assignments</small>
+                  </div>
+                </div>
+                <hr>
+                <p>
+                  This week, you'll learn how to train your model in TensorFlow, and also learn about other important activation
+                  functions (besides the sigmoid function), and where to use each type in a neural network. You'll also learn how to
+                  go beyond binary...
+                </p>
+                <a href="#" class="d-block mb-4">Show Learning Objectives</a>
+  
+                <!-- Sub-sections -->
+                <div class="accordion" id="subAccordion">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSub1">
+                      <button class="accordion-c-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSub1" aria-expanded="false" aria-controls="collapseSub1">
+                        Neural Network Training
+                        <span class="badge bg-success" style="margin-left: 21rem;">Complete</span>
+                      </button>
+                    </h2>
+                    <div id="collapseSub1" class="accordion-collapse collapse show" aria-labelledby="headingSub1" data-bs-parent="#subAccordion">
+                      <div class="accordion-body px-4">
+                        <ul class="list-unstyled">
+                          <li class="lesson-select mb-2 p-1">
+                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+                            TensorFlow implementation
+                            <br> 
+                            <small class="text-muted" style="padding-left: 1.8rem;">Video • 3 min</small>
+                          </li>
+                          <li class="lesson-select p-1"> 
+                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+                            Training Details 
+                            <br>
+                            <small class="text-muted" style="padding-left: 1.8rem">Video • 13 min</small>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSub2">
+                      <button class="accordion-c-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSub2" aria-expanded="false" aria-controls="collapseSub2">
+                        Practice quiz: Neural Network Training
+                        <span class="badge bg-success" style="margin-left: 14.9rem;">Complete</span>
+                      </button>
+                    </h2>
+                    <div id="collapseSub1" class="accordion-collapse collapse show" aria-labelledby="headingSub1" data-bs-parent="#subAccordion">
+                      <div class="accordion-body px-4">
+                        <ul class="list-unstyled">
+                          <li class="lesson-select p-1">
+                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+                            Practice quiz: Neural Network Training
+                            <br> 
+                            <small class="text-muted" style="padding-left: 1.8rem;">Graded Assignment • Unsubmited</small>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /Sub-sections -->
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Right sidebar -->
+      <div class="col-lg-3">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h6 class="card-title">Weekly goal progress tracker</h6>
+            <small class="card-text">
+              Learners with goals are 75% more likely to complete their courses. Set a weekly goal now to take charge of your
+              learning journey and boost your success!
+            </small>
+            <br>
+            <a href="#" class="btn btn-outline-primary mt-3 rounded-3">Set your weekly goal</a>
+          </div>
+        </div>
+  
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title">Course timeline</h6>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="bi bi-calendar-event me-2"></i>
+                <strong>Start date:</strong> April 8, 2025
+              </li>
+              <li class="text-muted">Your next two deadlines</li>
+              <li class="d-flex align-items-center mt-2">
+                <i class="bi bi-file-earmark-text me-2"></i>
+                <a href="#">Practice quiz: Additional Neural Network Concepts</a>
+              </li>
+              <li class="text-danger ps-4" style="font-size: 14px;">Overdue Graded Assignment</li>
+              <li class="d-flex align-items-center mt-2">
+                <i class="bi bi-file-earmark-text me-2"></i>
+                <a href="#">Practice Lab: Neural Networks for Multiclass classification</a>
+              </li>
+              <li class="text-danger ps-4" style="font-size: 14px;">Overdue Programming Assignment</li>
+              <li class="mt-3">
+                <i class="bi bi-clock-history me-2"></i>
+                <strong>Estimated end date:</strong> May 5, 2025
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+  <!-- JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Template Javascript -->
+  <script src="js/main.js"></script>
+
+  <!--load navbar-->
+  <script>  
+    $(function() {
+      $("#navbar-placeholder").load("navbar.html", function() {
+        updateCurrentPageName();
+      });
+    });
+  </script>
+</body>
+
+</html>
