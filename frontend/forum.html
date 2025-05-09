@@ -50,23 +50,27 @@
                 <!-- Main Forum Content -->
                 <div class="col-lg-8">
                     <div class="forum-header">
+                        
                         <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="dropdown-toggle" id="sortDropdown" data-bs-toggle="dropdown">
                                 Latest first <i class="fas fa-chevron-down ms-2"></i>
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="sortDropdown">
-                                <li><a class="dropdown-item" href="#">Latest first</a></li>
-                                <li><a class="dropdown-item" href="#">Oldest first</a></li>
-                                <li><a class="dropdown-item" href="#">Most commented</a></li>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" data-sort="latest">Latest first</a></li>
+                                <li><a class="dropdown-item" href="#" data-sort="oldest">Oldest first</a></li>
+                                <li><a class="dropdown-item" href="#" data-sort="comments">Most commented</a></li>
                             </ul>
                         </div>
+
                         <button class="btn start-discussion-btn" data-bs-toggle="modal" data-bs-target="#newDiscussionModal">
                             Start New Discussion
                         </button>
                     </div>
 
+                    <div id="topicsContainer">
+
                     <!-- Topic Cards -->
-                    <div class="topic-card" onclick="window.location.href='forum-detail.html'">
+                    <div class="topic-card" data-timestamp="2025-05-10T14:20:00" data-comments="23" onclick="window.location.href='forum-detail.html'">
                         <div class="topic-header">
                             <img src="img/RauCon.jpg" alt="User Avatar" class="user-avatar">
                             <div>
@@ -186,12 +190,12 @@
                         </div>
                     </div>
 
-                    <div class="topic-card" onclick="window.location.href='forum-detail.html'">
+                    <div class="topic-card" data-timestamp="2025-05-10T14:21:00" data-comments="16" onclick="window.location.href='forum-detail.html'">
                         <div class="topic-header">
                             <img src="img/instructor.jpg" alt="User Avatar" class="user-avatar">
                             <div>
                                 <h5>Website is preparing to upgrade to the latest version</h5>
-                                <p class="topic-meta">Latest reply from <strong>jack_97</strong> minutes ago</p>
+                                <p class="topic-meta">Latest reply from <strong>jack_97</strong> 20 minutes ago</p>
                             </div>
                         </div>
                         <div class="topic-content">
@@ -280,7 +284,7 @@
                         </div>
                     </div>
 
-                    <div class="topic-card" onclick="window.location.href='forum-detail.html'">
+                    <div class="topic-card" data-timestamp="2025-05-10T14:22:00" data-comments="8" onclick="window.location.href='forum-detail.html'">
                         <div class="topic-header">
                             <img src="img/Duy.jpg" alt="User Avatar" class="user-avatar">
                             <div>
@@ -351,7 +355,7 @@
                         </div>
                     </div>
 
-                    <div class="topic-card" onclick="window.location.href='forum-detail.html'">
+                    <div class="topic-card" data-timestamp="2025-05-10T14:23:00" data-comments="6" onclick="window.location.href='forum-detail.html'">
                         <div class="topic-header">
                             <img src="img/HieuRose.jpg" alt="User Avatar" class="user-avatar">
                             <div>
@@ -413,6 +417,7 @@
                             </div>
                         </div>
 
+                    </div>
                     </div>
                 </div>
 
@@ -541,5 +546,51 @@
             });
         });
     </script>
+
+    <script>
+    // 1. Chọn container chứa các card
+    const container = document.getElementById('topicsContainer');
+
+    // 2. Lấy tất cả các item trong dropdown
+    const items = document.querySelectorAll('.dropdown-item');
+
+    // 3. Với mỗi item, gắn sự kiện click
+    items.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();  // Ngăn link mặc định
+            const sortType = this.dataset.sort;  // "latest" | "oldest" | "comments"
+
+            // 4. Cập nhật label trên button để người dùng biết đang chọn gì
+            document.getElementById('sortDropdown').firstChild.textContent = this.textContent;
+
+            // 5. Gọi hàm sort và truyền loại sắp xếp
+            sortTopics(sortType);
+        });
+    });
+
+    // 6. Hàm sắp xếp
+    function sortTopics(type) {
+        // 6.1 Lấy mảng các thẻ .topic-card
+        const cards = Array.from(container.querySelectorAll('.topic-card'));
+
+        // 6.2 Sắp xếp mảng theo type
+        cards.sort((a, b) => {
+            const timeA = new Date(a.dataset.timestamp);
+            const timeB = new Date(b.dataset.timestamp);
+            const commA = parseInt(a.dataset.comments, 10);
+            const commB = parseInt(b.dataset.comments, 10);
+
+            if (type === 'latest')      return timeB - timeA;       // mới nhất trước
+            if (type === 'oldest')      return timeA - timeB;       // cũ nhất trước
+            if (type === 'comments')    return commB - commA;       // nhiều comment trước
+            return 0;
+        });
+
+        // 6.3 Xóa hết nội dung cũ và chèn lại theo thứ tự mới
+        container.innerHTML = '';
+        cards.forEach(card => container.appendChild(card));
+    }
+    </script>
+
 </body>
 </html>
