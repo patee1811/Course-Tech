@@ -66,7 +66,7 @@
                   </li>
                   <li class="week-course ps-5 pt-2 pb-2" style="background-color: rgb(242, 249, 254);">
                     <i class="bi bi-circle text-secondary me-2"></i>
-                    <a href="#" class="text-decoration-none" style="color: black;">Week 2</a>
+                    <a href="#" class="text-decoration-none" style="color: black;" data-target="#courseContent">Week 2</a>
                   </li>
                   <li class="week-course ps-5 pt-2 pb-2">
                     <i class="bi bi-circle text-secondary me-2"></i>
@@ -84,68 +84,70 @@
   
         <nav>
           <ul class="nav flex-column">
-            <li class="nav-course-item"><a class="nav-link px-0 ps-1 pt-3 pb-3 rounded-3" href="#" style="color: black; font-weight: bold;">Grades</a></li>
-            <li class="nav-course-item"><a class="nav-link px-0 ps-1 pt-3 pb-3 rounded-3" href="#" style="color: black; font-weight: bold;">Notes</a></li>
-            <li class="nav-course-item"><a class="nav-link px-0 ps-1 pt-3 pb-3 rounded-3" href="#" style="color: black; font-weight: bold;">Messages</a></li>
-            <li class="nav-course-item"><a class="nav-link px-0 ps-1 pt-3 pb-3 rounded-3" href="#" style="color: black; font-weight: bold;">Course Info</a></li>
+            <li class="nav-course-item"><a class="nav-link px-0 ps-1 pt-3 pb-3 rounded-3" href="#" data-target="#content-grades" style="color: black; font-weight: bold;">Grades</a></li>
+            <li class="nav-course-item"><a class="nav-link px-0 ps-1 pt-3 pb-3 rounded-3" href="#" data-target="#content-notes" style="color: black; font-weight: bold;">Notes</a></li>
+            <li class="nav-course-item"><a class="nav-link px-0 ps-1 pt-3 pb-3 rounded-3" href="#" data-target="#content-messages" style="color: black; font-weight: bold;">Messages</a></li>
+            <li class="nav-course-item"><a class="nav-link px-0 ps-1 pt-3 pb-3 rounded-3" href="#" data-target="#content-courseinfo" style="color: black; font-weight: bold;">Course Info</a></li>
           </ul>
         </nav>
       </div>
   
       <!-- Main content -->
       <div class="col-lg-6 me-4" style="width: 48%">
-        <div class="accordion" id="mainAccordion">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingNN">
-              <button class="accordion-c-button" style="border: none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNN" aria-expanded="true" aria-controls="collapseNN">
-                Neural network training
-              </button>
-            </h2>
-            <div id="collapseNN" class="accordion-collapse collapse show" aria-labelledby="headingNN" data-bs-parent="#mainAccordion">
-              <div class="accordion-body">
-                <div class="d-flex mb-3">
-                  <div class="me-4">
-                    <i class="bi bi-camera-video me-1"></i>
-                    <small>1h 7m of videos left</small>
+        <div id="courseContent" class="tab-content">
+          <div class="accordion" id="mainAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingNN">
+                <button class="accordion-c-button" style="border: none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNN" aria-expanded="true" aria-controls="collapseNN">
+                  Neural network training
+                </button>
+              </h2>
+              <div id="collapseNN" class="accordion-collapse collapse show" aria-labelledby="headingNN" data-bs-parent="#mainAccordion">
+                <div class="accordion-body">
+                  <div class="d-flex mb-3">
+                    <div class="me-4">
+                      <i class="bi bi-camera-video me-1"></i>
+                      <small>1h 7m of videos left</small>
+                    </div>
+                    <div>
+                      <i class="bi bi-journal-check me-1"></i>
+                      <small>2 graded assignments</small>
+                    </div>
                   </div>
-                  <div>
-                    <i class="bi bi-journal-check me-1"></i>
-                    <small>2 graded assignments</small>
-                  </div>
-                </div>
-                <hr>
-                <p>
-                  This week, you'll learn how to train your model in TensorFlow, and also learn about other important activation
-                  functions (besides the sigmoid function), and where to use each type in a neural network. You'll also learn how to
-                  go beyond binary...
-                </p>
-                <a href="#" class="d-block mb-4">Show Learning Objectives</a>
-  
-                <!-- Sub-sections -->
-                <div class="accordion" id="subAccordion">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingSub1">
-                      <button class="accordion-c-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSub1" aria-expanded="false" aria-controls="collapseSub1">
-                        Neural Network Training
-                        <span class="badge bg-success" style="margin-left: 21rem;">Complete</span>
-                      </button>
-                    </h2>
-                    <div id="collapseSub1" class="accordion-collapse collapse show" aria-labelledby="headingSub1" data-bs-parent="#subAccordion">
-                      <div class="accordion-body px-4">
-                        <ul class="list-unstyled">
-                          <li class="lesson-select mb-2 p-1">
-                            <i class="bi bi-check-circle-fill text-success me-2"></i>
-                            TensorFlow implementation
-                            <br> 
-                            <small class="text-muted" style="padding-left: 1.8rem;">Video • 3 min</small>
-                          </li>
-                          <li class="lesson-select p-1"> 
-                            <i class="bi bi-check-circle-fill text-success me-2"></i>
-                            Training Details 
-                            <br>
-                            <small class="text-muted" style="padding-left: 1.8rem">Video • 13 min</small>
-                          </li>
-                        </ul>
+                  <hr>
+                  <p>
+                    This week, you'll learn how to train your model in TensorFlow, and also learn about other important activation
+                    functions (besides the sigmoid function), and where to use each type in a neural network. You'll also learn how to
+                    go beyond binary...
+                  </p>
+                  <a href="#" class="d-block mb-4">Show Learning Objectives</a>
+    
+                  <!-- Sub-sections -->
+                  <div class="accordion" id="subAccordion">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingSub1">
+                        <button class="accordion-c-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSub1" aria-expanded="false" aria-controls="collapseSub1">
+                          Neural Network Training
+                          <span class="badge bg-success" style="margin-left: 21rem;">Complete</span>
+                        </button>
+                      </h2>
+                      <div id="collapseSub1" class="accordion-collapse collapse show" aria-labelledby="headingSub1">
+                        <div class="accordion-body px-4">
+                          <ul class="list-unstyled">
+                            <li class="lesson-select mb-2 p-1">
+                              <i class="bi bi-check-circle-fill text-success me-2"></i>
+                              TensorFlow implementation
+                              <br> 
+                              <small class="text-muted" style="padding-left: 1.8rem;">Video • 3 min</small>
+                            </li>
+                            <li class="lesson-select p-1"> 
+                              <i class="bi bi-check-circle-fill text-success me-2"></i>
+                              Training Details 
+                              <br>
+                              <small class="text-muted" style="padding-left: 1.8rem">Video • 13 min</small>
+                            </li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -157,7 +159,7 @@
                         <span class="badge bg-success" style="margin-left: 14.9rem;">Complete</span>
                       </button>
                     </h2>
-                    <div id="collapseSub1" class="accordion-collapse collapse show" aria-labelledby="headingSub1" data-bs-parent="#subAccordion">
+                    <div id="collapseSub2" class="accordion-collapse collapse show" aria-labelledby="headingSub2">
                       <div class="accordion-body px-4">
                         <ul class="list-unstyled">
                           <li class="lesson-select p-1">
@@ -171,11 +173,119 @@
                     </div>
                   </div>
                 </div>
-                <!-- /Sub-sections -->
-  
               </div>
             </div>
           </div>
+        </div>
+        <div id="content-grades" class="tab-content" style="display: none;">
+          <div class="container">
+            <!-- Tiêu đề -->
+            <h3>Grades</h3>         
+            <!-- Bảng Grades -->
+            <table class="table mt-5">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Status</th>
+                  <th>Due</th>
+                  <th>Weight</th>
+                  <th>Grade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <i class="bi bi-check-circle-fill text-success me-1"></i>
+                    <a href="#">Practice quiz: Neural networks training</a><br>
+                    <small class="text-muted">Graded Assignment</small>
+                  </td>
+                  <td>Passed</td>
+                  <td>
+                    Apr 14<br>
+                    <small class="text-muted">1:59 PM +07</small>
+                  </td>
+                  <td>2%</td>
+                  <td>100%</td>
+                </tr>
+                <!-- Thêm các dòng khác tương tự nếu cần -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div id="content-notes" class="tab-content" style="display: none;">
+          <div class="container">
+            <h3>Notes</h3> 
+            <br><br>
+            <b>Filter: </b><span>All notes</span>  
+            <div class="icons-container d-flex justify-content-center mb-4" style="margin-top: 5rem;">
+              <div class="icon-wrapper icon-doc">
+                <i class="bi bi-file-earmark-plus icon"></i>
+              </div>
+              <div class="icon-wrapper icon-pencil">
+                <i class="bi bi-pencil-fill icon"></i>
+              </div>
+            </div>
+            <p class="text-center" style="font-size: 1.2rem;">You have not added any notes yet. Notes can be created from video pages.</p>
+          </div>
+        </div>
+        <div id="content-messages" class="tab-content" style="display: none;">
+          <div class="container">
+            <h3 class="mb-4">Messages</h3>
+            <hr>
+            <p>
+              Welcome! You’re joining thousands of learners currently enrolled in the course. I’m excited to have you in the class and look forward to your contributions to the learning community. To begin, I recommend taking a few minutes to explore the course site. Review the material we’ll cover each week and preview the assignments you’ll need to complete to pass the course. Also, visit our 
+              <a href="#">Community Forum</a> 
+              site, where you can discuss the course material with fellow students.
+            </p>
+            <p>
+              If you have questions about course content, please post them on the 
+              <a href="#">Forum</a> 
+              to get help from mentors and fellow learners in the DeepLearning.AI Community. For technical problems with the Coursera platform, you can visit the 
+              <a href="#">Learner Help Center</a>.
+            </p>
+            <p>
+              Good luck as you get started, and I hope you enjoy the course!
+            </p>
+            <a href="#" class="btn btn-outline-primary rounded-3">
+              Go to Course
+            </a>
+          </div>
+        </div>
+        <div id="content-courseinfo" class="tab-content" style="display: none;">
+          <h1 class="text-center mb-3">Advanced Learning Algorithm</h1>
+          <p class="text-center mb-4">by DeepLearning.AI & Stanford University</p>
+          <b class="mb-2">About this course</b>
+          <div>In the second course of the Machine Learning Specialization, you will:</div>
+          <div>• Build and train a neural network with TensorFlow to perform multi-class classification</div>
+          <br><hr>
+          <ul class="instructor-list pb-2 pt-2">
+            <li class="instructor-item mb-3">
+              <img src="img/T1Dung.jpg" alt="Andrew Ng" class="instructor-img">
+              <div class="instructor-info">
+                <p class="taught-by">
+                  Taught by:
+                  <a href="#">DungDepTrai</a>,
+                  <span class="role">Instructor</span>
+                </p>
+                <p class="title">
+                  Founder, CoopTech &amp; Co-founder, CourseTech
+                </p>
+              </div>
+            </li>
+            <li class="instructor-item">
+              <img src="img/instructor.jpg" alt="Aarti Bagul" class="instructor-img">
+              <div class="instructor-info">
+                <p class="taught-by">
+                  Taught by:
+                  <a href="#">Liem</a>,
+                  <span class="role">Curriculum Engineer</span>
+                </p>
+                <p class="title">
+                  CoopTech Curriculum Team
+                </p>
+              </div>
+            </li>
+          </ul>        
         </div>
       </div>
   
@@ -226,6 +336,37 @@
   <!-- JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+  <script>
+    $(function(){
+      function hideAll() {
+        $('#courseContent, #content-grades, #content-notes, #content-messages, #content-courseinfo')
+          .hide();
+      }
+  
+      // Show mặc định
+      hideAll();
+      $('#courseContent').show();
+      // Nếu muốn mặc định highlight Grades, Notes, ... thì:
+      // $('li.nav-course-item').first().addClass('active');
+  
+      $('a[data-target]').on('click', function(e){
+        e.preventDefault();
+  
+        // 1) Ẩn/show nội dung
+        var tgt = $(this).data('target');
+        hideAll();
+        $(tgt).show();
+  
+        // 2) Toggle active trên <li>
+        //   - Xóa active cũ
+        $('li.nav-course-item').removeClass('active');
+        //   - Add active cho <li> cha của link vừa click
+        $(this).closest('li.nav-course-item').addClass('active');
+      });
+    });
+  </script>  
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="lib/wow/wow.min.js"></script>
   <script src="lib/easing/easing.min.js"></script>

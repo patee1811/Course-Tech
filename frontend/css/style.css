@@ -2949,6 +2949,10 @@
   background-color: #efefef;
 }
 
+.nav-course-item.active {
+  background-color: #e0e0e0;      
+}
+
 .accordion-c-button {
   position: relative;
   display: flex;
@@ -3024,4 +3028,92 @@
 .lesson-select:hover {
   background-color: #e5e5e5;
   cursor: pointer;
+}
+
+.icons-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Khung chung cho từng icon */
+.icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 0.5rem;
+}
+
+/* Màu nền cho icon “document +” */
+.icon-doc {
+  background-color: #DAF7A6;
+}
+
+/* Màu nền cho icon “pencil” */
+.icon-pencil {
+  background-color: #5DADE2;
+}
+
+/* Kích thước và màu cho biểu tượng */
+.icon-wrapper .icon {
+  font-size: 3rem;
+  color: #000;
+}
+
+/* Container chung cho toàn bộ danh sách giảng viên */
+.instructor-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Mỗi mục giảng viên */
+.instructor-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+/* Ảnh tròn */
+.instructor-item .instructor-img {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+/* Phần thông tin text */
+.instructor-item .instructor-info {
+  line-height: 1.4;
+}
+
+/* Dòng chứa “Taught by:” + tên + vai trò */
+.instructor-info .taught-by {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Link tên giảng viên */
+.instructor-info .taught-by a {
+  margin-left: 0.25rem;
+  text-decoration: none;
+}
+
+/* Vai trò đứng ngay sau tên, có dấu phẩy */
+.instructor-info .taught-by .role {
+  margin-left: 0.25rem;
+  font-weight: 400;
+  color: #212529;
+}
+
+/* Dòng mô tả thêm bên dưới */
+.instructor-info .title {
+  margin-top: 0.25rem;
+  color: #6c757d;
+  font-size: 0.9rem;
 }
