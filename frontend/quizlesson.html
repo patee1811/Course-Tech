@@ -50,6 +50,9 @@
       <!-- JS sẽ chèn câu hỏi vào đây -->
     </form>
     <button id="submit-btn">Submit</button>
+    <button id="retry-btn" style="display:none;">
+    Retry
+    </button>
     <div id="result"></div>
   </div>
 
@@ -102,44 +105,79 @@
       formEl.appendChild(divQ);
     });
 
-    // 3) Bắt sự kiện Submit
-    document.getElementById("submit-btn").addEventListener("click", () => {
-      let correctCount = 0;
-      quizData.forEach((q, idx) => {
+    const submitBtn = document.getElementById("submit-btn");
+    const retryBtn  = document.getElementById("retry-btn");
+    const resultEl  = document.getElementById("result");
+
+    submitBtn.addEventListener("click", () => {
+    // 1. Disable hết radio để không sửa được
+    document
+        .querySelectorAll('input[type="radio"]')
+        .forEach(r => r.disabled = true);
+
+    // 2. Ẩn nút Submit, hiện nút Retry
+    submitBtn.style.display = "none";
+    retryBtn.style.display  = "inline-block";
+
+    // 3. Xóa icon cũ, tính điểm và gắn icon ✔️❌
+    document.querySelectorAll(".options i").forEach(i => i.remove());
+    let correctCount = 0;
+    quizData.forEach((q, idx) => {
         const sel = document.querySelector(`input[name="q${idx}"]:checked`);
-        if (sel && sel.value === q.correct) correctCount++;
-      });
-      const total = quizData.length;
-      const percent = Math.round((correctCount / total) * 100);
-      document.getElementById("result").innerText = 
+        if (sel) {
+        const lbl = sel.closest("label");
+        if (sel.value === q.correct) {
+            correctCount++;
+            lbl.insertAdjacentHTML(
+            "beforeend",
+            '<i class="bi bi-check-circle-fill text-success ms-2"></i>'
+            );
+        } else {
+            lbl.insertAdjacentHTML(
+            "beforeend",
+            '<i class="bi bi-x-circle-fill text-danger ms-2"></i>'
+            );
+        }
+        }
+    });
+
+        // 4. Hiển thị kết quả %
+        const total   = quizData.length;
+        const percent = Math.round((correctCount / total) * 100);
+        resultEl.innerText =
         `Bạn đúng ${correctCount}/${total} câu. (${percent}%)`;
-    });
-  </script>
+        });
 
-  <!-- Back to Top -->
-  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top">
-    <i class="bi bi-arrow-up"></i>
-  </a>
+        // 5. Retry: reload trang
+        retryBtn.addEventListener("click", () => {
+        window.location.reload();
+        });
+    </script>
 
-  <!-- JavaScript Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/wow/wow.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/waypoints/waypoints.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top">
+        <i class="bi bi-arrow-up"></i>
+    </a>
 
-  <!-- Template Javascript -->
-  <script src="js/main.js"></script>
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-  <!--load navbar-->
-  <script>  
-    $(function() {
-      $("#navbar-placeholder").load("navbar.html", function() {
-        updateCurrentPageName();
-      });
-    });
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <!--load navbar-->
+    <script>  
+        $(function() {
+        $("#navbar-placeholder").load("navbar.html", function() {
+            updateCurrentPageName();
+        });
+        });
   </script>
 </body>
 
