@@ -3180,3 +3180,20 @@
   text-align: center;
   font-weight: bold;
 }
+
+#retry-btn {
+  display: none;       /* ẩn lúc đầu */
+  width: 100%;         /* full container */
+  padding: 12px;
+  font-size: 1rem;
+  background: #06BBCC;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 10px;    /* nếu cần khoảng cách so với Submit */
+}
+#retry-btn:hover {
+  background: #049fa8;
+}
