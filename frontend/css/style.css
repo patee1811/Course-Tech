@@ -3488,3 +3488,41 @@
     justify-content: center;
   }
 }
+
+.collapse-video-items:hover {
+  background-color: #F0FBFC;
+  cursor: pointer;
+}
+
+#retry-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  background: #06BBCC;
+  margin-bottom: 1rem;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#retry-btn:hover {
+  background: #049fa8;
+}
+#back-to-course-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  text-align: center;
+  background: #06BBCC;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#back-to-course-btn:hover {
+  background: #049fa8;
+}

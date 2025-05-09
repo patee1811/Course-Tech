@@ -44,11 +44,79 @@
   <div id="navbar-placeholder"></div>
   <!-- Navigation Bar End -->
 
-  <div class="container-fluid mt-5">
-    <div class="row justify-content-center">
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <div class="col-lg-3 me-4 ms-5">
+        <div class="accordion">
+          <!-- Mục chính: Neural Network Training -->
+          <div class="accordion-item" style="border: none !important;">
+            <h2 class="accordion-header" id="headingNN">
+              <button class="accordion-c-button border rounded-1"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseNN"
+                      aria-expanded="true"
+                      aria-controls="collapseNN">
+                <!-- Tiêu đề -->
+                Neural Network Training
+              </button>
+            </h2>
+            <div id="collapseNN"
+                class="accordion-collapse collapse show"
+                aria-labelledby="headingNN"
+                data-bs-parent="#sidebarAccordion">
+              <div class="accordion-body p-0">
+                <ul class="list-unstyled m-0">
+                  <!-- Item 1: active -->
+                  <li class="d-flex collapse-video-items align-items-center p-2 border-start border-4 border-primary bg-light">
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    <div>
+                      <strong>Video:</strong> TensorFlow implementation
+                      <small class="text-muted d-block">3 min</small>
+                    </div>
+                  </li>
+                  <!-- Item 2: bình thường -->
+                  <li class="collapse-video-items d-flex align-items-center p-2">
+                    <i class="bi bi-check-circle-fill text-success me-2"></i>
+                    <div>
+                      <strong>Video:</strong> Training Details
+                      <small class="text-muted d-block">13 min</small>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item" style="border: none !important;">
+            <h2 class="accordion-header" id="headingQuiz">
+              <button class="accordion-c-button collapsed border rounded-1"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseQuiz"
+                      aria-expanded="false"
+                      aria-controls="collapseQuiz">
+                Practice Quiz: Neural Network Training
+              </button>
+            </h2>
+            <div id="collapseQuiz"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingQuiz"
+                data-bs-parent="#sidebarAccordion">
+              <li class="collapse-video-items d-flex align-items-center p-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                  <a href="quizlesson.html">
+                    <div>
+                      <strong>Practice Quiz:</strong> Neural Network Training
+                      <small class="text-muted d-block">30 min</small>
+                    </div>
+                  </a>
+              </li>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="col-lg-8">
-        <div class="video-box bg-light shadow p-5 rounded">
-          <h2 class="mb-4 text-center" style="color: #06BBCC;">Video Lesson: Neural Network Training</h2>
+        <div class="video-box">
           <div class="ratio ratio-16x9 mb-4">
             <!-- Thay YOUR_VIDEO_ID bằng ID thật của video YouTube -->
             <iframe src="https://www.youtube.com/embed/JTOU6s13dhQ?list=PLyoNSC4BT4eVpykPF0Yx8C1Zs50XtD17L"
@@ -58,10 +126,6 @@
                     allowfullscreen>
             </iframe>
           </div>
-          <p class="text-center">
-            Watch the detailed tutorial on how to train a neural network using TensorFlow.<br>
-            Once you’re done, you can head back to the Practice Quiz to check your understanding.
-          </p>
         </div>
       </div>
     </div>
