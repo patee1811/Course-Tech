@@ -74,10 +74,12 @@
                                 <p class="topic-meta">Latest reply from <strong>maradona</strong> 13 minutes ago</p>
                             </div>
                         </div>
+
                         <div class="topic-content">
                             <p>Hey everyone, I am Messi from Argentina, I just finished football and became the GOAT. And now I am here to search for new courses, I like courses related to technology...</p>
                         </div>
-                        <div class="topic-footer">
+
+                        <div class="topic-footer d-flex justify-content-between align-items-center">
                             <div class="participant-avatars">
                                 <img src="img/Duy.jpg" alt="Participant" class="participant-avatar">
                                 <img src="img/HieuRose.jpg" alt="Participant" class="participant-avatar">
@@ -86,13 +88,101 @@
                                 <span class="participant-avatar" style="background-color: #f1f1f1; display: flex; align-items: center; justify-content: center; font-size: 10px;">+2</span>
                             </div>
                             <div class="comment-count">
-                                <i class="far fa-comment"></i> 25 Comments
+                                <!-- 
+                                    onclick="event.stopPropagation()" để ngăn không redirect cả card
+                                    href="#comments-1" phải khớp với id vùng collapse bên dưới
+                                -->
+                                <a 
+                                    href="#comments-1" 
+                                    class="text-decoration-none" 
+                                    data-bs-toggle="collapse" 
+                                    role="button" 
+                                    aria-expanded="false" 
+                                    aria-controls="comments-1"
+                                    onclick="event.stopPropagation()"
+                                >
+                                    <i class="far fa-comment"></i> 23 Comments
+                                </a>
                             </div>
                         </div>
+
                         <div class="mt-2">
                             <span class="category-tag introductions">
                                 <i class="fas fa-circle mr-1" style="font-size: 8px;"></i> Introductions
                             </span>
+                        </div>
+
+                        <!-- VÙNG COMMENTS -->
+                        <div id="comments-1" class="collapse mt-3 border-top pt-2">
+                            <div class="comment-item mb-2">
+                                <strong>Messi:</strong> Cảm ơn mọi người đã chào đón! Mình đang tìm khóa Python cơ bản.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Anna:</strong> Mình gợi ý khóa Machine Learning của Andrew Ng trên Coursera.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Tom:</strong> Bạn đã thử “Web Development Bootcamp” với React và Node.js chưa?
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Lan:</strong> Khóa “Introduction to Cloud Computing” trên AWS rất dễ hiểu.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>John:</strong> Nếu muốn làm AI, bạn nên học toán xác suất và thống kê trước.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Huong:</strong> Khóa “Cybersecurity Fundamentals” giúp bạn nắm vững an ninh mạng.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Victor:</strong> Mình recommend “Data Structures & Algorithms” trên edX.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Jenny:</strong> Bạn đang hướng đến Front-end, Back-end hay DevOps?
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Nam:</strong> Khóa “Mobile App Development with Flutter” đang sale rất tốt.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Quynh:</strong> Google Cloud có nhiều tài nguyên miễn phí để bạn khám phá.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Lee:</strong> Khóa “Blockchain Basics” khá thú vị nếu bạn muốn tìm hiểu blockchain.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Mai:</strong> “UI/UX Design for Developers” rất thực tế, bạn thử xem nhé.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Sam:</strong> Mình đang học “IoT Programming” của Microsoft, rất trực quan.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Hoa:</strong> Bạn nên luyện Git và GitHub để dễ cộng tác.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Eric:</strong> Khóa “RPA with Python” giúp bạn tự động hóa nhiều tác vụ.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Chi:</strong> “Unity for AR/VR” hỗ trợ bạn phát triển AR/VR tốt.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Khanh:</strong> Hãy thử “SQL for Data Science” để xử lý dữ liệu hiệu quả.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Oscar:</strong> “Deep Learning Specialization” của Andrew Ng rất bổ ích.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Phuong:</strong> Mỗi module xong nên làm một project nhỏ để củng cố.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>David:</strong> Bạn có thể học “Docker & Kubernetes” để triển khai ứng dụng.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Lin:</strong> Khóa “Algorithms on Graphs” hay cho ứng dụng mạng xã hội.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Tram:</strong> Nếu muốn làm game, học C# và Unity là hướng tốt.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Alex:</strong> “AI for Everyone” trên Coursera rất dễ tiếp cận.
+                            </div>
                         </div>
                     </div>
 
@@ -107,21 +197,86 @@
                         <div class="topic-content">
                             <p>I would like to introduce to all users the upcoming version of the site with many features and modifications!</p>
                         </div>
-                        <div class="topic-footer">
+                        <div class="topic-footer d-flex justify-content-between align-items-center">
                             <div class="participant-avatars">
                                 <img src="img/HieuRose.jpg" alt="Participant" class="participant-avatar">
                                 <img src="img/T1Dung.jpg" alt="Participant" class="participant-avatar">
                                 <img src="img/Duy.jpg" alt="Participant" class="participant-avatar">
                                 <img src="img/RauCon.jpg" alt="Participant" class="participant-avatar">
+                                <span class="participant-avatar" style="background-color: #f1f1f1; display: flex; align-items: center; justify-content: center; font-size: 10px;">+2</span>
                             </div>
                             <div class="comment-count">
-                                <i class="far fa-comment"></i> 16 Comments
+
+                                <a 
+                                    href="#comments-2" 
+                                    class="text-decoration-none" 
+                                    data-bs-toggle="collapse" 
+                                    role="button" 
+                                    aria-expanded="false" 
+                                    aria-controls="comments-1"
+                                    onclick="event.stopPropagation()"
+                                >
+                                    <i class="far fa-comment"></i> 16 Comments
+                                </a>
                             </div>
                         </div>
+
                         <div class="mt-2">
                             <span class="category-tag announcements">
                                 <i class="fas fa-circle mr-1" style="font-size: 8px;"></i> Announcements
                             </span>
+                        </div>
+
+                        <!-- VÙNG COMMENTS -->
+                        <div id="comments-2" class="collapse mt-3 border-top pt-2">
+                            <div class="comment-item mb-2">
+                                <strong>jack_97:</strong> Tôi rất háo hức về giao diện mới, nhất là dark mode.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>HieuRose:</strong> Phiên bản mới có responsive tốt hơn không?
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>T1Dung:</strong> Mong có tính năng thông báo đẩy (push notifications).
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Duy:</strong> Hy vọng cải tiến tốc độ tải trang đáng kể.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>RauCon:</strong> Mình mong chờ chức năng tìm kiếm nâng cao.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Nguyen:</strong> Bạn có kế hoạch tích hợp chat support không?
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Thao:</strong> Giao diện mới sẽ hỗ trợ tùy chỉnh theme chứ?
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Minh:</strong> Có thêm dashboard thống kê người dùng không?
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Trang:</strong> Mong có API để tích hợp bên thứ ba.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Long:</strong> Phiên bản mới có cập nhật bảo mật không?
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Lan:</strong> Tôi muốn biết lịch release cụ thể.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Quang:</strong> Sẽ có tutorial cho người mới không?
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Phuoc:</strong> Có bản mobile app trong tương lai không?
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Huong:</strong> Có feature dark/light mode tự động không?
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Bao:</strong> Mình mong form phản hồi được cải thiện.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Yen:</strong> Phiên bản này có tích hợp chatbot AI không?
+                            </div>
                         </div>
                     </div>
 
@@ -133,24 +288,66 @@
                                 <p class="topic-meta">Latest reply from <strong>dungdeptrai</strong> hours ago</p>
                             </div>
                         </div>
+
                         <div class="topic-content">
                             <p>I am currently programming on VScode, I would like to know more about other IDEs for better experience.</p>
                         </div>
-                        <div class="topic-footer">
+
+                        <div class="topic-footer d-flex justify-content-between align-items-center">
                             <div class="participant-avatars">
                                 <img src="img/T1Dung.jpg" alt="Participant" class="participant-avatar">
                                 <img src="img/instructor.jpg" alt="Participant" class="participant-avatar">
                                 <img src="img/RauCon.jpg" alt="Participant" class="participant-avatar">
                                 <img src="img/HieuRose.jpg" alt="Participant" class="participant-avatar">
+                                <span class="participant-avatar" style="background-color: #f1f1f1; display: flex; align-items: center; justify-content: center; font-size: 10px;">+2</span>
                             </div>
                             <div class="comment-count">
-                                <i class="far fa-comment"></i> 8 Comments
+                                <a 
+                                    href="#comments-3" 
+                                    class="text-decoration-none" 
+                                    data-bs-toggle="collapse" 
+                                    role="button" 
+                                    aria-expanded="false" 
+                                    aria-controls="comments-1"
+                                    onclick="event.stopPropagation()"
+                                >
+                                    <i class="far fa-comment"></i> 8 Comments
+                                </a>
                             </div>
                         </div>
+
                         <div class="mt-2">
                             <span class="category-tag chatter">
                                 <i class="fas fa-circle mr-1" style="font-size: 8px;"></i> Technology
                             </span>
+                        </div>
+
+                        <!-- VÙNG COMMENTS -->
+                        <div id="comments-3" class="collapse mt-3 border-top pt-2">
+                            <div class="comment-item mb-2">
+                                <strong>Alex:</strong> Thử IntelliJ IDEA nếu bạn làm Java, hỗ trợ refactoring rất tốt.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Bella:</strong> VSCode ổn rồi, nhưng nếu code Python nặng, PyCharm Professional rất mạnh về tính năng.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Carlos:</strong> Nếu bạn làm web full-stack, WebStorm (cũng của JetBrains) rất tuyệt cho JS/TS.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Diana:</strong> Mình thích dùng Sublime Text – rất nhẹ và chạy rất nhanh.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Eric:</strong> Cho dự án C/C++, bạn nên thử CLion hoặc Visual Studio Community.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Fiona:</strong> Nếu thích open source, thử Eclipse IDE, hỗ trợ nhiều ngôn ngữ và plugin.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>George:</strong> Atom cũng là một lựa chọn, tuy hơi chậm nhưng dễ tùy chỉnh.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>Hannah:</strong> Mình khuyên dùng Neovim nếu muốn hiệu năng cao và thao tác bàn phím thuần, nhưng cần thời gian làm quen.
+                            </div>
                         </div>
                     </div>
 
@@ -162,18 +359,30 @@
                                 <p class="topic-meta">Latest reply from <strong>designGeek</strong> 2 hours ago</p>
                             </div>
                         </div>
+
                         <div class="topic-content">
                             <p>Working through a tricky UI flow for a new airline booking system, getting stuck on...</p>
                         </div>
-                        <div class="topic-footer">
+                        <div class="topic-footer d-flex justify-content-between align-items-center">
                             <div class="participant-avatars">
                                 <img src="img/T1Dung.jpg" alt="Participant" class="participant-avatar">
                                 <img src="img/Duy.jpg" alt="Participant" class="participant-avatar">
                                 <img src="img/instructor.jpg" alt="Participant" class="participant-avatar">
                                 <img src="img/user_avatar.jpg" alt="Participant" class="participant-avatar">
+                                <span class="participant-avatar" style="background-color: #f1f1f1; display: flex; align-items: center; justify-content: center; font-size: 10px;">+2</span>
                             </div>
                             <div class="comment-count">
-                                <i class="far fa-comment"></i> 6 Comments
+                                <a 
+                                    href="#comments-4" 
+                                    class="text-decoration-none" 
+                                    data-bs-toggle="collapse" 
+                                    role="button" 
+                                    aria-expanded="false" 
+                                    aria-controls="comments-1"
+                                    onclick="event.stopPropagation()"
+                                >
+                                    <i class="far fa-comment"></i> 6 Comments
+                                </a>
                             </div>
                         </div>
                         <div class="mt-2">
@@ -181,6 +390,29 @@
                                 <i class="fas fa-circle mr-1" style="font-size: 8px;"></i> Feedback
                             </span>
                         </div>
+
+                        <!-- VÙNG COMMENTS -->
+                        <div id="comments-4" class="collapse mt-3 border-top pt-2">
+                            <div class="comment-item mb-2">
+                                <strong>UI_Dev01:</strong> Bạn đang mắc ở bước chọn chỗ ngồi hay thanh toán vậy?
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>FlightFan:</strong> Mình gợi ý tách logic xác thực thông tin khách trước khi cho chuyển bước.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>UX_Guru:</strong> Bạn có thể thêm tooltip giải thích mỗi bước để người dùng không bối rối.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>FrontEndNinja:</strong> Sử dụng state machine (xstate) giúp quản lý flow phức tạp tốt hơn.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>QA_Expert:</strong> Đừng quên test edge case khi người dùng back/forth giữa các bước.
+                            </div>
+                            <div class="comment-item mb-2">
+                                <strong>DesignLover:</strong> Hãy cân nhắc dùng progress bar kèm icon để minh họa vị trí hiện tại.
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
