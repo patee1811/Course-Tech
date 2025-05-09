@@ -70,7 +70,7 @@
                     <div id="topicsContainer">
 
                     <!-- Topic Cards -->
-                    <div class="topic-card" data-timestamp="2025-05-10T14:20:00" data-comments="23" onclick="window.location.href='forum-detail.html'">
+                    <div class="topic-card" data-category="Introductions" data-timestamp="2025-05-10T14:20:00" data-comments="23" onclick="window.location.href='forum-detail.html'">
                         <div class="topic-header">
                             <img src="img/RauCon.jpg" alt="User Avatar" class="user-avatar">
                             <div>
@@ -190,7 +190,7 @@
                         </div>
                     </div>
 
-                    <div class="topic-card" data-timestamp="2025-05-10T14:21:00" data-comments="16" onclick="window.location.href='forum-detail.html'">
+                    <div class="topic-card" data-category="Announcements" data-timestamp="2025-05-10T14:21:00" data-comments="16" onclick="window.location.href='forum-detail.html'">
                         <div class="topic-header">
                             <img src="img/instructor.jpg" alt="User Avatar" class="user-avatar">
                             <div>
@@ -284,7 +284,7 @@
                         </div>
                     </div>
 
-                    <div class="topic-card" data-timestamp="2025-05-10T14:22:00" data-comments="8" onclick="window.location.href='forum-detail.html'">
+                    <div class="topic-card" data-category="Technology" data-timestamp="2025-05-10T14:22:00" data-comments="8" onclick="window.location.href='forum-detail.html'">
                         <div class="topic-header">
                             <img src="img/Duy.jpg" alt="User Avatar" class="user-avatar">
                             <div>
@@ -355,7 +355,7 @@
                         </div>
                     </div>
 
-                    <div class="topic-card" data-timestamp="2025-05-10T14:23:00" data-comments="6" onclick="window.location.href='forum-detail.html'">
+                    <div class="topic-card" data-category="Feedback" data-timestamp="2025-05-10T14:23:00" data-comments="6" onclick="window.location.href='forum-detail.html'">
                         <div class="topic-header">
                             <img src="img/HieuRose.jpg" alt="User Avatar" class="user-avatar">
                             <div>
@@ -437,43 +437,50 @@
 
                     <div class="forum-sidebar">
                         <h5 class="mb-3">Categories</h5>
-                        <a href="#" class="sidebar-item">
+
+                        <a href="#" class="sidebar-item" data-category="All">
+                            <span class="category-indicator color-spotlight"></span>
+                            All
+                        </a>
+
+                        <a href="#" class="sidebar-item" data-category="Introductions">
                             <span class="category-indicator color-introductions"></span>
                             Introductions
                         </a>
-                        <a href="#" class="sidebar-item">
+                        <a href="#" class="sidebar-item" data-category="Announcements">
                             <span class="category-indicator color-announcements"></span>
                             Announcements
                         </a>
-                        <a href="#" class="sidebar-item">
+                        <a href="#" class="sidebar-item" data-category="Technology">
                             <span class="category-indicator color-technology"></span>
                             Technology
                         </a>
-                        <a href="#" class="sidebar-item">
+                        <a href="#" class="sidebar-item" data-category="Feedback">
                             <span class="category-indicator color-feedback"></span>
                             Feedback
                         </a>
-                        <a href="#" class="sidebar-item">
+                        <a href="#" class="sidebar-item" data-category="Spotlight">
                             <span class="category-indicator color-spotlight"></span>
                             Member Spotlight
                         </a>
-                        <a href="#" class="sidebar-item">
+                        <a href="#" class="sidebar-item" data-category="Knowledge">
                             <span class="category-indicator color-knowledge"></span>
                             Knowledge
                         </a>
-                        <a href="#" class="sidebar-item">
+                        <a href="#" class="sidebar-item" data-category="Qa">
                             <span class="category-indicator color-qa"></span>
                             Q&A
                         </a>
-                        <a href="#" class="sidebar-item">
+                        <a href="#" class="sidebar-item" data-category="Showcase">
                             <span class="category-indicator color-showcase"></span>
                             Showcase
                         </a>
-                        <a href="#" class="sidebar-item">
+                        <a href="#" class="sidebar-item" data-category="Jobs">
                             <span class="category-indicator color-jobs"></span>
                             Jobs
                         </a>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -592,5 +599,34 @@
     }
     </script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebarItems = document.querySelectorAll('.sidebar-item');
+            const topicCards = document.querySelectorAll('.topic-card');
+
+            sidebarItems.forEach(item => {
+                item.addEventListener('click', e => {
+                    e.preventDefault();
+                    const category = item.dataset.category; // "all", "Introductions", "Announcements", …
+
+                    // 1. Bật/tắt lớp active cho sidebar
+                    sidebarItems.forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+
+                    // 2. Lọc các topic-card
+                    topicCards.forEach(card => {
+                        if (category === 'All' || card.dataset.category === category) {
+                            // nếu chọn "all" hoặc khớp category thì show
+                            card.classList.remove('d-none');
+                        } else {
+                            // ngược lại ẩn đi
+                            card.classList.add('d-none');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    
 </body>
 </html>
