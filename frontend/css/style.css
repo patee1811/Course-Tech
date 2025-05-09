@@ -3117,3 +3117,66 @@
   color: #6c757d;
   font-size: 0.9rem;
 }
+
+/* ------- QUIZ CONTAINER ------- */
+.quiz-container {
+  max-width: 80%;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #06BBCC;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 30px;
+}
+.quiz-container h1 {
+  color: #06BBCC;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* ------- QUESTION BLOCK ------- */
+.question {
+  margin-bottom: 24px;
+}
+.question h3 {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+.options label {
+  display: block;
+  margin-bottom: 8px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.options input {
+  margin-right: 8px;
+}
+.options label:hover {
+  background: #eef9fa;
+}
+
+/* ------- BUTTON & RESULT ------- */
+#submit-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  background: #06BBCC;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#submit-btn:hover {
+  background: #049fa8;
+}
+#result {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: bold;
+}

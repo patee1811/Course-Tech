@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Quiz Tổng hợp</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Spinner Start -->
+  <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <!-- Spinner End -->
+
+  <!-- Navigation Bar Start -->
+  <div id="navbar-placeholder"></div>
+  <!-- Navigation Bar End -->
+
+  <div class="quiz-container">
+    <h1>Quiz: Kiến thức Tổng hợp</h1>
+    <form id="quiz-form">
+      <!-- JS sẽ chèn câu hỏi vào đây -->
+    </form>
+    <button id="submit-btn">Submit</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    // 1) Dữ liệu câu hỏi
+    const quizData = [
+      {
+        question: "1. Sơn Tùng quê ở đâu?",
+        options: { a: "Hà Nội", b: "Đà Nẵng", c: "Hưng Yên", d: "Thái Bình" },
+        correct: "c"
+      },
+      {
+        question: "2. Đội nào vừa thua 4-3?",
+        options: { a: "Chelse", b: "Manchester United", c: "Barcelona", d: "Inter Milan" },
+        correct: "c"
+      },
+      {
+        question: "3. Bạn có chấp nhận thức đêm để xem thua 4-3 không",
+        options: { 
+          a: "Không", 
+          b: "Có",
+          c: "Không biết"
+        },
+        correct: "b"
+      }
+      // ... bạn có thể thêm nhiều câu hỏi hơn
+    ];
+
+    // 2) Render quiz
+    const formEl = document.getElementById("quiz-form");
+    quizData.forEach((q, idx) => {
+      const divQ = document.createElement("div");
+      divQ.classList.add("question");
+
+      const h3 = document.createElement("h3");
+      h3.innerText = q.question;
+      divQ.appendChild(h3);
+
+      const opts = document.createElement("div");
+      opts.classList.add("options");
+      for (let key in q.options) {
+        const label = document.createElement("label");
+        label.innerHTML = `
+          <input type="radio" name="q${idx}" value="${key}">
+          ${q.options[key]}
+        `;
+        opts.appendChild(label);
+      }
+      divQ.appendChild(opts);
+      formEl.appendChild(divQ);
+    });
+
+    // 3) Bắt sự kiện Submit
+    document.getElementById("submit-btn").addEventListener("click", () => {
+      let correctCount = 0;
+      quizData.forEach((q, idx) => {
+        const sel = document.querySelector(`input[name="q${idx}"]:checked`);
+        if (sel && sel.value === q.correct) correctCount++;
+      });
+      const total = quizData.length;
+      const percent = Math.round((correctCount / total) * 100);
+      document.getElementById("result").innerText = 
+        `Bạn đúng ${correctCount}/${total} câu. (${percent}%)`;
+    });
+  </script>
+
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top">
+    <i class="bi bi-arrow-up"></i>
+  </a>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Template Javascript -->
+  <script src="js/main.js"></script>
+
+  <!--load navbar-->
+  <script>  
+    $(function() {
+      $("#navbar-placeholder").load("navbar.html", function() {
+        updateCurrentPageName();
+      });
+    });
+  </script>
+</body>
+
+</html>
