@@ -146,16 +146,14 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-    <!-- Load navbar từ file navbar.html và update tên trang -->
-    <script>
-        $(function() {
-            $("#navbar-placeholder").load("navbar.html", function() {
-                // Nếu bạn có hàm cập nhật tên trang hiện tại
-                if (typeof updateCurrentPageName === 'function') {
-                    updateCurrentPageName();
-                }
-            });
-        });
-    </script>
+  <!--load navbar-->
+  <script>  
+    $(function() {
+      $("#navbar-placeholder").load("navbar.html", function() {
+        updateCurrentPageName();
+      });
+    });
+  </script>
+  
 </body>
 </html>

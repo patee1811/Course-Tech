@@ -280,16 +280,28 @@ function updateCurrentPageName() {
   const pageNames = {
     "index.html": "Home",
     "about.html": "About",
-    "courses.html": "Courses",
+    "courses.html": "Course",
     "coursesdetail.html": "Course",
+    "coursecontent.html": "Course",
+    "createcourse.html": "Create Course",
+    "certificate.html": "Certificate",
+    "mycourse.html": "My Courses",
+    "quizlesson.html": "Course",
     "contact.html": "Contact",
     "team.html": "Team",
     "testimonial.html": "Testimonial",
     "404.html": "Not Found",
-    "dashboard.html": "Dashboard",
+    "studentdashboard.html": "Dashboard",
+    "teacherdashboard.html": "Dashboard",
+    "studentmanagement.html": "Student Management",
+    "userview.html": "User View",
+    "videolesson.html": "Course",
     "accountbalance.html": "Account Balance",
     "profile.html": "Profile",
-    "settings.html": "Settings"
+    "settings.html": "Settings",
+    "forum.html": "Forum",
+    "forumthread.html": "Forum Thread",
+    "ranking.html": "Ranking",
   };
   const pageName = pageNames[currentPage] || "Home";
   const el = document.getElementById("currentPageName");
