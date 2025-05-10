@@ -3526,3 +3526,12 @@
 #back-to-course-btn:hover {
   background: #049fa8;
 }
+
+#notes-list .note-item {
+  margin-bottom: 1rem;
+}
+#notes-list .note-item textarea {
+  width: 100%;
+  min-height: 80px;
+  resize: vertical;
+}
