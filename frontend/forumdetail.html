@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Forum Detail</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicon -->
+  <link href="img/favicon.ico" rel="icon">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet">
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Spinner Start -->
+  <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <!-- Spinner End -->
+
+  <!-- Navigation Bar Start -->
+  <div id="navbar-placeholder"></div>
+  <!-- Navigation Bar End -->
+
+  <!--forum detail start-->
+  <div class="container-fluid py-5">     
+    <div class="forum-detail-container">
+      <!-- Back button -->
+      <a href="forum.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back to Forums
+      </a>
+      
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="topic-card">
+            <div class="topic-header">
+              <img src="img/RauCon.jpg" alt="User Avatar" class="user-avatar">
+              <div>
+                <h5>Introduce Myself!</h5>
+              </div>
+            </div>
+
+            <div class="topic-content">
+              <p>Hey everyone, I am Messi from Argentina, I just finished football and became the GOAT. And now I am here to search for new courses, I like courses related to technology...</p>
+            </div>
+
+            <div class="d-flex align-items-center">
+              <button id="btn-like" class="btn btn-sm btn-link btn-like">
+                <i class="fas fa-thumbs-up"></i> <span id="post-likes">16</span>
+              </button>
+              <button id="btn-unlike" class="btn btn-sm btn-link btn-unlike">
+                <i class="fas fa-thumbs-down"></i>
+              </button>
+              <button id="btn-follow-post" class="btn btn-sm btn-outline-warning btn-follow">
+                <i class="fas fa-bell"></i> <span class="label">Follow</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- COMMENTS -->
+          <div class="comments-section">
+            <div class="comments-header">
+              <h4>Comments (<span id="comments-count">23</span>)</h4>
+              <div class="dropdown">
+                <button class="btn btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+                  Sort by
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item sort-comment" href="#" data-method="newest">Newest</a></li>
+                  <li><a class="dropdown-item sort-comment" href="#" data-method="oldest">Oldest</a></li>
+                  <li><a class="dropdown-item sort-comment" href="#" data-method="most_liked">Most Liked</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Sample comments for demonstration -->
+            <div id="comments-list">
+              <!-- Comment 1 -->
+              <div class="comment" data-id="1">
+                <div class="user-info">
+                  <img src="img/Duy.jpg" alt="User Avatar" class="user-avatar">
+                  <div>
+                    <p class="mb-0"><strong>Duy</strong> • 2 months ago</p>
+                  </div>
+                </div>
+                <p class="comment-content">Welcome Messi! What specific technology courses are you interested in? We have great programming and data science tracks here.</p>
+                <div class="comment-actions">
+                  <button class="btn-action btn-like">
+                    <i class="fas fa-thumbs-up"></i> <span>8</span>
+                  </button>
+                  <button class="btn-action btn-unlike">
+                    <i class="fas fa-thumbs-down"></i>
+                  </button>
+                  <button class="btn-action btn-reply">
+                    <i class="fas fa-reply"></i> Reply
+                  </button>
+                </div>
+                <div class="reply-form">
+                  <textarea class="form-control mb-2 reply-text" rows="2" placeholder="Write your reply..."></textarea>
+                  <div>
+                    <button class="btn btn-sm btn-primary btn-submit-reply">Reply</button>
+                    <button class="btn btn-sm btn-secondary btn-cancel-reply">Cancel</button>
+                  </div>
+                </div>
+                <div class="replies">
+                  <div class="reply" data-id="1-1">
+                    <div class="user-info">
+                      <img src="img/RauCon.jpg" alt="User Avatar" class="user-avatar">
+                      <div>
+                        <p class="mb-0"><strong>Lionel Messi</strong> • 1 month ago</p>
+                      </div>
+                    </div>
+                    <p class="mt-2">Thanks! I'm looking into AI and Machine Learning courses right now!</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Comment 2 -->
+              <div class="comment" data-id="2">
+                <div class="user-info">
+                  <img src="img/T1Dung.jpg" alt="User Avatar" class="user-avatar">
+                  <div>
+                    <p class="mb-0"><strong>T1Dung</strong> • 2 months ago</p>
+                  </div>
+                </div>
+                <p class="comment-content">It's amazing to see you here! Did you find the transition from sports to tech challenging?</p>
+                <div class="comment-actions">
+                  <button class="btn-action btn-like">
+                    <i class="fas fa-thumbs-up"></i> <span>12</span>
+                  </button>
+                  <button class="btn-action btn-unlike">
+                    <i class="fas fa-thumbs-down"></i>
+                  </button>
+                  <button class="btn-action btn-reply">
+                    <i class="fas fa-reply"></i> Reply
+                  </button>
+                </div>
+                <div class="reply-form">
+                  <textarea class="form-control mb-2 reply-text" rows="2" placeholder="Write your reply..."></textarea>
+                  <div>
+                    <button class="btn btn-sm btn-primary btn-submit-reply">Reply</button>
+                    <button class="btn btn-sm btn-secondary btn-cancel-reply">Cancel</button>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Comment 3 -->
+              <div class="comment" data-id="3">
+                <div class="user-info">
+                  <img src="img/HieuRose.jpg" alt="User Avatar" class="user-avatar">
+                  <div>
+                    <p class="mb-0"><strong>HieuRose</strong> • 1 month ago</p>
+                  </div>
+                </div>
+                <p class="comment-content">I recommend starting with the Python for Beginners course - it's perfect for someone just getting into tech!</p>
+                <div class="comment-actions">
+                  <button class="btn-action btn-like">
+                    <i class="fas fa-thumbs-up"></i> <span>6</span>
+                  </button>
+                  <button class="btn-action btn-unlike">
+                    <i class="fas fa-thumbs-down"></i>
+                  </button>
+                  <button class="btn-action btn-reply">
+                    <i class="fas fa-reply"></i> Reply
+                  </button>
+                </div>
+                <div class="reply-form">
+                  <textarea class="form-control mb-2 reply-text" rows="2" placeholder="Write your reply..."></textarea>
+                  <div>
+                    <button class="btn btn-sm btn-primary btn-submit-reply">Reply</button>
+                    <button class="btn btn-sm btn-secondary btn-cancel-reply">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- New comment form -->
+            <div class="new-comment-form">
+              <h5>Post a comment</h5>
+              <textarea id="new-comment-text" class="form-control mb-2" rows="3" placeholder="Write your comment..."></textarea>
+              <button id="btn-post-comment" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="col-lg-4">
+          <!-- Related Topics -->
+          <div class="sidebar-section">
+            <h5>Related Topics</h5>
+            <div class="related-topic">
+              <h6><a href="#">My name is Dana, I am planning to study abroad...</a></h6>
+              <div class="related-stats">
+                <i class="fas fa-thumbs-up"></i> <span>42</span> &nbsp;
+                <i class="fas fa-comment"></i> <span>8</span>
+              </div>
+            </div>
+            <div class="related-topic">
+              <h6><a href="#">I am a technology engineer looking to...</a></h6>
+              <div class="related-stats">
+                <i class="fas fa-thumbs-up"></i> <span>28</span> &nbsp;
+                <i class="fas fa-comment"></i> <span>14</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Active Users -->
+          <div class="sidebar-section">
+            <h5>Active Users</h5>
+            <div class="active-users-container" id="active-users">
+              <div class="participant-avatars">
+                <img src="img/Duy.jpg" alt="Participant" class="participant-avatar">
+                <img src="img/HieuRose.jpg" alt="Participant" class="participant-avatar">
+                <img src="img/T1Dung.jpg" alt="Participant" class="participant-avatar">
+                <img src="img/instructor.jpg" alt="Participant" class="participant-avatar">
+                <span class="participant-avatar" style="background-color: #f1f1f1; display: flex; align-items: center; justify-content: center; font-size: 10px;">+2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--forum detail end-->
+
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top">
+    <i class="bi bi-arrow-up"></i>
+  </a>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Template Javascript -->
+  <script src="js/main.js"></script>
+
+  <!--load navbar-->
+  <script>  
+    $(function() {
+      $("#navbar-placeholder").load("navbar.html", function() {
+        updateCurrentPageName();
+      });
+    });
+  </script>
+
+  <!-- Forum detail functionality -->
+  <script>
+    $(document).ready(function() {
+    // --- Button interaction handlers ---
+    
+    // Like/Unlike post buttons
+    const likeBtn = $('#btn-like-post');
+    const unlikeBtn = $('#btn-unlike-post');
+    const likesCount = $('#post-likes');
+    
+    function updatePostLikes(delta) {
+      let c = parseInt(likesCount.text(), 10) + delta;
+      likesCount.text(Math.max(c, 0));
+    }
+    
+    likeBtn.on('click', function() {
+      if (!likeBtn.hasClass('active')) {
+        likeBtn.addClass('active');
+        unlikeBtn.removeClass('active');
+        updatePostLikes(1);
+        // Store in local storage
+        localStorage.setItem('post-liked', 'true');
+        localStorage.removeItem('post-unliked');
+      }
+    });
+    
+    unlikeBtn.on('click', function() {
+      if (!unlikeBtn.hasClass('active')) {
+        unlikeBtn.addClass('active');
+        likeBtn.removeClass('active');
+        updatePostLikes(-1);
+        // Store in local storage
+        localStorage.setItem('post-unliked', 'true');
+        localStorage.removeItem('post-liked');
+      }
+    });
+    
+    // Follow button
+    const followBtn = $('#btn-follow-post');
+    
+    followBtn.on('click', function() {
+      followBtn.toggleClass('active');
+      if (followBtn.hasClass('active')) {
+        followBtn.html('<i class="fas fa-bell-slash"></i> <span class="label">Following</span>');
+        localStorage.setItem('post-followed', 'true');
+      } else {
+        followBtn.html('<i class="fas fa-bell"></i> <span class="label">Follow</span>');
+        localStorage.removeItem('post-followed');
+      }
+    });
+    
+    // Check localStorage for previously set preferences
+    if (localStorage.getItem('post-liked') === 'true') {
+      likeBtn.addClass('active');
+    }
+    if (localStorage.getItem('post-unliked') === 'true') {
+      unlikeBtn.addClass('active');
+    }
+    if (localStorage.getItem('post-followed') === 'true') {
+      followBtn.addClass('active');
+      followBtn.html('<i class="fas fa-bell-slash"></i> <span class="label">Following</span>');
+    }
+    
+    // --- Comment interactions ---
+    
+    // Comment like/unlike buttons
+    $(document).on('click', '.btn-like', function() {
+      const $this = $(this);
+      const $unlike = $this.siblings('.btn-unlike');
+      const $count = $this.find('span');
+      
+      if (!$this.hasClass('active')) {
+        $this.addClass('active');
+        $unlike.removeClass('active');
+        $count.text(parseInt($count.text()) + 1);
+        
+        const commentId = $this.closest('.comment').data('id');
+        localStorage.setItem('comment-' + commentId + '-liked', 'true');
+      }
+    });
+    
+    $(document).on('click', '.btn-unlike', function() {
+      const $this = $(this);
+      const $like = $this.siblings('.btn-like');
+      const $count = $like.find('span');
+      
+      if (!$this.hasClass('active')) {
+        $this.addClass('active');
+        $like.removeClass('active');
+        const currentCount = parseInt($count.text());
+        if (currentCount > 0) {
+          $count.text(currentCount - 1);
+        }
+        
+        const commentId = $this.closest('.comment').data('id');
+        localStorage.removeItem('comment-' + commentId + '-liked');
+      }
+    });
+    
+    // Reply button functionality
+    $(document).on('click', '.btn-reply', function() {
+      // Hide all other reply forms first
+      $('.reply-form').slideUp();
+      
+      // Show this comment's reply form
+      $(this).closest('.comment').find('> .reply-form').slideDown();
+    });
+    
+    // Cancel reply button
+    $(document).on('click', '.btn-cancel-reply', function() {
+      $(this).closest('.reply-form').slideUp();
+    });
+    
+    // Submit reply button
+    $(document).on('click', '.btn-submit-reply', function() {
+      const $replyForm = $(this).closest('.reply-form');
+      const $replyText = $replyForm.find('.reply-text');
+      const content = $replyText.val().trim();
+      
+      if (!content) {
+        alert('Please write something before submitting');
+        return;
+      }
+      
+      const $comment = $(this).closest('.comment');
+      const $replies = $comment.find('> .replies');
+      
+      // Create new reply
+      const newReply = `
+        <div class="reply" data-id="${Date.now()}">
+          <div class="user-info">
+            <div class="avatar-circle" style="background-color: #6c757d;">YO</div>
+            <div>
+              <p class="mb-0"><strong>You</strong> • just now</p>
+            </div>
+          </div>
+          <p class="mt-2">${content}</p>
+        </div>
+      `;
+      
+      // Add reply to the DOM
+      $replies.append(newReply);
+      
+      // Clear and hide form
+      $replyText.val('');
+      $replyForm.slideUp();
+    });
+    
+    // Post new comment
+    $('#btn-post-comment').on('click', function() {
+      const content = $('#new-comment-text').val().trim();
+      
+      if (!content) {
+        alert('Please write something before submitting');
+        return;
+      }
+      
+      // Generate a unique ID for the comment
+      const commentId = Date.now();
+      
+      // Create new comment element
+      const newComment = `
+        <div class="comment" data-id="${commentId}">
+          <div class="user-info">
+            <div class="avatar-circle" style="background-color: #6c757d;">YO</div>
+            <div>
+              <p class="mb-0"><strong>You</strong> • just now</p>
+            </div>
+          </div>
+          <p class="comment-content">${content}</p>
+          <div class="comment-actions">
+            <button class="btn-action btn-like">
+              <i class="fas fa-thumbs-up"></i> <span>0</span>
+            </button>
+            <button class="btn-action btn-unlike">
+              <i class="fas fa-thumbs-down"></i>
+            </button>
+            <button class="btn-action btn-reply">
+              <i class="fas fa-reply"></i> Reply
+            </button>
+          </div>
+          <div class="reply-form">
+            <textarea class="form-control mb-2 reply-text" rows="2" placeholder="Write your reply..."></textarea>
+            <div>
+              <button class="btn btn-sm btn-primary btn-submit-reply">Reply</button>
+              <button class="btn btn-sm btn-secondary btn-cancel-reply">Cancel</button>
+            </div>
+          </div>
+          <div class="replies"></div>
+        </div>
+      `;
+      
+      // Add comment to the DOM
+      $('#comments-list').prepend(newComment);
+      
+      // Update comment count
+      const currentCount = parseInt($('#comments-count').text());
+      $('#comments-count').text(currentCount + 1);
+      
+      // Clear the input field
+      $('#new-comment-text').val('');
+    });
+    
+    // Sort comments functionality
+    $('.sort-comment').on('click', function(e) {
+      e.preventDefault();
+      const method = $(this).data('method');
+      const $commentsList = $('#comments-list');
+      const $comments = $commentsList.children('.comment').get();
+      
+      if (method === 'newest') {
+        $comments.sort(function(a, b) {
+          return $(b).data('id') - $(a).data('id');
+        });
+      } else if (method === 'oldest') {
+        $comments.sort(function(a, b) {
+          return $(a).data('id') - $(b).data('id');
+        });
+      } else if (method === 'most_liked') {
+        $comments.sort(function(a, b) {
+          const likesA = parseInt($(a).find('.btn-like span').text());
+          const likesB = parseInt($(b).find('.btn-like span').text());
+          return likesB - likesA;
+        });
+      }
+      
+      $.each($comments, function(i, comment) {
+        $commentsList.append(comment);
+      });
+    });
+  });
+  </script>
+
+</body>
+
+</html>
