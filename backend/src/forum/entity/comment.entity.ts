@@ -1,10 +1,9 @@
-// src/forum/entities/comment.entity.ts
 import {
   Entity, PrimaryGeneratedColumn, Column,
   ManyToOne, CreateDateColumn
 } from 'typeorm';
 import { Post } from './post.entity';
-import { User } from '../user/user.entity';
+import { User } from '../../user/user.entity';
 
 @Entity()
 export class Comment {

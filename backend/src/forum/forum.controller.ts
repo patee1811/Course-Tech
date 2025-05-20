@@ -1,12 +1,11 @@
-// src/forum/forum.controller.ts
 import {
   Controller, Get, Post, Patch, Delete, Body, Param, Query, ParseIntPipe
 } from '@nestjs/common';
 import { ForumService } from './forum.service';
-import {
-  CreatePostDto, UpdatePostDto,
-  CreateCommentDto, UpdateCommentDto
-} from './dto';
+import { CreatePostDto } from './dto/create-post.dto';
+import { UpdatePostDto } from './dto/update-post.dto';
+import { CreateCommentDto } from './dto/create-comment.dto';
+import { UpdateCommentDto } from './dto/update-comment.dto';
 
 @Controller('forum')
 export class ForumController {

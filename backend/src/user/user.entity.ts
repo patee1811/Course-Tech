@@ -1,6 +1,9 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, BeforeInsert, BeforeUpdate } from 'typeorm';
 import { Course } from '../course/course.entity';
 import { Enrollment } from '../course/enrollment.entity';
+import { Post } from '../forum/entity/post.entity';
+import { Comment } from '../forum/entity/comment.entity';
+
 import * as bcrypt from 'bcrypt';
 
 export enum UserRole {
@@ -42,6 +45,12 @@ export class User {
 
   @OneToMany(() => Enrollment, enrollment => enrollment.user)
   enrollments: Enrollment[];
+
+  @OneToMany(() => Post, post => post.author)
+  posts: Post[];
+
+  @OneToMany(() => Comment, comment => comment.author)
+  comments: Comment[];
 
   @BeforeInsert()
   async hashPassword() {

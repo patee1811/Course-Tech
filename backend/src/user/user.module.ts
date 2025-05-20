@@ -4,10 +4,12 @@ import { User } from './user.entity';
 import { JwtModule } from '@nestjs/jwt';
 import { UserService } from './user.service';
 import { UserController } from './user.controller';
+import { Post } from '../forum/entity/post.entity';
+import { Comment } from '../forum/entity/comment.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([User]),
+    TypeOrmModule.forFeature([User, Comment, Post]),
     JwtModule.register({
       secret: 'JWT_SECRET_KEY',
       signOptions: { expiresIn: '1d' },

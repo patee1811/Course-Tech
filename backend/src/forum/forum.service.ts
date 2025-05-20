@@ -1,11 +1,12 @@
-// src/forum/forum.service.ts
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, ILike } from 'typeorm';
-import { Post } from './entities/post.entity';
-import { Comment } from './entities/comment.entity';
-import { CreatePostDto, UpdatePostDto } from './dto';
-import { CreateCommentDto, UpdateCommentDto } from './dto';
+import { Post } from './entity/post.entity';
+import { Comment } from './entity/comment.entity';
+import { CreatePostDto } from './dto/create-post.dto';
+import { UpdatePostDto } from './dto/update-post.dto';
+import { CreateCommentDto } from './dto/create-comment.dto';
+import { UpdateCommentDto } from './dto/update-comment.dto';
 import { User } from '../user/user.entity';
 
 @Injectable()
@@ -15,8 +16,6 @@ export class ForumService {
     @InjectRepository(Comment) private commentRepo: Repository<Comment>,
     @InjectRepository(User) private userRepo: Repository<User>,
   ) {}
-
-  // POSTS
 
   async createPost(dto: CreatePostDto) {
     const author = await this.userRepo.findOne({ where: { id: dto.authorId } });
@@ -54,8 +53,6 @@ export class ForumService {
     const result = await this.postRepo.delete(id);
     if (result.affected === 0) throw new NotFoundException('Post not found');
   }
-
-  // COMMENTS
 
   async addComment(dto: CreateCommentDto) {
     const post = await this.findOnePost(dto.postId);
