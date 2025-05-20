@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, BeforeInsert, BeforeUpdate } from 'typeorm';
-import { Course } from '../course/course.entity';
-import { Enrollment } from '../course/enrollment.entity';
+import { Course } from '../course/entity/course.entity';
+import { Enrollment } from '../course/entity/enrollment.entity';
 import { Post } from '../forum/entity/post.entity';
 import { Comment } from '../forum/entity/comment.entity';
 

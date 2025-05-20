@@ -7,6 +7,8 @@ import { CreateCourseDto } from './dto/create-course.dto';
 import { CreateCourseContentDto } from './dto/create-course-content.dto';
 import { UpdateCourseDto } from './dto/update-course.dto';
 import { UpdateCourseContentDto } from './dto/update-course-content.dto';
+import { CreateQuizDto } from './dto/create-quiz.dto';
+import { CreateQuestionDto } from './dto/create-question.dto';
 
 @Controller('course')
 export class CourseController {
@@ -48,7 +50,6 @@ export class CourseController {
     return this.courseService.removeCourse(id);
   }
 
-  // Content-specific endpoints
   @Patch('content/:id')
   updateContent(
     @Param('id', ParseIntPipe) id: number,
@@ -60,5 +61,20 @@ export class CourseController {
   @Delete('content/:id')
   removeContent(@Param('id', ParseIntPipe) id: number) {
     return this.courseService.removeContent(id);
+  }
+
+  @Post('quiz')
+  createQuiz(@Body() dto: CreateQuizDto) {
+    return this.courseService.createQuiz(dto);
+  }
+
+  @Post('quiz/question')
+  addQuestion(@Body() dto: CreateQuestionDto) {
+    return this.courseService.addQuestion(dto);
+  }
+
+  @Get('quiz/:id')
+  getQuiz(@Param('id') id: number) {
+    return this.courseService.getQuizWithQuestions(id);
   }
 }

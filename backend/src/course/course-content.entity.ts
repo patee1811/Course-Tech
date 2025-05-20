@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { Course } from './course.entity';
+import { Course } from './entity/course.entity';
 
 export enum ContentType {
   VIDEO = 'video',
