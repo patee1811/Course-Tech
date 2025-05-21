@@ -2,13 +2,17 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, ILike } from 'typeorm';
-import { Course } from './course.entity';
+import { Course } from './entity/course.entity';
 import { CreateCourseDto } from './dto/create-course.dto';
 import { UpdateCourseDto } from './dto/update-course.dto';
 import { CourseContent } from './course-content.entity';
 import { CreateCourseContentDto } from './dto/create-course-content.dto';
 import { UpdateCourseContentDto } from './dto/update-course-content.dto';
 import { User } from '../user/user.entity';
+import { Quiz } from './entity/quiz.entity';
+import { Question } from './entity/question.entity';
+import { CreateQuizDto } from './dto/create-quiz.dto';
+import { CreateQuestionDto } from './dto/create-question.dto';
 
 @Injectable()
 export class CourseService {
@@ -16,6 +20,8 @@ export class CourseService {
     @InjectRepository(Course) private courseRepo: Repository<Course>,
     @InjectRepository(User) private userRepo: Repository<User>,
     @InjectRepository(CourseContent) private contentRepo: Repository<CourseContent>,
+    @InjectRepository(Quiz) private quizRepo: Repository<Quiz>,
+    @InjectRepository(Question) private questionRepo: Repository<Question>,
   ) {}
 
   async createCourse(dto: CreateCourseDto) {
@@ -92,5 +98,36 @@ export class CourseService {
     if (result.affected === 0) {
       throw new NotFoundException(`Content #${id} not found`);
     }
+  }
+
+  async createQuiz(dto: CreateQuizDto) {
+    const course = await this.courseRepo.findOneBy({ id: dto.courseId });
+    if (!course) throw new NotFoundException('Course not found');
+
+    const quiz = this.quizRepo.create({
+      title: dto.title,
+      course,
+    });
+
+    return this.quizRepo.save(quiz);
+  }
+
+  async addQuestion(dto: CreateQuestionDto) {
+    const quiz = await this.quizRepo.findOneBy({ id: dto.quizId });
+    if (!quiz) throw new NotFoundException('Quiz not found');
+
+    const question = this.questionRepo.create({
+      ...dto,
+      quiz,
+    });
+
+    return this.questionRepo.save(question);
+  }
+
+  async getQuizWithQuestions(quizId: number) {
+    return this.quizRepo.findOne({
+      where: { id: quizId },
+      relations: ['questions'],
+    });
   }
 }
